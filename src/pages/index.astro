@@ -1,8 +1,11 @@
 ---
-import { Counter } from '../components/Counter';
-import Layout from '../layouts/Layout.astro';
+import Navbar from "@components/Navbar.astro";
+import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
-	<Counter client:load />
+<Layout
+  title="Comida congelada a domicilio | Platos Congelados Cheffify"
+  description="Platos saludables y deliciosos, preparados y congelados para tu comodidad. ¡Disfruta de comida casera sin el trabajo de cocinar!"
+>
+  <Navbar />
 </Layout>
