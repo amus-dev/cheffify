@@ -1,0 +1,55 @@
+---
+import { Image } from "astro:assets";
+import PrincipalImage from "@assets/img/principal-image.svg";
+---
+
+<section
+  id="firstSection"
+  class="w-full flex flex-row justify-between items-center"
+>
+  <div class="w-full lg:w-1/2 px-5 md:pl-20 md:pr-20 xl:pl-48 xl:pr-0">
+    <h1
+      class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-2 flex flex-col"
+    >
+      Comida congelada <span class="text-[#D77466]">a domicilio</span>
+    </h1>
+    <div class="relative flex flex-row items-end justify-stretch">
+      <p class="text-lg text-[#262C57] w-auto">
+        Platos de primera, cocinados de manera artesanal con productos
+        seleccionados, <strong class="text-[#D77466]"
+          >sin aditivos ni conservantes</strong
+        >. Recibe nuestra comida directamente en tu casa. <strong
+          class="iconEmote relative">¡Garantía de calidad!</strong
+        >
+      </p>
+    </div>
+    <div class="flex flex-row gap-4 mt-10 font-bold">
+      <a
+        href="/shop"
+        class="bg-[#D77466] text-white px-8 md:px-16 py-3 rounded-full text-md md:text-lg transition-all hover:bg-[#275C73] duration-300 w-full text-center"
+      >
+        Hacer pedido
+      </a>
+      <a
+        href="/#pensamos"
+        class="text-[#D77466] px-8 md:px-16 py-3 rounded-full text-md md:text-lg transition-all hover:border-[#275C73] duration-300 w-full text-center border-[#D77466] border-2"
+      >
+        Saber más
+      </a>
+    </div>
+  </div>
+  <div class="hidden lg:block">
+    <Image src={PrincipalImage} alt="Emote icon" />
+  </div>
+</section>
+<style>
+  .iconEmote::after {
+    position: absolute;
+    display: block;
+    content: url("/icons/emote-love.svg");
+    color: #d77466;
+    width: 20px;
+    right: -30px;
+    bottom: -4px;
+  }
+</style>
