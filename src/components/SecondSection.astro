@@ -1,0 +1,39 @@
+---
+import CardProduct from "@components/products/CardProduct.astro";
+import { PRODUCTS } from "@db/db.products";
+import { Image } from "astro:assets";
+import ArrowDown from "@assets/icons/arrow-down.svg";
+---
+
+<section
+  id="comemos"
+  class="bg-[#FCF3F2] py-10 px-5 md:px-20 xl:px-48 relative"
+>
+  <a
+    href="/#comemos"
+    class="w-fit absolute -top-12 right-0 left-0 m-auto bg-[#FCF3F2] p-9 rounded-full"
+  >
+    <Image src={ArrowDown} alt="Flecha hacia abajo" />
+  </a>
+
+  <div class="mt-10">
+    <h2
+      class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-10 text-center"
+    >
+      ¿Qué <span class="text-[#D77466]">comemos hoy?</span>
+    </h2>
+    <p class="text-lg text-[#262C57] text-center">
+      Sabemos que cuesta decir quién es mejor, si el papá o la mamá.
+    </p>
+    <p class="text-lg text-[#262C57] text-center">
+      A nosotros también, por eso dejamos una sugerencia, tú eliges.
+    </p>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
+    {
+      PRODUCTS.slice(0, 4).map(({ title, description, price }) => (
+        <CardProduct title={title} description={description} price={price} />
+      ))
+    }
+  </div>
+</section>

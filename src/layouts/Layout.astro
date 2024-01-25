@@ -8,11 +8,12 @@ const { title, description } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="robots" content="noindex" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -42,6 +43,7 @@ const { title, description } = Astro.props;
   html {
     font-family: "Raleway", system-ui, sans-serif;
     background: #fff;
+    scroll-behavior: smooth;
   }
   code {
     font-family:
