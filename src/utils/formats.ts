@@ -3,4 +3,4 @@ const formatterCLP = new Intl.NumberFormat("es-CL", {
   currency: "CLP",
 });
 
-export const formatPriceCLP = (price) => formatterCLP.format(price);
+export const formatPriceCLP = (price: number) => formatterCLP.format(price);
