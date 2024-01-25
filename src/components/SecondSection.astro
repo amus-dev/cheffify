@@ -3,37 +3,62 @@ import CardProduct from "@components/products/CardProduct.astro";
 import { PRODUCTS } from "@db/db.products";
 import { Image } from "astro:assets";
 import ArrowDown from "@assets/icons/arrow-down.svg";
+import BgSecondSectionFirst from "@assets/img/bg/bg-second-section-1.svg";
+import BgSecondSectionSecond from "@assets/img/bg/bg-second-section-2.svg";
 ---
 
 <section
   id="comemos"
-  class="bg-[#FCF3F2] py-10 px-5 md:px-20 xl:px-48 relative"
+  class="bg-[#FCF3F2] py-10 px-5 md:px-20 xl:px-48 relative z-1"
 >
   <a
     href="/#comemos"
     class="w-fit absolute -top-12 right-0 left-0 m-auto bg-[#FCF3F2] p-9 rounded-full"
   >
-    <Image src={ArrowDown} alt="Flecha hacia abajo" />
+    <Image
+      src={ArrowDown}
+      alt="Flecha hacia abajo, que al hacer click te lleva a la sección de productos"
+    />
   </a>
 
-  <div class="mt-10">
+  <div class="mt-10 flex flex-col justify-center items-center">
     <h2
-      class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-10 text-center"
+      class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-10 text-justify"
     >
       ¿Qué <span class="text-[#D77466]">comemos hoy?</span>
     </h2>
-    <p class="text-lg text-[#262C57] text-center">
-      Sabemos que cuesta decir quién es mejor, si el papá o la mamá.
-    </p>
-    <p class="text-lg text-[#262C57] text-center">
-      A nosotros también, por eso dejamos una sugerencia, tú eliges.
+    <p class="text-lg text-[#262C57] max-w-2xl text-balance text-center">
+      Sabemos que cuesta decir quién es mejor, si el papá o la mamá. A nosotros
+      también, por eso dejamos una sugerencia, tú eliges.
     </p>
   </div>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20 z-10 relative"
+  >
     {
       PRODUCTS.slice(0, 4).map(({ title, description, price }) => (
         <CardProduct title={title} description={description} price={price} />
       ))
     }
   </div>
+
+  <div class="relative mt-16 flex justify-center">
+    <a
+      href="/shop"
+      class="text-white bg-[#262C57] text-lg font-bold px-6 py-2 rounded-full w-full text-center max-w-xs transition-all hover:bg-[#275C73] duration-300"
+      >Más platos</a
+    >
+  </div>
+
+  <!-- ELEMENTS DECORATIVES ABSOLUTES -->
+  <Image
+    class="absolute top-10 left-0"
+    src={BgSecondSectionFirst}
+    alt="Flecha hacia abajo"
+  />
+  <Image
+    class="absolute top-96 right-0"
+    src={BgSecondSectionSecond}
+    alt="Imagen decorativa de una flor para la sección de productos"
+  />
 </section>
