@@ -1,0 +1,55 @@
+---
+import ArrowScroll from "@components/common/ArrowScroll.astro";
+import ArrowCircleScroll from "@components/common/ArrowCircleScroll.astro";
+import { Image } from "astro:assets";
+import Tomato from "@assets/icons/tomato-shadow.svg";
+import Hearth from "@assets/icons/hearth-shadow.svg";
+import Truck from "@assets/icons/truck-shadow.svg";
+import Food from "@assets/icons/food-shadow.svg";
+import Store from "@assets/icons/icon-store.svg";
+---
+
+<section id="comidaCongelada" class="relative px-5 py-20 md:px-20 xl:px-48">
+  <ArrowScroll url="/#comidaCongelada" backgroundColor="bg-white" />
+  <h2
+    class="mb-10 text-center text-4xl font-extrabold text-[#262C57] md:text-5xl"
+  >
+    Comida congelada<span class="text-[#D77466]"> gourmet.</span>
+  </h2>
+  <ul class="mt-14 grid grid-cols-2 place-content-center lg:grid-cols-4">
+    <li class="mb-6 flex flex-col items-center justify-center lg:mb-0">
+      <Image
+        class="h-[65px] w-[65px]"
+        src={Tomato}
+        alt="100% Ingredientes Naturales"
+      />
+      <p class="mt-5 text-[#262C57]">100% Ingredientes Naturales</p>
+    </li>
+    <li class="mb-6 flex flex-col items-center justify-center lg:mb-0">
+      <Image
+        class="h-[65px] w-[65px]"
+        src={Hearth}
+        alt="Sin aditivos ni conservantes"
+      />
+      <p class="mt-5 text-[#262C57]">Sin aditivos ni conservantes</p>
+    </li>
+    <li class="mb-6 flex flex-col items-center justify-center lg:mb-0">
+      <Image class="h-[65px] w-[65px]" src={Truck} alt="Envíos a domicilio" />
+      <p class="mt-5 text-[#262C57]">Envíos a domicilio</p>
+    </li>
+    <li class="mb-6 flex flex-col items-center justify-center lg:mb-0">
+      <Image class="h-[65px] w-[65px]" src={Food} alt="Hecho como en casa" />
+      <p class="mt-5 text-[#262C57]">Hecho como en casa</p>
+    </li>
+  </ul>
+  <a
+    href="/shop"
+    class="m-auto mt-10 flex w-fit flex-row items-center gap-4 rounded-full border-2 border-[#D77466] px-8 py-3 text-center text-lg font-bold text-[#D77466] transition-all duration-300 hover:scale-[1.03]"
+  >
+    <Image src={Store} alt="Icono de tienda" />
+    Visitar tienda
+  </a>
+  <div class="mt-20">
+    <ArrowCircleScroll url="/#slideCocina" />
+  </div>
+</section>

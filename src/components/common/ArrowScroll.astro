@@ -1,0 +1,20 @@
+---
+interface Props {
+  url: string;
+  backgroundColor: string;
+}
+import { Image } from "astro:assets";
+import ArrowDown from "@assets/icons/arrow-down.svg";
+
+const { url, backgroundColor } = Astro.props;
+---
+
+<a
+  href={url}
+  class={`w-fit absolute -top-12 right-0 left-0 m-auto ${backgroundColor} p-9 rounded-full`}
+>
+  <Image
+    src={ArrowDown}
+    alt="Flecha hacia abajo, que al hacer click te lleva a la sección de productos"
+  />
+</a>

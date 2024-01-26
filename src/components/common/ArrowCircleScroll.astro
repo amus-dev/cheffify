@@ -1,0 +1,20 @@
+---
+interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+import { Image } from "astro:assets";
+import ArrowDown from "@assets/icons/arrow-down.svg";
+---
+
+<a
+  href={url}
+  class="m-auto flex h-[60px] w-[60px] animate-bounce items-center justify-center rounded-full p-5 shadow-xl shadow-[#d7746666] transition-all duration-300 hover:bg-[#262C57]"
+>
+  <Image
+    src={ArrowDown}
+    alt="Icono de flecha"
+    aria-label="Icono de flecha que dirige a la siguiente sección de abajo"
+  />
+</a>
