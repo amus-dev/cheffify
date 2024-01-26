@@ -7,7 +7,7 @@ interface Props {
 const { title, description, price } = Astro.props;
 import { formatPriceCLP } from "@utils/formats";
 import { Image } from "astro:assets";
-import GalletaNavidad from "@assets/img/foods/galleta_navidad.webp";
+import PastelDeChocloPollo from "@assets/img/foods/pasteldechoclopollo.webp";
 ---
 
 <article class="rounded-xl bg-white p-3 shadow-xl shadow-[#d7746666]">
@@ -15,7 +15,7 @@ import GalletaNavidad from "@assets/img/foods/galleta_navidad.webp";
     <a href="/galletas">
       <Image
         class="rounded-xl saturate-[0.7] transition-all hover:scale-[1.02] hover:saturate-100 duration-800"
-        src={GalletaNavidad}
+        src={PastelDeChocloPollo}
         alt="Flecha hacia abajo"
       />
     </a>
