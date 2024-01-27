@@ -1,5 +1,5 @@
 ---
-import CardProduct from "@components/products/CardProduct.astro";
+import CardProduct from "@components/products/CardProduct.tsx";
 import ArrowScroll from "@components/common/ArrowScroll.astro";
 import { PRODUCTS } from "@db/db.products";
 import { Image } from "astro:assets";
@@ -9,25 +9,31 @@ import BgSecondSectionSecond from "@assets/img/bg/bg-second-section-2.svg";
 
 <section
   id="comemos"
-  class="bg-[#FCF3F2] pt-10 pb-28 px-5 md:px-20 xl:px-48 relative"
+  class="relative bg-[#FCF3F2] px-5 pb-28 pt-10 md:px-20 xl:px-48"
 >
   <ArrowScroll url="/#comemos" backgroundColor="bg-[#FCF3F2]" />
 
-  <div class="mt-10 flex flex-col justify-center items-center relative z-10">
-    <h2 class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-10">
+  <div class="relative z-10 mt-10 flex flex-col items-center justify-center">
+    <h2 class="mb-10 text-4xl font-extrabold text-[#262C57] md:text-5xl">
       ¿Qué <span class="text-[#D77466]">comemos hoy?</span>
     </h2>
-    <p class="text-lg text-[#262C57] max-w-2xl text-balance text-center">
+    <p class="max-w-2xl text-balance text-center text-lg text-[#262C57]">
       Sabemos que cuesta decir quién es mejor, si el papá o la mamá. A nosotros
       también, por eso dejamos una sugerencia, tú eliges.
     </p>
   </div>
   <div
-    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-20 z-10 relative"
+    class="relative z-10 mt-20 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4"
   >
     {
-      PRODUCTS.slice(0, 4).map(({ title, description, price }) => (
-        <CardProduct title={title} description={description} price={price} />
+      PRODUCTS.slice(0, 4).map(({ id, title, description, price }) => (
+        <CardProduct
+          client:load
+          id={id}
+          title={title}
+          description={description}
+          price={price}
+        />
       ))
     }
   </div>
@@ -35,19 +41,19 @@ import BgSecondSectionSecond from "@assets/img/bg/bg-second-section-2.svg";
   <div class="relative mt-16 flex justify-center">
     <a
       href="/shop"
-      class="text-white bg-[#262C57] text-lg font-bold px-6 py-2 rounded-full w-full text-center max-w-xs transition-all hover:bg-[#275C73] duration-300"
+      class="w-full max-w-xs rounded-full bg-[#262C57] px-6 py-2 text-center text-lg font-bold text-white transition-all duration-300 hover:bg-[#275C73]"
       >Más platos</a
     >
   </div>
 
   <!-- ELEMENTS DECORATIVES ABSOLUTES -->
   <Image
-    class="absolute top-10 left-0"
+    class="absolute left-0 top-10"
     src={BgSecondSectionFirst}
     alt="Flecha hacia abajo"
   />
   <Image
-    class="absolute top-96 right-0"
+    class="absolute right-0 top-96"
     src={BgSecondSectionSecond}
     alt="Imagen decorativa de una flor para la sección de productos"
   />

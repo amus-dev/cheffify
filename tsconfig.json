@@ -2,14 +2,15 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
-    "jsxImportSource": "preact",
-    "baseUrl": ".",
+    "jsxImportSource": "react",
+    "baseUrl": "/Users/alexanderurrutia/Documents/Proyectos/Freelances/cheffify",
     "paths": {
       "@components/*": ["src/components/*"],
       "@layouts/*": ["src/layouts/*"],
       "@assets/*": ["src/assets/*"],
       "@db/*": ["src/db/*"],
       "@utils/*": ["src/utils/*"],
+      "@store/*": ["src/store/*"],
     },
   },
 }
