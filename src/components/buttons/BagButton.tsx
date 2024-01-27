@@ -1,7 +1,7 @@
-import { useCartStore } from "@store/cartStore";
+import { useCartStore } from "@store/cartStore.ts";
 import BagIcon from "@assets/icons/shopping-bag.svg";
 const BagButton = () => {
-  const { products } = useCartStore((state) => ({
+  const { products } = useCartStore((state: any) => ({
     products: state.products,
   }));
 
