@@ -5,7 +5,7 @@ import IconClose from "@assets/icons/icon-close.svg";
 import IconTrash from "@assets/icons/icon-trash.svg";
 
 const BagPopUp = () => {
-  const newRef = useRef(null);
+  const newRef = useRef<any>(null);
   const { isVisibleBag, setIsVisibleBag, products } = useCartStore((state) => ({
     products: state.products,
     isVisibleBag: state.isVisibleBag,
