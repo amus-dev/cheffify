@@ -9,17 +9,23 @@ type Product = {
 
 type CartState = {
   products: Product[];
-  addProduct: (product: Product) => void;
+  isVisibleBag: boolean;
 };
 
-type Action = {
+type CartActions = {
   addProduct: (products: Product) => void;
+  setIsVisibleBag: (isVisible: boolean) => void;
 };
 
-export const useCartStore = create<CartState & Action>((set) => ({
+export const useCartStore = create<CartState & CartActions>((set) => ({
   products: [],
+  isVisibleBag: false,
   addProduct: (product: Product) =>
     set((state) => ({
       products: [...state.products, product],
+    })),
+  setIsVisibleBag: (isVisible: boolean) =>
+    set(() => ({
+      isVisibleBag: isVisible,
     })),
 }));

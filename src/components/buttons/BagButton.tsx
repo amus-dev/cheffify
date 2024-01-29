@@ -1,14 +1,16 @@
 import { useCartStore } from "@store/cartStore.ts";
 import BagIcon from "@assets/icons/shopping-bag.svg";
 const BagButton = () => {
-  const { products } = useCartStore((state: any) => ({
+  const { products, setIsVisibleBag } = useCartStore((state: any) => ({
     products: state.products,
+    setIsVisibleBag: state.setIsVisibleBag,
   }));
 
   return (
     <button
       className="relative rounded-r-full bg-[#262C57] px-3 py-2 transition-all duration-300 hover:bg-[#275C73]"
       aria-label="Boton para abrir el carrito de compras"
+      onClick={() => setIsVisibleBag(true)}
     >
       <img
         className="size-4"

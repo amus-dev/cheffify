@@ -7,6 +7,7 @@ import StarIcon from "@assets/icons/star-filled.svg";
 import HeartIcon from "@assets/icons/heart-filled.svg";
 import SnowFlakeIcon from "@assets/icons/snowflake.svg";
 import UserIcon from "@assets/icons/user-filled.astro";
+import BagPopUp from "./BagPopUp";
 
 const MENU = [
   {
@@ -54,7 +55,7 @@ const MENU = [
       ))
     }
   </ul>
-  <div class="flex flex-row gap-2">
+  <div class="relative flex flex-row gap-2">
     <DeliveryButton url="/shop" text="Pedir comida" />
     <div class="flex flex-row items-center justify-center gap-px">
       <a
@@ -67,5 +68,6 @@ const MENU = [
       </a>
       <BagButton client:load />
     </div>
+    <BagPopUp client:load />
   </div>
 </nav>
