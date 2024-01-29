@@ -1,17 +1,33 @@
+import { useRef, useEffect } from "react";
 import { useCartStore } from "@store/cartStore.ts";
 import PastelDeChocloPollo from "@assets/img/foods/pasteldechoclopollo.webp";
 import IconClose from "@assets/icons/icon-close.svg";
 import IconTrash from "@assets/icons/icon-trash.svg";
 
 const BagPopUp = () => {
+  const newRef = useRef(null);
   const { isVisibleBag, setIsVisibleBag, products } = useCartStore((state) => ({
     products: state.products,
     isVisibleBag: state.isVisibleBag,
     setIsVisibleBag: state.setIsVisibleBag,
   }));
 
+  useEffect(() => {
+    document.addEventListener("mousedown", handleOutsideClick);
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  });
+
+  const handleOutsideClick = (e: Event) => {
+    if (newRef.current && !newRef.current.contains(e.target)) {
+      setIsVisibleBag(false);
+    }
+  };
+
   return (
     <div
+      ref={newRef}
       className={`absolute right-0 top-10 rounded-xl border border-[#D77466] bg-white p-3 shadow-2xl shadow-[#d7746666] transition-all duration-300 ${isVisibleBag ? "opacity-100" : "opacity-0"}`}
     >
       <div className="relative">
