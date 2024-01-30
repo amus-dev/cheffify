@@ -1,20 +1,20 @@
 ---
 import { Image } from "astro:assets";
-import PrincipalImage from "@assets/img/principal-image.svg";
+import PrincipalImage from "@assets/img/principal-image.webp";
 ---
 
 <section
   id="firstSection"
-  class="w-full flex flex-row justify-between items-center mb-20 pb-48"
+  class="mb-20 flex w-full flex-row items-center justify-between pb-48"
 >
-  <div class="w-full lg:w-1/2 px-5 md:pl-20 md:pr-20 xl:pl-48 xl:pr-0">
+  <div class="w-full px-5 md:pl-20 md:pr-20 lg:w-1/2 xl:pl-48 xl:pr-0">
     <h1
-      class="text-4xl md:text-5xl font-extrabold text-[#262C57] mb-2 flex flex-col"
+      class="mb-2 flex flex-col text-4xl font-extrabold text-[#262C57] md:text-5xl"
     >
       Comida congelada <span class="text-[#D77466]">a domicilio</span>
     </h1>
     <div class="relative flex flex-row items-end justify-stretch">
-      <p class="text-lg text-[#262C57] w-auto">
+      <p class="w-auto text-lg text-[#262C57]">
         Platos de primera, cocinados de manera artesanal con productos
         seleccionados, <strong class="text-[#D77466]"
           >sin aditivos ni conservantes</strong
@@ -23,23 +23,27 @@ import PrincipalImage from "@assets/img/principal-image.svg";
         >
       </p>
     </div>
-    <div class="flex flex-row gap-4 mt-10 font-bold">
+    <div class="mt-10 flex flex-row gap-4 font-bold">
       <a
         href="/shop"
-        class="bg-[#D77466] text-white px-8 md:px-16 py-3 rounded-full text-md md:text-lg transition-all hover:bg-[#275C73] duration-300 w-full text-center"
+        class="text-md w-full rounded-full bg-[#D77466] px-8 py-3 text-center text-white transition-all duration-300 hover:bg-[#275C73] md:px-16 md:text-lg"
       >
         Hacer pedido
       </a>
       <a
         href="/#pensamos"
-        class="text-[#D77466] px-8 md:px-16 py-3 rounded-full text-md md:text-lg transition-all hover:border-[#275C73] duration-300 w-full text-center border-[#D77466] border-2"
+        class="text-md w-full rounded-full border-2 border-[#D77466] px-8 py-3 text-center text-[#D77466] transition-all duration-300 hover:border-[#275C73] md:px-16 md:text-lg"
       >
         Saber más
       </a>
     </div>
   </div>
   <div class="hidden lg:block">
-    <Image src={PrincipalImage} alt="Emote icon" />
+    <Image
+      src={PrincipalImage}
+      alt="Imagen principal decorativa"
+      quality="low"
+    />
   </div>
 </section>
 <style>

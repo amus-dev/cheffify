@@ -31,7 +31,7 @@ const CardProduct = ({ id, title, description, price }: Props) => {
       <div className="header">
         <a href="/galletas">
           <img
-            className="duration-800 rounded-xl saturate-[0.7] transition-all hover:scale-[1.02] hover:saturate-100"
+            className="duration-800 aspect-square rounded-xl saturate-[0.7] transition-all hover:scale-[1.02] hover:saturate-100"
             loading="lazy"
             src={`${PastelDeChocloPollo.src}`}
             alt="Flecha hacia abajo"
