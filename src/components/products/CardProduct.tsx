@@ -6,9 +6,9 @@ interface Props {
 }
 
 import { useState } from "react";
-import { useCartStore } from "@store/cartStore";
-import { formatPriceCLP } from "@utils/formats";
-import PastelDeChocloPollo from "@assets/img/foods/pasteldechoclopollo.webp";
+import { useCartStore } from "@/store/cartStore";
+import { formatPriceCLP } from "@/utils/formats";
+import PastelDeChocloPollo from "@/assets/img/foods/pasteldechoclopollo.webp";
 
 const CardProduct = ({ id, title, description, price }: Props) => {
   const [quantity, setQuantity] = useState(1);

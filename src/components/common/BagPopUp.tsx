@@ -1,8 +1,8 @@
 import { useRef, useEffect } from "react";
-import { useCartStore } from "@store/cartStore.ts";
-import PastelDeChocloPollo from "@assets/img/foods/pasteldechoclopollo.webp";
-import IconClose from "@assets/icons/icon-close.svg";
-import IconTrash from "@assets/icons/icon-trash.svg";
+import { useCartStore } from "@/store/cartStore.ts";
+import PastelDeChocloPollo from "@/assets/img/foods/pasteldechoclopollo.webp";
+import IconClose from "@/assets/icons/icon-close.svg";
+import IconTrash from "@/assets/icons/icon-trash.svg";
 
 const BagPopUp = () => {
   const newRef = useRef<any>(null);

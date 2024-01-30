@@ -1,5 +1,5 @@
-import { useCartStore } from "@store/cartStore.ts";
-import BagIcon from "@assets/icons/shopping-bag.svg";
+import { useCartStore } from "@/store/cartStore.ts";
+import BagIcon from "@/assets/icons/shopping-bag.svg";
 const BagButton = () => {
   const { products, setIsVisibleBag } = useCartStore((state: any) => ({
     products: state.products,
