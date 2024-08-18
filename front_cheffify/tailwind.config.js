@@ -6,6 +6,11 @@ module.exports = {
       colors: {
         primary: "#262C57",
         secondary: "#D77466",
+        secondaryLight: "#FCF3F2",
+        grayLight: "#646477",
+      },
+      boxShadow: {
+        "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px", // sombra personalizada
       },
     },
   },
