@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 
 import Logo from "@assets/images/logo/cheffify-logo.svg";
-import { MENU_ITEMS } from "@utils/const/menu";
+import FoodButton from "@components/Buttons/FoodButton";
 import ButtonLink from "@components/Navbar/ButtonLink";
+import { MENU_ITEMS } from "@utils/const/menu";
 
 const MenuNav = () => {
   return (
@@ -31,7 +32,9 @@ const MenuNav = () => {
           />
         ))}
       </ul>
-      <div className="w-[350px] h-[30px] bg-black"></div>
+      <div className="flex items-center gap-2">
+        <FoodButton />
+      </div>
     </nav>
   );
 };
