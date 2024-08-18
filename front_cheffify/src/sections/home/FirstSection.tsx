@@ -3,7 +3,7 @@ import ImagePrincipal from "@assets/images/img/principal-image.svg";
 
 const FirstSection = () => {
   return (
-    <div className="flex items-center justify-between px-[20px] lg:pl-[170px] lg:pr-[0px] mt-6">
+    <div className="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px] mt-6">
       <div className="lg:max-w-[620px]">
         <h1 className="text-primary text-[42px] font-extrabold lg:max-w-[400px] leading-[42px] text-center lg:text-start">
           Comida congelada{" "}
@@ -24,7 +24,7 @@ const FirstSection = () => {
         </p>
       </div>
       <div className="w-full hidden lg:block">
-        <img src={ImagePrincipal} className="w-full max-w-[850px]" />
+        <img src={ImagePrincipal} className="w-full" />
       </div>
     </div>
   );
