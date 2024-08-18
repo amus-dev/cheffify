@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import Logo from "@assets/images/logo/cheffify-logo.svg";
+import ImageBackgroundItem from "@assets/images/img/item-bg-menu.svg";
 import AccountButton from "@components/Buttons/AccountButton";
 import FoodButton from "@components/Buttons/FoodButton";
 import ButtonLink from "@components/Navbar/ButtonLink";
@@ -8,7 +9,7 @@ import { MENU_ITEMS } from "@utils/const/menu";
 
 const MenuNav = () => {
   return (
-    <nav className="px-[20px] lg:px-[60px] py-[30px] flex items-center justify-between xl:px-[170px]">
+    <nav className="px-[20px] lg:px-[60px] py-[30px] xl:px-[170px] flex items-center justify-between relative">
       <div>
         <Link
           to="/"
@@ -37,6 +38,12 @@ const MenuNav = () => {
         <FoodButton />
         <AccountButton />
       </div>
+
+      <img
+        className="absolute left-0 top-0 hidden xl:block w-[100px]"
+        src={ImageBackgroundItem}
+        alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
+      />
     </nav>
   );
 };
