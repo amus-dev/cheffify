@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import Logo from "../../assets/images/logo/cheffify-logo.svg";
-import { MENU_ITEMS } from "../../utils/const/menu";
-import ButtonLink from "./ButtonLink";
+import Logo from "@assets/images/logo/cheffify-logo.svg";
+import { MENU_ITEMS } from "@utils/const/menu";
+import ButtonLink from "@components/Navbar/ButtonLink";
 
 const MenuNav = () => {
   return (

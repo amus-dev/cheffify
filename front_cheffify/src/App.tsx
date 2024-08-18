@@ -1,4 +1,4 @@
-import Routes from "./routes";
+import Routes from "@routes/index";
 import "@fontsource-variable/raleway";
 
 const App = () => {
