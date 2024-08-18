@@ -12,7 +12,7 @@ const FoodButton = () => {
       <img
         src={BellIcon}
         alt="Icono de campana para el boton pedir comida"
-        className="size-[14px]"
+        className="size-[16px]"
       />
       <span>Pedir comida</span>
     </Link>
