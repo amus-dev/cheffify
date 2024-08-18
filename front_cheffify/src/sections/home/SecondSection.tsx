@@ -5,7 +5,7 @@ const SecondSection = () => {
   return (
     <section
       className="bg-secondaryLight mt-28 flex flex-col justify-center items-center relative px-[20px]"
-      id="#comemos"
+      id="comemos"
     >
       <a
         href="#comemos"

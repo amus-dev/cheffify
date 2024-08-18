@@ -15,7 +15,7 @@ const MENU_ITEMS = [
     ariaLabel:
       "Icono de corazón que te lleva a la sección Somos lo que comemos",
     text: "Somos lo que comemos",
-    url: "#somos",
+    url: "#comemos",
     icon: HeartIcon,
   },
   {

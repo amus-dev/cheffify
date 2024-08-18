@@ -1,4 +1,5 @@
 import IconEmoteLove from "@assets/images/icons/icon-emote-love.svg";
+import ImageBackgroundItem from "@assets/images/img/item-bg-menu.svg";
 import ImagePrincipal from "@assets/images/img/principal-image.svg";
 import { Link } from "react-router-dom";
 
@@ -39,6 +40,11 @@ const FirstSection = () => {
         </div>
       </div>
 
+      <img
+        className="absolute left-0 top-0 hidden xl:block w-[100px] z-20"
+        src={ImageBackgroundItem}
+        alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
+      />
       <div className="w-full hidden lg:block">
         <img src={ImagePrincipal} className="w-full" />
       </div>

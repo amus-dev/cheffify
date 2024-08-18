@@ -1,15 +1,36 @@
-import { Link } from "react-router-dom";
-
 import Logo from "@assets/images/logo/cheffify-logo.svg";
-import ImageBackgroundItem from "@assets/images/img/item-bg-menu.svg";
 import AccountButton from "@components/Buttons/AccountButton";
 import FoodButton from "@components/Buttons/FoodButton";
 import ButtonLink from "@components/Navbar/ButtonLink";
 import { MENU_ITEMS } from "@utils/const/menu";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const MenuNav = () => {
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setHasScrolled(true);
+      } else {
+        setHasScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="px-[20px] lg:px-[60px] py-[30px] xl:px-[170px] flex items-center justify-between relative">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-10 px-[20px] lg:px-[60px] py-[30px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-300 ${
+        hasScrolled ? "shadow-lg !z-50" : ""
+      }`}
+    >
       <div>
         <Link
           to="/"
@@ -38,12 +59,6 @@ const MenuNav = () => {
         <FoodButton />
         <AccountButton />
       </div>
-
-      <img
-        className="absolute left-0 top-0 hidden xl:block w-[100px]"
-        src={ImageBackgroundItem}
-        alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
-      />
     </nav>
   );
 };
