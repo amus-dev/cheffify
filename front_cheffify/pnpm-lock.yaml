@@ -5,9 +5,6 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
-  '@fontsource-variable/raleway':
-    specifier: ^5.0.20
-    version: 5.0.20
   path:
     specifier: ^0.12.7
     version: 0.12.7
@@ -536,10 +533,6 @@ packages:
     resolution: {integrity: sha512-BsWiH1yFGjXXS2yvrf5LyuoSIIbPrGUWob917o+BTKuZ7qJdxX8aJLRxs1fS9n6r7vESrq1OUqb68dANcFXuQQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     dev: true
-
-  /@fontsource-variable/raleway@5.0.20:
-    resolution: {integrity: sha512-KXXL81z1GexSxIGD78DnuYGPixRGrUTP0F5uzLIB+0ugPYEv1UW+s8d/NtsCAjYR1pfuN0gXNBAzwwFxMqLZbA==}
-    dev: false
 
   /@humanwhocodes/module-importer@1.0.1:
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
