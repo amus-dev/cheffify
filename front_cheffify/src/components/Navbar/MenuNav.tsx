@@ -8,7 +8,7 @@ import { MENU_ITEMS } from "@utils/const/menu";
 
 const MenuNav = () => {
   return (
-    <nav className="px-[170px] py-[30px] flex items-center justify-between">
+    <nav className="px-[20px] lg:px-[60px] py-[30px] flex items-center justify-between xl:px-[170px]">
       <div>
         <Link
           to="/"
@@ -22,7 +22,7 @@ const MenuNav = () => {
           />
         </Link>
       </div>
-      <ul className="flex gap-10">
+      <ul className="md:flex gap-10 hidden">
         {MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url }) => (
           <ButtonLink
             icon={icon}
