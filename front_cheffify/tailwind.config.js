@@ -8,6 +8,7 @@ module.exports = {
         secondary: "#D77466",
         secondaryLight: "#FCF3F2",
         grayLight: "#646477",
+        green: "#275C73",
       },
       boxShadow: {
         "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px", // sombra personalizada
