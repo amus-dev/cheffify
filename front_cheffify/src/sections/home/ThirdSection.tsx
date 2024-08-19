@@ -5,6 +5,7 @@ import Tomato from "@assets/images/icons/tomato-shadow.svg";
 import Delivery from "@assets/images/icons/truck-shadow.svg";
 import StoreIcon from "@assets/images/icons/icon-store.svg";
 import { Link } from "react-router-dom";
+import ArrowScrollButton from "@components/Buttons/ArrowScrollButton";
 
 const ThirdSection = () => {
   return (
@@ -58,7 +59,7 @@ const ThirdSection = () => {
       <Link
         to="/shop"
         unstable_viewTransition
-        className="flex items-center px-14 py-4 border-2 border-secondary rounded-full text-secondary gap-6 mt-10 transition-transform duration-500 ease-in-out hover:scale-105 "
+        className="flex items-center px-14 py-4 border-2 border-secondary rounded-full text-secondary gap-6 mt-10 transition-transform duration-500 ease-in-out hover:scale-105 mb-10"
       >
         <img
           src={StoreIcon}
@@ -67,6 +68,7 @@ const ThirdSection = () => {
         />
         <p className="font-bold text-lg">Visitar tienda</p>
       </Link>
+      <ArrowScrollButton url="#blockCarousel" />
     </section>
   );
 };

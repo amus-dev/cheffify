@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 
 const FourSection = () => {
   return (
-    <section className="flex justify-center w-full mt-10 px-[20px]">
+    <section
+      className="flex justify-center w-full mt-10 px-[20px]"
+      id="blockCarousel"
+    >
       <div className="flex flex-col lg:flex-row items-center justify-center bg-green w-full max-w-[1110px] px-[40px] pt-[100px] pb-[30px] rounded-[20px] gap-10 relative">
         <div className="w-full">
           <h2 className="text-white text-[42px] font-extrabold leading-[42px]">
