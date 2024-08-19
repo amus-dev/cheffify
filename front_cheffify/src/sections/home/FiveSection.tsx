@@ -1,5 +1,6 @@
 import AboutImage from "@assets/images/img/us.webp";
 import ImageEat from "@assets/images/img/come.svg";
+import ArrowScrollButton from "@components/Buttons/ArrowScrollButton";
 
 const FiveSection = () => {
   return (
@@ -37,8 +38,9 @@ const FiveSection = () => {
         <img
           src={ImageEat}
           alt="Imagen logo de Come como en casa"
-          className="w-full max-w-[260px] mt-10"
+          className="w-full max-w-[260px] my-10"
         />
+        <ArrowScrollButton url="#blockCarousel" />
       </div>
     </section>
   );
