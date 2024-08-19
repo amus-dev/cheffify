@@ -11,7 +11,8 @@ module.exports = {
         green: "#275C73",
       },
       boxShadow: {
-        "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px", // sombra personalizada
+        "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px",
+        arrow: "rgba(215, 116, 102, 0.4) 0px 0px 15px",
       },
     },
   },
