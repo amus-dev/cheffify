@@ -20,7 +20,11 @@ const FirstSection = () => {
           . Recibe nuestra comida directamente en tu casa.{" "}
           <strong className="flex gap-2 items-center justify-center lg:justify-start">
             ¡Garantía de calidad!
-            <img src={IconEmoteLove} className="size-5" />
+            <img
+              src={IconEmoteLove}
+              className="size-5"
+              alt="Icono de enamorado"
+            />
           </strong>
         </p>
         <div className="flex flex-col sm:flex-row items-center mt-10 gap-2 justify-center lg:justify-start">
@@ -46,7 +50,11 @@ const FirstSection = () => {
         alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
       />
       <div className="w-full hidden lg:block">
-        <img src={ImagePrincipal} className="w-full" />
+        <img
+          src={ImagePrincipal}
+          className="w-full"
+          alt="Imagen principal del sitio mostrando los productos de Cheffify"
+        />
       </div>
     </section>
   );

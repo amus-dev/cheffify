@@ -45,14 +45,16 @@ const MenuNav = () => {
         </Link>
       </div>
       <ul className="md:flex gap-10 hidden">
-        {MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url }) => (
-          <ButtonLink
-            icon={icon}
-            alt={alt}
-            ariaLabel={ariaLabel}
-            text={text}
-            url={url}
-          />
+        {MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url }, index) => (
+          <li key={index}>
+            <ButtonLink
+              icon={icon}
+              alt={alt}
+              ariaLabel={ariaLabel}
+              text={text}
+              url={url}
+            />
+          </li>
         ))}
       </ul>
       <div className="flex items-center gap-2">

@@ -8,8 +8,13 @@ const CardProductHome = () => {
 
   return (
     <article className="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow">
-      <Link to="shop/product" unstable_viewTransition>
+      <Link
+        to="shop/product"
+        unstable_viewTransition
+        aria-label="Link que te lleva al interior del producto"
+      >
         <img
+          alt="Imagen del producto"
           src={ImageFood}
           className="aspect-square rounded-[15px] brightness-75 transition duration-500 ease-in-out hover:brightness-110"
         />
@@ -47,7 +52,12 @@ const CardProductHome = () => {
           </div>
         </div>
         <button className="flex items-center justify-center gap-4 bg-secondary w-full rounded-[5px] text-[15px] font-medium transition-all duration-500 hover:bg-primary">
-          Agregar <img src={IconShop} className="size-4" />
+          Agregar{" "}
+          <img
+            src={IconShop}
+            className="size-4"
+            alt="Icono de bolsa para agregar productos"
+          />
         </button>
       </div>
     </article>
