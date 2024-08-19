@@ -29,13 +29,13 @@ const CardProductHome = () => {
           </span>
           <div className="flex flex-col justify-center w-full border-l border-secondary overflow-hidden">
             <button
-              className="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white"
+              className="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white rounded-tr-[4px]"
               onClick={() => setQuantity(quantity + 1)}
             >
               +
             </button>
             <button
-              className="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white"
+              className="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white rounded-br-[4px]"
               onClick={() => {
                 if (quantity > 1) {
                   setQuantity(quantity - 1);
