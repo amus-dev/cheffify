@@ -1,6 +1,6 @@
-import StarIcon from "../../assets/images/icons/star.svg";
-import HeartIcon from "../../assets/images/icons/heart.svg";
-import SnowFlakeIcon from "../../assets/images/icons/snowflake.svg";
+import StarIcon from "@assets/images/icons/star.svg";
+import HeartIcon from "@assets/images/icons/hearth.svg";
+import SnowFlakeIcon from "@assets/images/icons/snowflake.svg";
 
 const MENU_ITEMS = [
   {
