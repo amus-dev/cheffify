@@ -1,6 +1,7 @@
 import MenuNav from "@components/Navbar/MenuNav";
 import FirstSection from "@sections/home/FirstSection";
 import SecondSection from "@sections/home/SecondSection";
+import ThirdSection from "@sections/home/ThirdSection";
 
 const TemplateHome = () => {
   return (
@@ -8,6 +9,7 @@ const TemplateHome = () => {
       <MenuNav />
       <FirstSection />
       <SecondSection />
+      <ThirdSection />
     </main>
   );
 };
