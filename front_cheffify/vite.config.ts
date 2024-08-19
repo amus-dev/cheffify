@@ -15,4 +15,17 @@ export default defineConfig({
       "@sections": path.resolve(__dirname, "./src/sections"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          const extType = assetInfo.name?.split(".").pop() || ""; // Proveer un valor predeterminado
+          if (/\.(png|jpe?g|gif|svg|webp)$/.test(extType)) {
+            return `assets/images/[name].[ext]`;
+          }
+          return `assets/[name].[ext]`;
+        },
+      },
+    },
+  },
 });
