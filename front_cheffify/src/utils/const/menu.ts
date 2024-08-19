@@ -5,7 +5,7 @@ import SnowFlakeIcon from "@assets/images/icons/snowflake.svg";
 const MENU_ITEMS = [
   {
     text: "Servicios",
-    url: "#services",
+    url: "#comidaGourmet",
     alt: "Icono de estrella para servicios",
     ariaLabel: "Icono de estrella que te lleva a la sección servicios",
     icon: StarIcon,
