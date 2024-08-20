@@ -5,7 +5,7 @@ import Tomato from "@assets/images/icons/tomato-shadow.svg";
 import Delivery from "@assets/images/icons/truck-shadow.svg";
 import StoreIcon from "@assets/images/icons/icon-store.svg";
 import { Link } from "react-router-dom";
-import ArrowScrollButton from "@components/Buttons/ArrowScrollButton";
+import ArrowScrollButton from "@components/buttons/ArrowScrollButton";
 
 const ThirdSection = () => {
   return (

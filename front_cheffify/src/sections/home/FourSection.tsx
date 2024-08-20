@@ -1,4 +1,4 @@
-import CarouselHome from "@components/Carousels/CarouselHome";
+import CarouselHome from "@components/carousels/CarouselHome";
 import BgPoints from "@assets/images/img/bg-points.svg";
 import { Link } from "react-router-dom";
 

@@ -1,5 +1,5 @@
 import IconArrow from "@assets/images/icons/icon-arrow-down.svg";
-import CardProductHome from "@components/Products/CardProductHome";
+import CardProductHome from "@components/products/CardProductHome";
 import { Link } from "react-router-dom";
 
 import ItemImageElement from "@assets/images/img/item-bg-second-section.svg";

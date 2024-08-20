@@ -1,7 +1,7 @@
 import Logo from "@assets/images/logo/cheffify-logo.svg";
-import AccountButton from "@components/Buttons/AccountButton";
-import FoodButton from "@components/Buttons/FoodButton";
-import ButtonLink from "@components/Navbar/ButtonLink";
+import AccountButton from "@components/buttons/AccountButton";
+import FoodButton from "@components/buttons/FoodButton";
+import ButtonLink from "@components/navbar/ButtonLink";
 import { MENU_ITEMS } from "@utils/const/menu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";

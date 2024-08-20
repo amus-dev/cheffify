@@ -1,4 +1,4 @@
-import MenuNav from "@components/Navbar/MenuNav";
+import MenuNav from "@components/navbar/MenuNav";
 import FirstSection from "@sections/home/FirstSection";
 import FiveSection from "@sections/home/FiveSection";
 import FourSection from "@sections/home/FourSection";
