@@ -25,7 +25,7 @@ const SevenSection = () => {
             <img
               src={ImageLaTercera}
               alt="Imagen del logo la tercera"
-              className="h-[30px]"
+              className="h-[30px] transition-all duration-500 hover:scale-110"
             />
           </a>
         </li>
@@ -36,7 +36,11 @@ const SevenSection = () => {
             rel="noopener noreferrer"
             aria-label="Ir a la revista ED"
           >
-            <img src={ImageED} alt="Imagen del logo ED" className="h-[30px]" />
+            <img
+              src={ImageED}
+              alt="Imagen del logo ED"
+              className="h-[30px] transition-all duration-500 hover:scale-110"
+            />
           </a>
         </li>
         <li>
@@ -49,7 +53,7 @@ const SevenSection = () => {
             <img
               src={ImageElServirsen}
               alt="Imagen del logo cuenta @elservirsen"
-              className="h-[30px]"
+              className="h-[30px] transition-all duration-500 hover:scale-110"
             />
           </a>
         </li>
@@ -63,7 +67,7 @@ const SevenSection = () => {
             <img
               src={ImageMesa}
               alt="Imagen del logo mesa y mantel"
-              className="h-[30px]"
+              className="h-[30px] transition-all duration-500 hover:scale-110"
             />
           </a>
         </li>
