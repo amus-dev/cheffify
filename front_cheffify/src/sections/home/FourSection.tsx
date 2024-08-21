@@ -1,5 +1,5 @@
 import BgPoints from "@/assets/images/img/bg-points.svg";
-import CarouselHome from "@/components/carousels/CarouselHome";
+import CarouselHome from "@/components/Carousels/CarouselHome";
 import { Link } from "react-router-dom";
 
 const FourSection = () => {
