@@ -1,7 +1,7 @@
 import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
 import ItemImageElementFlower from "@/assets/images/img/item-bg-flower-second-section.svg";
 import ItemImageElement from "@/assets/images/img/item-bg-second-section.svg";
-import CardProductHome from "@/components/products/CardProductHome";
+import CardProductHome from "@/components/Products/CardProductHome";
 import { Link } from "react-router-dom";
 
 const SecondSection = () => {
