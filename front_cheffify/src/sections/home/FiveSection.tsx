@@ -40,7 +40,7 @@ const FiveSection = () => {
           alt="Imagen logo de Come como en casa"
           className="w-full max-w-[260px] my-10"
         />
-        <ArrowScrollButton url="#blockCarousel" />
+        <ArrowScrollButton url="#guatita" />
       </div>
     </section>
   );

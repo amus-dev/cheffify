@@ -4,7 +4,7 @@ import ThirdUser from "@assets/images/img/user-3.svg";
 
 const SixSection = () => {
   return (
-    <section className="px-[20px] lg:px-[60px] xl:px-[170px]">
+    <section className="px-[20px] lg:px-[60px] xl:px-[170px]" id="guatita">
       <div className="shadow-card-shadow rounded-xl py-10 px-20">
         <h2 className="text-primary text-[42px] font-extrabold text-center leading-[42px] mb-8">
           Guatita llena,{" "}
