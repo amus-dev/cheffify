@@ -89,7 +89,7 @@ const Footer = () => {
           correos electrónicos serán enviados a la dirección que usted
           proporcione y podrán ser cancelados en cualquier momento.{" "}
           <a
-            className="font-extrabold text-secondary"
+            className="font-extrabold text-secondary transition-all duration-500 hover:text-green"
             href={PDFPoliticas}
             target="_blank"
             rel="noopener noreferrer"
@@ -100,7 +100,7 @@ const Footer = () => {
         <p className="text-xs text-grayLight lg:hidden flex items-center gap-[2px] justify-center">
           <strong className="font-extrabold">Política de privacidad</strong>:
           <a
-            className="font-extrabold text-secondary"
+            className="font-extrabold text-secondary transition-all duration-500 hover:text-green"
             href={PDFPoliticas}
             target="_blank"
             rel="noopener noreferrer"
