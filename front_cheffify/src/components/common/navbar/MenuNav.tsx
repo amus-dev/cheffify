@@ -45,7 +45,7 @@ const MenuNav = () => {
         </Link>
       </div>
       <ul className="md:flex gap-10 hidden">
-        {MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url }, index) => (
+        {MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url, ancla }, index) => (
           <li key={index}>
             <ButtonLink
               icon={icon}
@@ -53,6 +53,7 @@ const MenuNav = () => {
               ariaLabel={ariaLabel}
               text={text}
               url={url}
+              ancla={ancla}
             />
           </li>
         ))}
