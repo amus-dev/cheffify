@@ -33,7 +33,7 @@ const MenuNav = () => {
 
   return (
     <nav
-      className={`relative top-0 left-0 right-0 z-10 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-300 ${
+      className={`relative top-0 left-0 right-0 z-10 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500 ${
         hasScrolled ? "shadow-lg !z-50 !fixed" : ""
       }`}
     >

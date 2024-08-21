@@ -11,7 +11,7 @@ const Banner = () => {
       <h1 className="text-[34px] font-extrabold mb-4">
         ¿Qué sabes sobre congelados?
       </h1>
-      <p className="text-lg font-medium max-w-[100%] sm:max-w-[70%] mb-4">
+      <p className="text-lg font-medium max-w-[100%] md:max-w-[65%] mb-4">
         Los platos congelados ofrecen una solución conveniente para quienes
         tienen un estilo de vida ocupado. Disfruta de delicionas comidas
         preparadas y conserva los nutrientes de forma práctica y sabrosa. Una

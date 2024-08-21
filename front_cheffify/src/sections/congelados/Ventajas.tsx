@@ -5,10 +5,10 @@ const Ventajas = () => {
   return (
     <section
       id="ventajas"
-      className="bg-secondaryLight mt-20 relative flex w-full flex-col pb-20"
+      className="bg-secondaryLight mt-20 relative flex w-full flex-col pb-20 justify-center items-center"
     >
       <a
-        href="#comemos"
+        href="#ventajas"
         className="relative -top-12 bg-secondaryLight rounded-full p-8 m-auto"
       >
         <img src={IconArrow} alt="Icon Arrow" className="size-8" />
@@ -17,7 +17,7 @@ const Ventajas = () => {
         Ventajas de los{" "}
         <strong className="text-secondary">platos congelados</strong>
       </h2>
-      <div className="px-[20px] lg:px-[60px] xl:px-[170px] mt-14 flex items-center flex-col lg:flex-row lg:items-start gap-16">
+      <div className="px-10 mt-14 flex items-center flex-col lg:flex-row lg:items-start gap-16 max-w-[1200px]">
         <img
           src={CongeladoImage}
           alt="Imagen de productos congelados"
