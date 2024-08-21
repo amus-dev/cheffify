@@ -35,12 +35,12 @@ const FirstSection = () => {
           >
             Hacer pedido
           </Link>
-          <Link
-            to="/#comida"
+          <a
+            href="/#comidaGourmet"
             className="border-secondary border-2 text-secondary font-bold w-full max-w-[240px] rounded-full text-[17px] text-center px-12 py-4 hover:border-primary hover:bg-primary hover:text-white transition-all duration-500"
           >
             Saber más
-          </Link>
+          </a>
         </div>
       </div>
 
