@@ -6,6 +6,12 @@ import { MENU_ITEMS } from "@utils/const/menu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
+declare module "react-router-dom" {
+  interface LinkProps {
+    unstable_viewTransition?: boolean;
+  }
+}
+
 const MenuNav = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
 
