@@ -5,18 +5,20 @@ import SnowFlakeIcon from "@assets/images/icons/snowflake.svg";
 const MENU_ITEMS = [
   {
     text: "Servicios",
-    url: "#comidaGourmet",
+    url: "/#comidaGourmet",
     alt: "Icono de estrella para servicios",
     ariaLabel: "Icono de estrella que te lleva a la sección servicios",
     icon: StarIcon,
+    ancla: true,
   },
   {
     alt: "Icono de corazón para Somos lo que comemos",
     ariaLabel:
       "Icono de corazón que te lleva a la sección Somos lo que comemos",
     text: "Somos lo que comemos",
-    url: "#somos",
+    url: "/#somos",
     icon: HeartIcon,
+    ancla: true,
   },
   {
     icon: SnowFlakeIcon,
@@ -24,6 +26,7 @@ const MENU_ITEMS = [
     ariaLabel: "Icono de nieve que te lleva a la sección congelados",
     text: "Congelados",
     url: "/congelados",
+    ancla: false,
   },
 ];
 
