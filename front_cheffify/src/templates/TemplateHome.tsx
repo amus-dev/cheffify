@@ -19,7 +19,6 @@ const TemplateHome = () => {
       <FiveSection />
       <SixSection />
       <SevenSection />
-      <hr className="w-full h-[80px] bg-separator mb-10" />
       <Footer />
     </main>
   );
