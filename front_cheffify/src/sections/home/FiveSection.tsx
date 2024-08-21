@@ -1,11 +1,12 @@
 import AboutImage from "@/assets/images/img/us.webp";
 import ImageEat from "@/assets/images/img/come.svg";
 import ArrowScrollButton from "@/components/Buttons/ArrowScrollButton";
+import ImageBG from "@/assets/images/img/bg-five-right.svg";
 
 const FiveSection = () => {
   return (
     <section
-      className="flex flex-col-reverse lg:flex-row w-full px-[20px] lg:px-[60px] xl:px-[170px] pb-28 mt-20 justify-between"
+      className="flex flex-col-reverse lg:flex-row w-full px-[20px] lg:px-[60px] xl:px-[170px] pb-28 mt-20 justify-between relative"
       id="somos"
     >
       <div className="w-full">
@@ -42,6 +43,12 @@ const FiveSection = () => {
         />
         <ArrowScrollButton url="#guatita" />
       </div>
+
+      <img
+        src={ImageBG}
+        className="absolute right-0 top-20 w-full max-w-[300px] hidden lg:block"
+        alt="Imagen decorativa de flor naranja"
+      />
     </section>
   );
 };

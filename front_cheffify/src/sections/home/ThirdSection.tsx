@@ -6,6 +6,8 @@ import Delivery from "@/assets/images/icons/truck-shadow.svg";
 import StoreIcon from "@/assets/images/icons/icon-store.svg";
 import { Link } from "react-router-dom";
 import ArrowScrollButton from "@/components/Buttons/ArrowScrollButton";
+import FirstImageBGLeft from "@/assets/images/img/bg-third-left.svg";
+import FirstImageBGRight from "@/assets/images/img/bg-third-right.svg";
 
 const ThirdSection = () => {
   return (
@@ -69,6 +71,17 @@ const ThirdSection = () => {
         <p className="font-bold text-lg">Visitar tienda</p>
       </Link>
       <ArrowScrollButton url="#blockCarousel" />
+
+      <img
+        src={FirstImageBGLeft}
+        className="absolute left-0 top-20 w-full max-w-[150px] hidden lg:block"
+        alt="Imagen decorativa de flor verde"
+      />
+      <img
+        src={FirstImageBGRight}
+        className="absolute right-0 top-20 w-full max-w-[300px] hidden lg:block"
+        alt="Imagen decorativa de flor naranja"
+      />
     </section>
   );
 };
