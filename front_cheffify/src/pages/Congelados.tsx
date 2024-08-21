@@ -1,4 +1,4 @@
-import TemplateCongelados from "@templates/TemplateCongelados";
+import TemplateCongelados from "@/templates/TemplateCongelados";
 
 const Congelados = () => {
   return <TemplateCongelados />;

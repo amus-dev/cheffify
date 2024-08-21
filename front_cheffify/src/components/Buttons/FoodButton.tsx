@@ -1,4 +1,4 @@
-import BellIcon from "@assets/images/icons/bell.svg";
+import BellIcon from "@/assets/images/icons/bell.svg";
 import { Link } from "react-router-dom";
 
 const FoodButton = () => {

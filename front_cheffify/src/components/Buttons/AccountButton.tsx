@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import AccountIcon from "@assets/images/icons/account.svg";
-import ShopIcon from "@assets/images/icons/bag.svg";
+import AccountIcon from "@/assets/images/icons/account.svg";
+import ShopIcon from "@/assets/images/icons/bag.svg";
 
 const AccountButton = () => {
   return (

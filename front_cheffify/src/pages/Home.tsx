@@ -1,4 +1,4 @@
-import TemplateHome from "@templates/TemplateHome";
+import TemplateHome from "@/templates/TemplateHome";
 import { Helmet } from "react-helmet-async";
 
 const Home = () => {

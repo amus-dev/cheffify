@@ -1,8 +1,8 @@
 import { lazy, Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-const HomePage = lazy(() => import("@pages/Home"));
-const CongeladosPage = lazy(() => import("@pages/Congelados"));
+const HomePage = lazy(() => import("@/pages/Home"));
+const CongeladosPage = lazy(() => import("@/pages/Congelados"));
 
 const router = createBrowserRouter([
   {

@@ -4,8 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 
-import Slide1 from "@assets/images/img/slide1.webp";
-import Slide2 from "@assets/images/img/slide2.webp";
+import Slide1 from "@/assets/images/img/slide1.webp";
+import Slide2 from "@/assets/images/img/slide2.webp";
 
 const CarouselHome = () => {
   return (
