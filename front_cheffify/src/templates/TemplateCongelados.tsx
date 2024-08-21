@@ -1,6 +1,7 @@
 import Footer from "@/components/common/footer";
 import MenuNav from "@/components/common/navbar/MenuNav";
 import Banner from "@/sections/congelados/Banner";
+import ComoPreparar from "@/sections/congelados/ComoPreparar";
 import Ventajas from "@/sections/congelados/Ventajas";
 
 const TemplateCongelados = () => {
@@ -9,6 +10,7 @@ const TemplateCongelados = () => {
       <MenuNav />
       <Banner />
       <Ventajas />
+      <ComoPreparar />
       <Footer />
     </main>
   );
