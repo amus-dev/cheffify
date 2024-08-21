@@ -1,6 +1,6 @@
 import Logo from "@assets/images/logo/cheffify-logo.svg";
-import AccountButton from "@components/buttons/AccountButton";
-import FoodButton from "@components/buttons/FoodButton";
+import AccountButton from "../../buttons/AccountButton";
+import FoodButton from "../../buttons/FoodButton";
 import ButtonLink from "@components/common/navbar/ButtonLink";
 import { MENU_ITEMS } from "@utils/const/menu";
 import { useEffect, useState } from "react";
