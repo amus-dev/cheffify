@@ -1,5 +1,7 @@
 import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
 import CongeladoImage from "@/assets/images/img/congelado.webp";
+import ItemImageElementFlower from "@/assets/images/img/item-bg-flower-second-section.svg";
+import ItemImageElement from "@/assets/images/img/item-bg-second-section.svg";
 
 const Ventajas = () => {
   return (
@@ -52,6 +54,17 @@ const Ventajas = () => {
           </li>
         </ul>
       </div>
+
+      <img
+        src={ItemImageElement}
+        alt="Imagen decorativa para la sección dos"
+        className="absolute top-10 left-0 w-[75px] h-[310px] hidden lg:block"
+      />
+      <img
+        src={ItemImageElementFlower}
+        alt="Imagen decorativa de flores para la sección dos"
+        className="absolute top-50 right-0 w-[190px] h-[290px] hidden lg:block"
+      />
     </section>
   );
 };
