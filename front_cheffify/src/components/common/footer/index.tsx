@@ -1,9 +1,9 @@
-import InstaIcon from "@assets/images/icons/icon-inst.svg";
-import MailIcon from "@assets/images/icons/icon-mail.svg";
-import PhoneIcon from "@assets/images/icons/icon-phone.svg";
-import LogoFooter from "@assets/images/logo/cheffify-logo.svg";
-import PDFPoliticas from "@assets/pdf/politicas-de-privacidad-cheffify.pdf";
-import IconWhatsapp from "@components/common/icons/IconWhatsapp";
+import InstaIcon from "@/assets/images/icons/icon-inst.svg";
+import MailIcon from "@/assets/images/icons/icon-mail.svg";
+import PhoneIcon from "@/assets/images/icons/icon-phone.svg";
+import LogoFooter from "@/assets/images/logo/cheffify-logo.svg";
+import PDFPoliticas from "@/assets/pdf/politicas-de-privacidad-cheffify.pdf";
+import IconWhatsapp from "@/components/common/icons/IconWhatsapp";
 import { Link } from "react-router-dom";
 
 const handleClickWhatsApp = () => {

@@ -1,4 +1,4 @@
-import BannerBackground from "@assets/images/img/banner-congelados.webp";
+import BannerBackground from "@/assets/images/img/banner-congelados.webp";
 
 const Banner = () => {
   return (

@@ -1,11 +1,11 @@
-import Food from "@assets/images/icons/food-shadow.svg";
-import Hearth from "@assets/images/icons/hearth-shadow.svg";
-import IconArrow from "@assets/images/icons/icon-arrow-down.svg";
-import Tomato from "@assets/images/icons/tomato-shadow.svg";
-import Delivery from "@assets/images/icons/truck-shadow.svg";
-import StoreIcon from "@assets/images/icons/icon-store.svg";
+import Food from "@/assets/images/icons/food-shadow.svg";
+import Hearth from "@/assets/images/icons/hearth-shadow.svg";
+import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
+import Tomato from "@/assets/images/icons/tomato-shadow.svg";
+import Delivery from "@/assets/images/icons/truck-shadow.svg";
+import StoreIcon from "@/assets/images/icons/icon-store.svg";
 import { Link } from "react-router-dom";
-import ArrowScrollButton from "@components/Buttons/ArrowScrollButton";
+import ArrowScrollButton from "@/components/Buttons/ArrowScrollButton";
 
 const ThirdSection = () => {
   return (

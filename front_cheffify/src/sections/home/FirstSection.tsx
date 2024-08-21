@@ -1,6 +1,6 @@
-import IconEmoteLove from "@assets/images/icons/icon-emote-love.svg";
-import ImageBackgroundItem from "@assets/images/img/item-bg-menu.svg";
-import ImagePrincipal from "@assets/images/img/principal-image.svg";
+import IconEmoteLove from "@/assets/images/icons/icon-emote-love.svg";
+import ImageBackgroundItem from "@/assets/images/img/item-bg-menu.svg";
+import ImagePrincipal from "@/assets/images/img/principal-image.svg";
 import { Link } from "react-router-dom";
 
 const FirstSection = () => {

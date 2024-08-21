@@ -1,6 +1,6 @@
-import AboutImage from "@assets/images/img/us.webp";
-import ImageEat from "@assets/images/img/come.svg";
-import ArrowScrollButton from "@components/Buttons/ArrowScrollButton";
+import AboutImage from "@/assets/images/img/us.webp";
+import ImageEat from "@/assets/images/img/come.svg";
+import ArrowScrollButton from "@/components/Buttons/ArrowScrollButton";
 
 const FiveSection = () => {
   return (

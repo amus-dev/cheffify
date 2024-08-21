@@ -1,5 +1,5 @@
-import ImageFood from "@assets/images/foods/arroz_curry.webp";
-import IconShop from "@assets/images/icons/bag.svg";
+import ImageFood from "@/assets/images/foods/arroz_curry.webp";
+import IconShop from "@/assets/images/icons/bag.svg";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 

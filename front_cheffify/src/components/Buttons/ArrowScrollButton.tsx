@@ -2,7 +2,7 @@ interface ArrowScrollButtonProps {
   url: string;
 }
 
-import IconArrowDown from "@assets/images/icons/icon-arrow-down.svg";
+import IconArrowDown from "@/assets/images/icons/icon-arrow-down.svg";
 
 const ArrowScrollButton = ({ url }: ArrowScrollButtonProps) => {
   return (

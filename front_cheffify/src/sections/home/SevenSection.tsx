@@ -1,11 +1,11 @@
-import ImageLaTercera from "@assets/images/img/latercera.svg";
-import ImageED from "@assets/images/img/ed.svg";
-import ImageElServirsen from "@assets/images/img/elservirsen.svg";
-import ImageMesa from "@assets/images/img/mesaymantel.svg";
+import ImageLaTercera from "@/assets/images/img/latercera.svg";
+import ImageED from "@/assets/images/img/ed.svg";
+import ImageElServirsen from "@/assets/images/img/elservirsen.svg";
+import ImageMesa from "@/assets/images/img/mesaymantel.svg";
 
-import PDFED from "@assets/pdf/revista-ed.pdf";
-import PDFServirsen from "@assets/pdf/elservisen.pdf";
-import PDFMesa from "@assets/pdf/mesa-mantel.pdf";
+import PDFED from "@/assets/pdf/revista-ed.pdf";
+import PDFServirsen from "@/assets/pdf/elservisen.pdf";
+import PDFMesa from "@/assets/pdf/mesa-mantel.pdf";
 
 const SevenSection = () => {
   return (

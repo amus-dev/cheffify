@@ -1,6 +1,6 @@
-import FirstUser from "@assets/images/img/user-1.svg";
-import SecondUser from "@assets/images/img/user-2.svg";
-import ThirdUser from "@assets/images/img/user-3.svg";
+import FirstUser from "@/assets/images/img/user-1.svg";
+import SecondUser from "@/assets/images/img/user-2.svg";
+import ThirdUser from "@/assets/images/img/user-3.svg";
 
 const SixSection = () => {
   return (

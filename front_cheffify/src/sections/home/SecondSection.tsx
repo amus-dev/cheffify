@@ -1,9 +1,9 @@
-import IconArrow from "@assets/images/icons/icon-arrow-down.svg";
-import CardProductHome from "@components/products/CardProductHome";
+import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
+import CardProductHome from "@/components/products/CardProductHome";
 import { Link } from "react-router-dom";
 
-import ItemImageElement from "@assets/images/img/item-bg-second-section.svg";
-import ItemImageElementFlower from "@assets/images/img/item-bg-flower-second-section.svg";
+import ItemImageElement from "@/assets/images/img/item-bg-second-section.svg";
+import ItemImageElementFlower from "@/assets/images/img/item-bg-flower-second-section.svg";
 
 const SecondSection = () => {
   return (

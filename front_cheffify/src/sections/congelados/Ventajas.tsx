@@ -1,5 +1,5 @@
-import IconArrow from "@assets/images/icons/icon-arrow-down.svg";
-import CongeladoImage from "@assets/images/img/congelado.webp";
+import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
+import CongeladoImage from "@/assets/images/img/congelado.webp";
 
 const Ventajas = () => {
   return (
