@@ -29,7 +29,7 @@ const Footer = () => {
           className="group flex items-center justify-between gap-10 border-green border-2 px-8 py-4 rounded-full transition-all duration-500 hover:border-secondary hover:bg-secondary"
           onClick={handleClickWhatsApp}
         >
-          <IconWhatsapp classNames="size-7" hoverColor="fill-white" />
+          <IconWhatsapp classNames="size-7" />
           <p className="text-green text-[18px] font-bold group-hover:text-white transition-all duration-500">
             Pide por Whatsapp
           </p>
