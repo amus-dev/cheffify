@@ -1,5 +1,6 @@
 import Footer from "@/components/common/footer";
 import MenuNav from "@/components/common/navbar/MenuNav";
+import Overlay from "@/components/common/overlay";
 import FirstSection from "@/components/sections/home/FirstSection";
 import FiveSection from "@/components/sections/home/FiveSection";
 import FourSection from "@/components/sections/home/FourSection";
@@ -22,6 +23,7 @@ const TemplateHome = () => {
       <SevenSection />
       <Footer />
       <Toaster />
+      <Overlay />
     </main>
   );
 };
