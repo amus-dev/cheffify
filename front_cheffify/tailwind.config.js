@@ -10,6 +10,7 @@ module.exports = {
         grayLight: "#646477",
         green: "#275C73",
         separator: "#E0E0EB",
+        grayCart: "#BEBEC9",
       },
       boxShadow: {
         "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px",
