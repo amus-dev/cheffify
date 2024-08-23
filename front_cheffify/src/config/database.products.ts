@@ -1,4 +1,6 @@
-export const PRODUCTS = [
+import { Product } from "@/utils/types/productTypes";
+
+export const PRODUCTS: Product[] = [
   {
     id: 1,
     slug: "asado-aleman-salsa-mostaza",
@@ -11,7 +13,9 @@ export const PRODUCTS = [
       "Deléitate con nuestro exquisito Asado Alemán con salsa de mostaza. Placer casero congelado que llega directo a tu hogar. ¡Sabor que te sorprenderá!",
     category: "Carnes Rojas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/asadoalemanmostaza.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/asadoalemanmostaza.webp`,
     alt: "Asado alemán con salsa mostaza - platos congelados",
   },
   {
@@ -26,7 +30,7 @@ export const PRODUCTS = [
       "Descubre el sabor único del Lomo de Cerdo con Cebolla Caramelizada. Placer congelado, directo a tu puerta. Comida casera que deleitará tus sentidos",
     category: "Carnes Blancas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/lomodecerdo.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/lomodecerdo.webp`,
     alt: "Lomo de cerdo con cebolla caramelizada - platos congelados",
   },
   {
@@ -40,7 +44,9 @@ export const PRODUCTS = [
       "Prueba nuestras irresistibles Albóndigas de Carne congeladas. Deliciosas, caseras y listas para saborear. Disfruta de la comodidad en cada bocado.",
     category: "Carnes Rojas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/albondigasdecarne.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/albondigasdecarne.webp`,
     alt: "Albóndigas de carne - platos congelados",
   },
   {
@@ -55,7 +61,9 @@ export const PRODUCTS = [
       "Sumérgete en el placer de nuestro Strogonoff de Carne congelado. Exquisita fusión de sabores, ahora en tu hogar. Comida casera, comodidad asegurada",
     category: "Carnes Rojas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/strogonoffcarne.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/strogonoffcarne.webp`,
     alt: "Strogonoff de carne - platos congelados",
   },
   {
@@ -70,7 +78,9 @@ export const PRODUCTS = [
       "Disfruta del sabor casero en cada bocado con nuestro Pastel de Choclo con Carne. Platos Congelados Cheffify: Delicia y comodidad en un solo lugar.",
     category: "Guisos",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/pasteldechoclocarnepicada.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/pasteldechoclocarnepicada.webp`,
     alt: "Pastel de choclo carne - platos congelados",
   },
   {
@@ -85,7 +95,9 @@ export const PRODUCTS = [
       "Sumérgete en el placer de nuestra Lasaña Boloñesa congelada. Deliciosos sabores caseros, directo a tu puerta. Platos Congelados Cheffify: Sabor y comodidad en uno.",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/lasanabolognesapastapicada.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/lasanabolognesapastapicada.webp`,
     alt: "Lasaña boloñesa - platos congelados",
   },
   {
@@ -100,7 +112,7 @@ export const PRODUCTS = [
       "Descubre el auténtico sabor del Tomaticán congelado. Placer casero en cada cucharada, ahora en tu hogar. Platos Congelados Cheffify: Delicia y comodidad en uno",
     category: "Guisos",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/tomatican.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/tomatican.webp`,
     alt: "Tomaticán - platos congelados",
   },
   {
@@ -115,7 +127,9 @@ export const PRODUCTS = [
       "Prueba la tradición en cada cucharada con nuestros Porotos Granados congelados. Sabor casero y reconfortante, entregado directamente a tu hogar.",
     category: "Guisos",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/porotosgranados.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/porotosgranados.webp`,
     alt: "Porotos granados - platos congelados",
   },
   {
@@ -130,7 +144,7 @@ export const PRODUCTS = [
       "Deléitate con nuestro irresistible Pie de Pollo congelado. Sabor casero que llega a tu puerta. Platos Congelados Cheffify: Comida de calidad, comodidad insuperable",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/piedepollo.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/piedepollo.webp`,
     alt: "Pie de pollo - platos congelados",
   },
   {
@@ -145,7 +159,9 @@ export const PRODUCTS = [
       "Explora una combinación deliciosa con nuestra Lasaña de Pollo y Espinaca congelada. Placer casero en cada capa, directo a tu hogar. Platos Congelados Cheffify",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/lasanapolloespinaca.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/lasanapolloespinaca.webp`,
     alt: "Lasaña pollo espinaca - platos congelados",
   },
   {
@@ -160,7 +176,9 @@ export const PRODUCTS = [
       "Disfruta de la fusión perfecta en nuestro Quiche de Pollo y Pimentón congelado. Delicioso sabor casero, entregado a tu puerta. Comodidad y placer en cada bocado",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/quichepollopimenton.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/quichepollopimenton.webp`,
     alt: "Quiche pollo pimentón - platos congelados",
   },
   {
@@ -175,7 +193,9 @@ export const PRODUCTS = [
       "Conoce nuestros deliciosos Tallarines Panqueques con Salsa de Pollo. Sabor casero, listo para saborear. Congelados Cheffify: Comida de calidad, comodidad insuperable",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/tallarinesdepanquequesalsapollo.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/tallarinesdepanquequesalsapollo.webp`,
     alt: "Tallarines panqueques con salsa pollo - platos congelados",
   },
   {
@@ -190,7 +210,9 @@ export const PRODUCTS = [
       "Descubre una combinación exquisita en nuestros Tallarines Panqueques con Salsa de Salmón. Sabor casero congelado que deleitará tus sentidos. ",
     category: "Masas",
     price: 7095,
-    image: `${process.env.PUBLIC_URL}/images/foods/tallarinespanquequessalmon.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/tallarinespanquequessalmon.webp`,
     alt: "Tallarines panqueques con salsa salmón - platos congelados",
   },
   {
@@ -205,7 +227,7 @@ export const PRODUCTS = [
       "Explora una explosión de sabores en nuestro Pollo con Tocino congelado. Placer casero en cada bocado, directo a tu hogar. Platos Congelados Cheffify: Comida de calidad",
     category: "Carnes Blancas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/pollotocino.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/pollotocino.webp`,
     alt: "Pollo con tocino - platos congelados",
   },
   {
@@ -220,7 +242,7 @@ export const PRODUCTS = [
       "Saborea la tradición en nuestro Pollo Arvejado congelado. Auténtico sabor casero, entregado directamente a tu puerta. Delicia y comodidad en un solo lugar.",
     category: "Carnes Blancas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/polloarvejado.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/polloarvejado.webp`,
     alt: "Pollo arvejado - platos congelados",
   },
   {
@@ -235,7 +257,9 @@ export const PRODUCTS = [
       "Disfruta del exquisito Strogonoff de Pollo congelado. Deliciosos sabores caseros que llegan a tu hogar. Experimenta la comodidad y autenticidad en cada bocado.",
     category: "Carnes Blancas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/strogonoffpollo.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/strogonoffpollo.webp`,
     alt: "Strogonoff de pollo - platos congelados",
   },
   {
@@ -250,7 +274,9 @@ export const PRODUCTS = [
       "Prueba la intensidad de nuestro Picante de Camarón congelado. Sabor casero y auténtico, directo a tu hogar. Experimenta una nueva dimensión de placer culinario",
     category: "Pescados y mariscos",
     price: 8635,
-    image: `${process.env.PUBLIC_URL}/images/foods/picantecamaron.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/picantecamaron.webp`,
     alt: "Picante de camarón - platos congelados",
   },
   {
@@ -265,7 +291,7 @@ export const PRODUCTS = [
       "Deléitate con nuestras irresistibles Croquetas de Atún congeladas. Sabor casero en cada bocado, listas para disfrutar. Una delicia que llega directo a tu hogar.",
     category: "Pescados y mariscos",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/croquetasatun.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/croquetasatun.webp`,
     alt: "Croquetas de atún - platos congelados",
   },
   {
@@ -280,7 +306,9 @@ export const PRODUCTS = [
       "Descubre la originalidad en nuestros Panqueques de Pollo congelados. Sabor casero en cada porción, entregado a tu puerta. Una experiencia que no querrás perderte.",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/panquequesdepollo.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/panquequesdepollo.webp`,
     alt: "Panqueques de pollo - platos congelados",
   },
   {
@@ -295,7 +323,9 @@ export const PRODUCTS = [
       "Sumérgete en el placer de nuestro Pastel de Choclo con Pollo congelado. Comida casera en cada bocado, entregado directamente a tu hogar. Una delicia que te sorprenderá.",
     category: "Guisos",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/pasteldechoclopollo.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/pasteldechoclopollo.webp`,
     alt: "Pastel de choclo pollo - platos congelados",
   },
   {
@@ -310,7 +340,9 @@ export const PRODUCTS = [
       "Experimenta la fusión perfecta en nuestro Quiche de Jamón y Queso congelado. Sabor casero y reconfortante, listo para disfrutar y directamente a tu hogar",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/quichejamonqueso.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/quichejamonqueso.webp`,
     alt: "Quiche jamón queso - platos congelados",
   },
   {
@@ -325,7 +357,9 @@ export const PRODUCTS = [
       "Descubre la autenticidad en nuestro Quiche de Verdura casero, con ingredientes frescos y deliciosos. Disfruta de la comodidad de la entrega a domicilio.",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/quicheverduras.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/quicheverduras.webp`,
     alt: "Quiche de Verdura - platos congelados",
   },
   {
@@ -340,7 +374,7 @@ export const PRODUCTS = [
       "Disfruta de nuestra deliciosa Lasaña de Pollo casera. Sabores auténticos y envío a domicilio para una experiencia culinaria única en la comodidad de tu hogar.",
     category: "Masas",
     price: 4345,
-    image: `${process.env.PUBLIC_URL}/images/foods/lasanapollo.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/lasanapollo.webp`,
     alt: "Lasaña de pollo - platos congelados",
   },
   {
@@ -355,7 +389,9 @@ export const PRODUCTS = [
       "Transforma tus platos con nuestros Panqueques para Rellenar congelados. Sabor casero directo a tu puerta. ¡Crea y saborea con nosotros!",
     category: "Masas",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/panquequesrellenar.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/panquequesrellenar.webp`,
     alt: "Panqueques para rellenar (la docena) - platos congelados",
   },
   {
@@ -370,7 +406,7 @@ export const PRODUCTS = [
       "Disfruta de la auténtica Pastelera de Choclo congelada. Sabor casero que llega a tu puerta. ¡Ordénala y saborea la tradición en cada bocado",
     category: "Masas",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/pastelera.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/pastelera.webp`,
     alt: "Pastelera - platos congelados",
   },
   {
@@ -385,7 +421,7 @@ export const PRODUCTS = [
       "Disfruta nuestra exquisita Crema de Zapallo congelada. Sabor casero en cada cucharada. Haz tu pedido y siente el calor del hogar en tu paladar",
     category: "Cremas",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/cremazapallo.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/cremazapallo.webp`,
     alt: "Crema de Zapallo - platos congelados",
   },
   // {
@@ -490,7 +526,7 @@ export const PRODUCTS = [
       "La preparación del arroz blanco comienza con el enjuague minucioso del grano, seguido de su cocción en agua con una pizca de sal, buscando alcanzar una textura esponjosa y granos perfectamente separados.",
     category: "Arroces",
     price: 1430,
-    image: `${process.env.PUBLIC_URL}/images/foods/arroz_blanco.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/arroz_blanco.webp`,
     alt: "Arroz Blanco - comida prepadara",
   },
   {
@@ -505,7 +541,7 @@ export const PRODUCTS = [
       "El arroz árabe es una delicia culinaria que combina el arroz basmati con un rico tapiz de especias como canela y comino, además de frutos secos y pasas, que se cocinan juntos para crear un plato fragante y lleno de sabor.",
     category: "Arroces",
     price: 1430,
-    image: `${process.env.PUBLIC_URL}/images/foods/arroz_arabe.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/arroz_arabe.webp`,
     alt: "Arroz Árabe - comida prepadara",
   },
   {
@@ -520,7 +556,9 @@ export const PRODUCTS = [
       "Este arroz incorpora la frescura del cilantro y el toque cítrico del limón en una base de arroz blanco cocido.",
     category: "Arroces",
     price: 1430,
-    image: `${process.env.PUBLIC_URL}/images/foods/Arroz_cilantro.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/Arroz_cilantro.webp`,
     alt: "Arroz Cilantro - comida prepadara",
   },
   {
@@ -535,7 +573,9 @@ export const PRODUCTS = [
       "El arroz pimiento mezcla arroz cocido con tiras de pimientos rojos y verdes salteados, añadiendo no solo un estallido de color sino también una dulzura natural. Un ligero sofrito de ajo y cebolla antes de añadir el arroz ayuda a crear una base de sabor sobre la cual los pimientos pueden brillar.",
     category: "Arroces",
     price: 1430,
-    image: `${process.env.PUBLIC_URL}/images/foods/arroz_pimenton.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/arroz_pimenton.webp`,
     alt: "Arroz Pimentón - comida prepadara",
   },
   {
@@ -550,7 +590,7 @@ export const PRODUCTS = [
       "Preparado con una mezcla de especias de curry que infunden al arroz con un color dorado y un aroma profundo, este plato incluye también verduras picadas para añadir textura y sabor, resultando en un arroz cremoso con un equilibrio perfecto de sabores exóticos y reconfortantes.",
     category: "Arroces",
     price: 1430,
-    image: `${process.env.PUBLIC_URL}/images/foods/arroz_curry.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/arroz_curry.webp`,
     alt: "Arroz Curry - comida prepadara",
   },
   {
@@ -565,7 +605,7 @@ export const PRODUCTS = [
       "Sumérgete en el confort de nuestra Crema de Tomate, una sopa rica y cremosa que combina el intenso sabor del tomate maduro con la suavidad de la crema. Cocinada lentamente con caldo de verduras casero, cebolla y un toque de orégano, esta crema es una delicia reconfortante que calienta el alma. ",
     category: "Cremas",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/crema_tomate.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/crema_tomate.webp`,
     alt: "Crema de Tomate - comida prepadara",
   },
   {
@@ -580,7 +620,7 @@ export const PRODUCTS = [
       "Nuestro Ganso a la Olla captura la esencia de un corte de vacuno especial, conocido por su jugosidad y sabor. Cocinado lentamente con cebolla y pimentón, este plato es una muestra de la cocina tradicional, donde la carne se funde con sabores naturales y un toque de orégano y sal.",
     category: "Carnes Blancas",
     price: 4895,
-    image: `${process.env.PUBLIC_URL}/images/foods/gansoalaolla.webp`,
+    image: `${import.meta.env.VITE_PUBLIC_URL}/images/foods/gansoalaolla.webp`,
     alt: "Ganso a la Olla - comida prepadara",
   },
   {
@@ -595,7 +635,9 @@ export const PRODUCTS = [
       "Nuestro Puré de Garbanzos es una opción saludable y sabrosa para complementar cualquier comida. Hecho con garbanzos ricos en fibra, combinados con cebolla y pimentón, este puré no solo es nutritivo sino también lleno de sabor.",
     category: "Cremas",
     price: 3630,
-    image: `${process.env.PUBLIC_URL}/images/foods/crema_garbanzos.webp`,
+    image: `${
+      import.meta.env.VITE_PUBLIC_URL
+    }/images/foods/crema_garbanzos.webp`,
     alt: "Puré de Garbanzos - comida prepadara",
   },
 ];
