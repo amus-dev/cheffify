@@ -48,8 +48,12 @@ const CartProducts = () => {
             </h5>
           </div>
           <div className="flex items-center justify-between gap-4">
-            <button onClick={deleteProduct}>
-              <img src={IconTrash} alt="" className="size-4" />
+            <button onClick={deleteProduct} className="w-[15px] h-[15px]">
+              <img
+                src={IconTrash}
+                alt={`Icono para eliminar el producto ${title}`}
+                className="w-[15px] h-[15px] transition-all duration-500 hover:scale-110"
+              />
             </button>
             <div className="flex items-center justify-center gap-1 border border-secondary rounded-md p-1 leading-none">
               <button
