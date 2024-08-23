@@ -7,7 +7,7 @@ interface CartStore {
   removeProduct: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
-  getTotalQuantity: () => number; // Nueva propiedad para obtener el total de quantities
+  getTotalQuantity: () => number;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
