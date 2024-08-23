@@ -5,6 +5,15 @@ import { Link } from "react-router-dom";
 
 const AccountButton = () => {
   const totalQuantity = useCartStore((state) => state.getTotalQuantity());
+  const toggleCartVisibility = useCartStore(
+    (state) => state.toggleCartVisibility
+  );
+
+  const showCart = () => {
+    console.log("Mostrar carrito");
+    toggleCartVisibility();
+  };
+
   return (
     <div className="flex items-center gap-[1px]">
       <Link
@@ -15,7 +24,10 @@ const AccountButton = () => {
         <img src={AccountIcon} alt="Icono de cuenta" className="size-[16px]" />
         <span className="hidden lg:block">Mi cuenta</span>
       </Link>
-      <button className="group bg-primary py-[6px] px-3 rounded-r-full hover:bg-secondary transition-all duration-500 h-[30px] relative">
+      <button
+        className="group bg-primary py-[6px] px-3 rounded-r-full hover:bg-secondary transition-all duration-500 h-[30px] relative"
+        onClick={showCart}
+      >
         <img
           src={ShopIcon}
           alt="Icono de shop para ver el carrito"
