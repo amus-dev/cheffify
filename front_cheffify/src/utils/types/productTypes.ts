@@ -20,3 +20,14 @@ export interface Product {
   image: string;
   alt: string;
 }
+
+export interface ProductsStore {
+  id: number;
+  slug: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+  alt: string;
+  quantity: number;
+}
