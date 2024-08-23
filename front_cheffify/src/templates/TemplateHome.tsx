@@ -7,7 +7,6 @@ import SecondSection from "@/components/sections/home/SecondSection";
 import SevenSection from "@/components/sections/home/SevenSection";
 import SixSection from "@/components/sections/home/SixSection";
 import ThirdSection from "@/components/sections/home/ThirdSection";
-
 import { Toaster } from "sonner";
 
 const TemplateHome = () => {
