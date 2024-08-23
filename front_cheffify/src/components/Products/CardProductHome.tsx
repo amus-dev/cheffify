@@ -1,31 +1,47 @@
-import ImageFood from "@/assets/images/foods/arroz_curry.webp";
 import IconShop from "@/assets/images/icons/bag.svg";
+import { formatPriceCLP } from "@/utils/functions/products";
+import { CardProductType } from "@/utils/types/productTypes";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const CardProductHome = () => {
+const CardProductHome = ({
+  id,
+  slug,
+  title,
+  description,
+  price,
+  image,
+  alt,
+}: CardProductType) => {
   const [quantity, setQuantity] = useState(1);
+
+  const addProductToCart = () => {
+    console.log(`Product ${id} added to cart`);
+  };
 
   return (
     <article className="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow">
       <Link
-        to="shop/product"
+        to={`/shop/${slug}`}
         unstable_viewTransition
-        aria-label="Link que te lleva al interior del producto"
+        aria-label={`Link que te lleva al interior del producto ${title}`}
       >
         <img
-          alt="Imagen del producto"
-          src={ImageFood}
+          alt={alt}
+          src={image}
           className="aspect-square rounded-[15px] brightness-75 transition duration-500 ease-in-out hover:brightness-110"
         />
       </Link>
       <div className="px-2 py-4">
-        <h3 className="text-grayLight font-bold text-[19px]">Arroz Curry</h3>
-        <p className="text-grayLight text-[12px] min-h-[90px]">
-          Un viaje de sabores intensos, una delicia especiada que transporta tus
-          sentidos a lejanas tierras orientales.
+        <h3 className="text-grayLight font-bold text-[19px] min-h-[42px] leading-[19px] mb-4">
+          {title}
+        </h3>
+        <p className="text-grayLight text-[12px] min-h-[90px] mb-6">
+          {description}
         </p>
-        <p className="text-primary text-[19px] font-bold">$1.430</p>
+        <p className="text-primary text-[19px] font-bold">
+          {formatPriceCLP(price)}
+        </p>
       </div>
       <div className="flex justify-between gap-4 px-2">
         <div className="flex items-center rounded-[5px] border border-secondary w-full max-w-[70px]">
@@ -51,7 +67,10 @@ const CardProductHome = () => {
             </button>
           </div>
         </div>
-        <button className="flex items-center justify-center gap-4 bg-secondary w-full rounded-[5px] text-[15px] font-medium transition-all duration-500 hover:bg-primary">
+        <button
+          className="flex items-center justify-center gap-4 bg-secondary w-full rounded-[5px] text-[15px] font-medium transition-all duration-500 hover:bg-primary"
+          onClick={addProductToCart}
+        >
           Agregar{" "}
           <img
             src={IconShop}
