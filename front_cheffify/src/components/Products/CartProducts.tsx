@@ -1,6 +1,7 @@
 import IconClose from "@/assets/images/icons/icon-close.svg";
 import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
 import useCartStore from "@/stores/productsStore";
+import { DELIVERY } from "@/utils/const/products";
 import { formatPriceCLP } from "@/utils/functions/products";
 
 const CartProducts = () => {
@@ -9,10 +10,8 @@ const CartProducts = () => {
   const toggleCartVisibility = useCartStore(
     (state) => state.toggleCartVisibility
   );
-
-  const hiddeCart = () => {
-    toggleCartVisibility();
-  };
+  const updateQuantity = useCartStore((state) => state.updateQuantity);
+  const getTotalPrice = useCartStore((state) => state.getTotalPrice());
 
   const deleteProduct = () => {
     console.log("Eliminar producto");
@@ -33,7 +32,7 @@ const CartProducts = () => {
             src={IconClose}
             alt=""
             className="size-4 transition-all duration-500 hover:rotate-90"
-            onClick={hiddeCart}
+            onClick={toggleCartVisibility}
           />
         </button>
       </div>
@@ -53,12 +52,22 @@ const CartProducts = () => {
               <img src={IconTrash} alt="" className="size-4" />
             </button>
             <div className="flex items-center justify-center gap-1 border border-secondary rounded-md p-1 leading-none">
-              <button className="text-secondary text-[16px]">-</button>
+              <button
+                className="text-secondary text-[16px]"
+                onClick={() => updateQuantity(id, quantity - 1)}
+              >
+                -
+              </button>
               <span className="text-secondary text-[11px]">{quantity}</span>
-              <button className="text-secondary text-[16px] mt-[3px]">+</button>
+              <button
+                className="text-secondary text-[16px] mt-[3px]"
+                onClick={() => updateQuantity(id, quantity + 1)}
+              >
+                +
+              </button>
             </div>
             <span className="text-green text-[12px] font-bold">
-              {formatPriceCLP(price)}
+              {formatPriceCLP(price * quantity)}
             </span>
           </div>
         </div>
@@ -67,19 +76,25 @@ const CartProducts = () => {
       <div className="w-full border-t border-separator mt-4">
         <div className="flex items-center justify-between mt-4">
           <span className="text-[12px] font-black text-grayCart">Subtotal</span>
-          <span className="text-[12px] font-black text-grayCart">$8.525</span>
+          <span className="text-[12px] font-black text-grayCart">
+            {formatPriceCLP(getTotalPrice)}
+          </span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-[12px] font-black text-grayCart">
             Despacho*
           </span>
-          <span className="text-[12px] font-black text-grayCart">$4.000</span>
+          <span className="text-[12px] font-black text-grayCart">
+            {formatPriceCLP(DELIVERY)}
+          </span>
         </div>
         <div className="flex items-center justify-between my-2">
           <span className="text-[12px] font-black text-green">
             Total pedido
           </span>
-          <span className="text-[12px] font-black text-green">$12.525</span>
+          <span className="text-[12px] font-black text-green">
+            {formatPriceCLP(getTotalPrice + DELIVERY)}
+          </span>
         </div>
         <button className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500">
           Realizar pedido
