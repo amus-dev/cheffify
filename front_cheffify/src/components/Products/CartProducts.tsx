@@ -19,7 +19,7 @@ const CartProducts = () => {
 
   return (
     <div
-      className={`bg-white absolute top-20 right-20 shadow-card-shadow p-3 rounded-md transition-all duration-300 ${
+      className={`bg-white w-full max-w-[300px] absolute top-20 right-20 shadow-card-shadow p-3 rounded-lg transition-all duration-300 ${
         isCartVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -99,6 +99,9 @@ const CartProducts = () => {
         <button className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500">
           Realizar pedido
         </button>
+        <span className="text-[10px] italic text-primary">
+          *Precio de despacho para Región Metropolitana de Santiago.
+        </span>
       </div>
     </div>
   );
