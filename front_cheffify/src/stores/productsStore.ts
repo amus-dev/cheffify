@@ -1,5 +1,5 @@
 import create from "zustand";
-import { ProductsStore } from "@/utils/types/productTypes"; // Asegúrate de que la ruta y el nombre sean correctos
+import { ProductsStore } from "@/utils/types/productTypes";
 
 interface CartStore {
   products: ProductsStore[];
@@ -7,9 +7,10 @@ interface CartStore {
   removeProduct: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
+  getTotalQuantity: () => number; // Nueva propiedad para obtener el total de quantities
 }
 
-const useCartStore = create<CartStore>((set) => ({
+const useCartStore = create<CartStore>((set, get) => ({
   products: [],
 
   addProduct: (product) =>
@@ -50,6 +51,11 @@ const useCartStore = create<CartStore>((set) => ({
     set(() => ({
       products: [],
     })),
+
+  getTotalQuantity: () => {
+    const products = get().products;
+    return products.reduce((total, product) => total + product.quantity, 0);
+  },
 }));
 
 export default useCartStore;
