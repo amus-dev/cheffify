@@ -7,8 +7,8 @@ const Overlay = () => {
   );
   return (
     isCartVisible && (
-      <div className="relative" onClick={toggleCartVisibility}>
-        <div className="fixed inset-0 bg-black opacity-50 z-10"></div>
+      <div className="relative z-10" onClick={toggleCartVisibility}>
+        <div className="fixed inset-0 bg-black opacity-50"></div>
       </div>
     )
   );
