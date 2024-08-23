@@ -29,7 +29,7 @@ const CartProducts = () => {
 
   return (
     <div
-      className={`bg-white w-full max-w-[300px] absolute overflow-hidden top-20 right-20 shadow-card-shadow p-3 rounded-lg transition-all duration-300 ${
+      className={`bg-white w-full sm:max-w-[300px] absolute overflow-hidden top-[105px] sm:top-20 right-0 sm:right-20 shadow-card-shadow p-3 sm:rounded-lg transition-all duration-300 ${
         isCartVisible ? "opacity-100" : "opacity-0"
       }`}
     >
