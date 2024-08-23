@@ -10,6 +10,7 @@ interface CartStore {
   clearCart: () => void;
   toggleCartVisibility: () => void;
   getTotalQuantity: () => number;
+  getTotalPrice: () => number;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
@@ -63,6 +64,14 @@ const useCartStore = create<CartStore>((set, get) => ({
   getTotalQuantity: () => {
     const products = get().products;
     return products.reduce((total, product) => total + product.quantity, 0);
+  },
+
+  getTotalPrice: () => {
+    const products = get().products;
+    return products.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
   },
 }));
 
