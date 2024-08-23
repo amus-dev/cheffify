@@ -1,17 +1,20 @@
-import create from "zustand";
+import { create } from "zustand";
 import { ProductsStore } from "@/utils/types/productTypes";
 
 interface CartStore {
   products: ProductsStore[];
+  isCartVisible: boolean;
   addProduct: (product: ProductsStore) => void;
   removeProduct: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
   clearCart: () => void;
+  toggleCartVisibility: () => void;
   getTotalQuantity: () => number;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
   products: [],
+  isCartVisible: false,
 
   addProduct: (product) =>
     set((state) => {
@@ -50,6 +53,11 @@ const useCartStore = create<CartStore>((set, get) => ({
   clearCart: () =>
     set(() => ({
       products: [],
+    })),
+
+  toggleCartVisibility: () =>
+    set((state) => ({
+      isCartVisible: !state.isCartVisible,
     })),
 
   getTotalQuantity: () => {
