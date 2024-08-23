@@ -2,6 +2,7 @@ import Logo from "@/assets/images/logo/cheffify-logo.svg";
 import AccountButton from "@/components/Buttons/AccountButton";
 import FoodButton from "@/components/Buttons/FoodButton";
 import ButtonLink from "@/components/common/navbar/ButtonLink";
+import CartProducts from "@/components/Products/CartProducts";
 import { MENU_ITEMS } from "@/utils/const/menu";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -33,8 +34,8 @@ const MenuNav = () => {
 
   return (
     <nav
-      className={`relative top-0 left-0 right-0 z-10 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500 ${
-        hasScrolled ? "shadow-lg !z-50 !fixed" : ""
+      className={`top-0 left-0 right-0 z-10 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500 ${
+        hasScrolled ? "shadow-lg !z-50 !fixed" : "relative"
       }`}
     >
       <div>
@@ -68,6 +69,7 @@ const MenuNav = () => {
         <FoodButton />
         <AccountButton />
       </div>
+      <CartProducts />
     </nav>
   );
 };
