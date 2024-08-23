@@ -46,85 +46,97 @@ const CartProducts = () => {
           />
         </button>
       </div>
-      {products.map(({ id, image, title, quantity, price }) => (
-        <div
-          className={`flex items-center justify-between mt-5 gap-2 transition-all duration-500 ${
-            removingProductId === id ? "opacity-0 translate-x-[-100%]" : ""
-          }`}
-          key={id}
-        >
-          <div className="flex items-center justify-start gap-3">
-            <img
-              src={image}
-              className="aspect-square w-full max-w-[45px] rounded-md"
-            />
-            <h5 className="text-grayLight text-[11px] max-w-[110px] text-balance">
-              {title}
-            </h5>
-          </div>
-          <div className="flex items-center justify-between gap-4">
-            <button
-              onClick={() => handleRemoveProduct(id)}
-              className="w-[15px] h-[15px]"
+      {products.length > 0 ? (
+        <div>
+          {products.map(({ id, image, title, quantity, price }) => (
+            <div
+              className={`flex items-center justify-between mt-5 gap-2 transition-all duration-500 ${
+                removingProductId === id ? "opacity-0 translate-x-[-100%]" : ""
+              }`}
+              key={id}
             >
-              <img
-                src={IconTrash}
-                alt={`Icono para eliminar el producto ${title}`}
-                className="w-[15px] h-[15px] transition-all duration-500 hover:scale-110"
-              />
-            </button>
-            <div className="flex items-center justify-center gap-1 border border-secondary rounded-md p-1 leading-none">
-              <button
-                className="text-secondary text-[16px]"
-                onClick={() => updateQuantity(id, quantity - 1)}
-              >
-                -
-              </button>
-              <span className="text-secondary text-[11px]">{quantity}</span>
-              <button
-                className="text-secondary text-[16px] mt-[3px]"
-                onClick={() => updateQuantity(id, quantity + 1)}
-              >
-                +
-              </button>
+              <div className="flex items-center justify-start gap-3">
+                <img
+                  src={image}
+                  className="aspect-square w-full max-w-[45px] rounded-md"
+                />
+                <h5 className="text-grayLight text-[11px] max-w-[110px] text-balance">
+                  {title}
+                </h5>
+              </div>
+              <div className="flex items-center justify-between gap-4">
+                <button
+                  onClick={() => handleRemoveProduct(id)}
+                  className="w-[15px] h-[15px]"
+                >
+                  <img
+                    src={IconTrash}
+                    alt={`Icono para eliminar el producto ${title}`}
+                    className="w-[15px] h-[15px] transition-all duration-500 hover:scale-110"
+                  />
+                </button>
+                <div className="flex items-center justify-center gap-1 border border-secondary rounded-md p-1 leading-none">
+                  <button
+                    className="text-secondary text-[16px]"
+                    onClick={() => updateQuantity(id, quantity - 1)}
+                  >
+                    -
+                  </button>
+                  <span className="text-secondary text-[11px]">{quantity}</span>
+                  <button
+                    className="text-secondary text-[16px] mt-[3px]"
+                    onClick={() => updateQuantity(id, quantity + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+                <span className="text-green text-[12px] font-bold">
+                  {formatPriceCLP(price * quantity)}
+                </span>
+              </div>
             </div>
-            <span className="text-green text-[12px] font-bold">
-              {formatPriceCLP(price * quantity)}
+          ))}
+
+          <div className="w-full border-t border-separator mt-4">
+            <div className="flex items-center justify-between mt-4">
+              <span className="text-[12px] font-black text-grayCart">
+                Subtotal
+              </span>
+              <span className="text-[12px] font-black text-grayCart">
+                {formatPriceCLP(getTotalPrice)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span className="text-[12px] font-black text-grayCart">
+                Despacho*
+              </span>
+              <span className="text-[12px] font-black text-grayCart">
+                {formatPriceCLP(DELIVERY)}
+              </span>
+            </div>
+            <div className="flex items-center justify-between my-2">
+              <span className="text-[12px] font-black text-green">
+                Total pedido
+              </span>
+              <span className="text-[12px] font-black text-green">
+                {formatPriceCLP(getTotalPrice + DELIVERY)}
+              </span>
+            </div>
+            <button className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500">
+              Realizar pedido
+            </button>
+            <span className="text-[10px] italic text-primary">
+              *Precio de despacho para Región Metropolitana de Santiago.
             </span>
           </div>
         </div>
-      ))}
-
-      <div className="w-full border-t border-separator mt-4">
-        <div className="flex items-center justify-between mt-4">
-          <span className="text-[12px] font-black text-grayCart">Subtotal</span>
-          <span className="text-[12px] font-black text-grayCart">
-            {formatPriceCLP(getTotalPrice)}
+      ) : (
+        <div className="flex items-center justify-center h-[100px] border-t border-separator">
+          <span className="text-primary text-[16px] font-bold">
+            Tu cesta está vacía
           </span>
         </div>
-        <div className="flex items-center justify-between">
-          <span className="text-[12px] font-black text-grayCart">
-            Despacho*
-          </span>
-          <span className="text-[12px] font-black text-grayCart">
-            {formatPriceCLP(DELIVERY)}
-          </span>
-        </div>
-        <div className="flex items-center justify-between my-2">
-          <span className="text-[12px] font-black text-green">
-            Total pedido
-          </span>
-          <span className="text-[12px] font-black text-green">
-            {formatPriceCLP(getTotalPrice + DELIVERY)}
-          </span>
-        </div>
-        <button className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500">
-          Realizar pedido
-        </button>
-        <span className="text-[10px] italic text-primary">
-          *Precio de despacho para Región Metropolitana de Santiago.
-        </span>
-      </div>
+      )}
     </div>
   );
 };
