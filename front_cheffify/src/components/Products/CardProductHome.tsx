@@ -1,7 +1,8 @@
 import IconShop from "@/assets/images/icons/bag.svg";
+import useCartStore from "@/stores/productsStore";
 import { formatPriceCLP } from "@/utils/functions/products";
 import { CardProductType } from "@/utils/types/productTypes";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const CardProductHome = ({
@@ -14,10 +15,26 @@ const CardProductHome = ({
   alt,
 }: CardProductType) => {
   const [quantity, setQuantity] = useState(1);
+  const addProduct = useCartStore((state) => state.addProduct);
+  const products = useCartStore((state) => state.products);
 
   const addProductToCart = () => {
-    console.log(`Product ${id} added to cart`);
+    const newProduct = {
+      id,
+      slug,
+      title,
+      description,
+      price,
+      image,
+      alt,
+      quantity,
+    };
+    addProduct(newProduct);
   };
+
+  useEffect(() => {
+    console.log(products);
+  }, [products]);
 
   return (
     <article className="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow">
