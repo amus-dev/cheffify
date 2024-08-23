@@ -3,6 +3,7 @@ import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
 import useCartStore from "@/stores/productsStore";
 import { DELIVERY } from "@/utils/const/products";
 import { formatPriceCLP } from "@/utils/functions/products";
+import { useState } from "react";
 
 const CartProducts = () => {
   const products = useCartStore((state) => state.products);
@@ -12,14 +13,23 @@ const CartProducts = () => {
   );
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const getTotalPrice = useCartStore((state) => state.getTotalPrice());
+  const removeProduct = useCartStore((state) => state.removeProduct);
 
-  const deleteProduct = () => {
-    console.log("Eliminar producto");
+  const [removingProductId, setRemovingProductId] = useState<number | null>(
+    null
+  );
+
+  const handleRemoveProduct = (id: number) => {
+    setRemovingProductId(id);
+    setTimeout(() => {
+      removeProduct(id);
+      setRemovingProductId(null);
+    }, 500); // El tiempo debe coincidir con la duración de la animación
   };
 
   return (
     <div
-      className={`bg-white w-full max-w-[300px] absolute top-20 right-20 shadow-card-shadow p-3 rounded-lg transition-all duration-300 ${
+      className={`bg-white w-full max-w-[300px] absolute overflow-hidden top-20 right-20 shadow-card-shadow p-3 rounded-lg transition-all duration-300 ${
         isCartVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -37,7 +47,12 @@ const CartProducts = () => {
         </button>
       </div>
       {products.map(({ id, image, title, quantity, price }) => (
-        <div className="flex items-center justify-between mt-5 gap-2" key={id}>
+        <div
+          className={`flex items-center justify-between mt-5 gap-2 transition-all duration-500 ${
+            removingProductId === id ? "opacity-0 translate-x-[-100%]" : ""
+          }`}
+          key={id}
+        >
           <div className="flex items-center justify-start gap-3">
             <img
               src={image}
@@ -48,7 +63,10 @@ const CartProducts = () => {
             </h5>
           </div>
           <div className="flex items-center justify-between gap-4">
-            <button onClick={deleteProduct} className="w-[15px] h-[15px]">
+            <button
+              onClick={() => handleRemoveProduct(id)}
+              className="w-[15px] h-[15px]"
+            >
               <img
                 src={IconTrash}
                 alt={`Icono para eliminar el producto ${title}`}
