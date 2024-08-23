@@ -26,21 +26,20 @@ const SecondSection = () => {
         nosotros también, por eso dejamos una sugerencia, tú eliges.
       </p>
       <div className="grid mt-10 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 z-10">
-        {PRODUCTS &&
-          randomArray({ arr: PRODUCTS, totalItems: 4 }).map(
-            ({ id, slug, title, description, price, image, alt }) => (
-              <CardProductHome
-                key={id}
-                id={id}
-                slug={slug}
-                title={title}
-                description={description}
-                price={price}
-                image={image}
-                alt={alt}
-              />
-            )
-          )}
+        {randomArray({ arr: PRODUCTS, totalItems: 4 }).map(
+          ({ id, slug, title, description, price, image, alt }) => (
+            <CardProductHome
+              key={id}
+              id={id}
+              slug={slug}
+              title={title}
+              description={description}
+              price={price}
+              image={image}
+              alt={alt}
+            />
+          )
+        )}
       </div>
       <Link
         to="/shop"
