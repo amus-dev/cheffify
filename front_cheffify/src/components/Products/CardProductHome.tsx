@@ -1,11 +1,11 @@
 import IconShop from "@/assets/images/icons/bag.svg";
+import IconCheck from "@/assets/images/icons/check.svg";
 import useCartStore from "@/stores/productsStore";
 import { formatPriceCLP } from "@/utils/functions/products";
+import { showSuccessToast } from "@/utils/functions/showToast";
 import { CardProductType } from "@/utils/types/productTypes";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "sonner";
-import IconCheck from "@/assets/images/icons/check.svg";
 
 const CardProductHome = ({
   id,
@@ -18,10 +18,9 @@ const CardProductHome = ({
 }: CardProductType) => {
   const [quantity, setQuantity] = useState(1);
   const addProduct = useCartStore((state) => state.addProduct);
-  const products = useCartStore((state) => state.products);
 
   const addProductToCart = () => {
-    const newProduct = {
+    addProduct({
       id,
       slug,
       title,
@@ -30,22 +29,12 @@ const CardProductHome = ({
       image,
       alt,
       quantity,
-    };
-    addProduct(newProduct);
-    toast.success(
-      <div className="flex items-center justify-center gap-3">
-        <img src={IconCheck} className="size-8" />
-        <span className="text-sm text-primary font-bold">
-          Producto guardado!
-        </span>
-      </div>,
-      { duration: 10000 }
-    );
+    });
+    showSuccessToast({
+      message: "Producto agregado al carrito",
+      icon: IconCheck,
+    });
   };
-
-  useEffect(() => {
-    console.log(products);
-  }, [products]);
 
   return (
     <article className="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow">
