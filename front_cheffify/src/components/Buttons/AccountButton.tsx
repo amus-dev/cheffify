@@ -10,7 +10,6 @@ const AccountButton = () => {
   );
 
   const showCart = () => {
-    console.log("Mostrar carrito");
     toggleCartVisibility();
   };
 
