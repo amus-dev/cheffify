@@ -4,6 +4,8 @@ import { formatPriceCLP } from "@/utils/functions/products";
 import { CardProductType } from "@/utils/types/productTypes";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "sonner";
+import IconCheck from "@/assets/images/icons/check.svg";
 
 const CardProductHome = ({
   id,
@@ -30,6 +32,15 @@ const CardProductHome = ({
       quantity,
     };
     addProduct(newProduct);
+    toast.success(
+      <div className="flex items-center justify-center gap-3">
+        <img src={IconCheck} className="size-8" />
+        <span className="text-sm text-primary font-bold">
+          Producto guardado!
+        </span>
+      </div>,
+      { duration: 10000 }
+    );
   };
 
   useEffect(() => {
