@@ -1,5 +1,7 @@
 import IconShop from "@/assets/images/icons/bag.svg";
 import IconCheck from "@/assets/images/icons/check.svg";
+import IconFile from "@/assets/images/icons/icon-file.svg";
+import InfoFile from "@/assets/pdf/informacion_nutricional.pdf";
 import useCartStore from "@/stores/productsStore";
 import {
   filterProductBySlug,
@@ -59,7 +61,19 @@ const SingleProductCard = () => {
             >
               Volver
             </Link>
-            <a href="">info</a>
+            <a
+              href={InfoFile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex bg-gray items-center justify-center gap-2 py-2 px-4 rounded-md text-grayLight transition-all duration-500 hover:bg-green hover:text-white"
+            >
+              <img
+                src={IconFile}
+                alt="Icono de archivo para descargar información nutricional"
+                className="size-5"
+              />
+              <span>Info Nutricional</span>
+            </a>
           </div>
           <div>
             <h1 className="text-primary text-[22px] font-bold">
