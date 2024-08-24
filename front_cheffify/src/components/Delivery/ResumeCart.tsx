@@ -105,7 +105,7 @@ const ResumeCart = () => {
           {formatPriceCLP(getTotalPrice + DELIVERY)}
         </span>
       </div>
-      <div>
+      <div className="mt-4">
         <p className="font-bold text-green text-[13px]">
           Su pedido será despachado 24 horas después de la compra, de lunes a
           viernes

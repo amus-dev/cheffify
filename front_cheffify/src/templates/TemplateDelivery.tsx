@@ -8,7 +8,7 @@ const TemplateDelivery = () => {
   return (
     <main>
       <MenuNav />
-      <section className="px-[20px] lg:px-[60px] xl:px-[170px] my-10 flex items-center justify-between">
+      <section className="px-[20px] lg:px-[60px] xl:px-[170px] my-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-40 xl:gap-60">
         <div>
           <h1 className="text-[19px] text-primary font-bold mb-4">
             Dirección de envío
