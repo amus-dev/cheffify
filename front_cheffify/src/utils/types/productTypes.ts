@@ -23,11 +23,11 @@ export interface Product {
 
 export interface ProductsStore {
   id: number;
-  slug: string;
+  slug?: string;
   title: string;
   description: string;
   price: number;
   image: string;
-  alt: string;
+  alt?: string;
   quantity: number;
 }
