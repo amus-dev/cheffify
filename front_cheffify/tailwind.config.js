@@ -12,6 +12,8 @@ module.exports = {
         separator: "#E0E0EB",
         grayCart: "#BEBEC9",
         gray: "#EDEDED",
+        bgInput: "#E8E8EF",
+        colorInput: "#80808B",
       },
       boxShadow: {
         "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px",
