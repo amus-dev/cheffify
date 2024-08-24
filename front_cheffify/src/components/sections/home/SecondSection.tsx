@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 const SecondSection = () => {
   return (
     <section
-      className="bg-secondaryLight mt-28 flex flex-col justify-center items-center relative px-[20px] pb-28"
+      className="bg-secondaryLight mt-28 flex flex-col justify-center items-center relative px-[20px] pb-20"
       id="comemos"
     >
       <a
