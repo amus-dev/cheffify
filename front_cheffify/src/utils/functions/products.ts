@@ -1,3 +1,5 @@
+import { PRODUCTS } from "@/config/database.products";
+
 interface RandomArrayType<T> {
   arr: Array<T>;
   totalItems: number;
@@ -16,4 +18,9 @@ export const formatPriceCLP = (price: number) => {
     style: "currency",
     currency: "CLP",
   }).format(price);
+};
+
+export const filterProductBySlug = (slug: string) => {
+  const productFilter = PRODUCTS.filter((product) => product.slug === slug);
+  return productFilter[0];
 };
