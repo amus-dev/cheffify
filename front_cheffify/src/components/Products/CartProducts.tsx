@@ -4,8 +4,10 @@ import useCartStore from "@/stores/productsStore";
 import { DELIVERY } from "@/utils/const/products";
 import { formatPriceCLP } from "@/utils/functions/products";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const CartProducts = () => {
+  const navigate = useNavigate();
   const products = useCartStore((state) => state.products);
   const isCartVisible = useCartStore((state) => state.isCartVisible);
   const toggleCartVisibility = useCartStore(
@@ -24,7 +26,19 @@ const CartProducts = () => {
     setTimeout(() => {
       removeProduct(id);
       setRemovingProductId(null);
-    }, 500); // El tiempo debe coincidir con la duración de la animación
+    }, 500);
+  };
+
+  const handleNavigateToDelivery = () => {
+    toggleCartVisibility();
+    if (document.startViewTransition) {
+      document.startViewTransition(() => {
+        navigate("/delivery");
+      });
+    } else {
+      // Fallback si viewTransition no está disponible
+      navigate("/delivery");
+    }
   };
 
   return (
@@ -122,7 +136,10 @@ const CartProducts = () => {
                 {formatPriceCLP(getTotalPrice + DELIVERY)}
               </span>
             </div>
-            <button className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500">
+            <button
+              className="bg-secondary text-white font-bold w-full rounded-lg text-[14px] text-center px-10 py-3 hover:bg-primary transition-all duration-500"
+              onClick={handleNavigateToDelivery}
+            >
               Realizar pedido
             </button>
             <span className="text-[10px] italic text-primary">
