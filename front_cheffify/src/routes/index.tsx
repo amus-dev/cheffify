@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const HomePage = lazy(() => import("@/pages/Home"));
 const CongeladosPage = lazy(() => import("@/pages/Congelados"));
-const ShopPage = lazy(() => import("@/pages/Shop"));
+const SingleProductPage = lazy(() => import("@/pages/SingleProduct"));
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/shop/:productSlug",
-    element: <ShopPage />,
+    element: <SingleProductPage />,
   },
 ]);
 
