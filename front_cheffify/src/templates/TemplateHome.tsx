@@ -1,3 +1,4 @@
+import ArrowScrollUpButton from "@/components/Buttons/ArrowScrollUpButton";
 import Footer from "@/components/common/footer";
 import MenuNav from "@/components/common/navbar/MenuNav";
 import Overlay from "@/components/common/overlay";
@@ -24,6 +25,7 @@ const TemplateHome = () => {
       <Footer />
       <Toaster />
       <Overlay />
+      <ArrowScrollUpButton />
     </main>
   );
 };

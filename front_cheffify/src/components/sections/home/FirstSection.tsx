@@ -5,7 +5,10 @@ import { Link } from "react-router-dom";
 
 const FirstSection = () => {
   return (
-    <section className="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px] mt-6">
+    <section
+      className="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px] mt-6"
+      id="initialSection"
+    >
       <div className="lg:max-w-[620px]">
         <h1 className="text-primary text-[42px] font-extrabold lg:max-w-[400px] leading-[42px] text-center lg:text-start">
           Comida congelada{" "}
