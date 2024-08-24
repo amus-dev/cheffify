@@ -44,7 +44,7 @@ const CartProducts = () => {
   return (
     <div
       className={`bg-white w-full sm:max-w-[300px] absolute overflow-hidden top-[105px] sm:top-20 right-0 sm:right-20 shadow-card-shadow p-3 sm:rounded-lg transition-all duration-300 ${
-        isCartVisible ? "opacity-100" : "opacity-0"
+        isCartVisible ? "opacity-100 visible" : "opacity-0 invisible"
       }`}
     >
       <div className="relative">
