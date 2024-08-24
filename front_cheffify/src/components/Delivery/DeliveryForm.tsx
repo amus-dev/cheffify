@@ -35,8 +35,8 @@ const DeliveryForm = () => {
         <span className="text-red-600 text-sm">{errors.address.message}</span>
       )}
 
-      <div className="flex items-center gap-4">
-        <div className="flex w-full">
+      <div className="flex flex-col lg:flex-row items-center gap-4">
+        <div className="flex flex-col w-full">
           <input
             id="name"
             {...register("name", { required: "El nombre es requerido" })}
@@ -48,7 +48,7 @@ const DeliveryForm = () => {
           )}
         </div>
 
-        <div className="flex w-full">
+        <div className="flex flex-col w-full">
           <input
             id="lastName"
             {...register("lastName", { required: "El apellido es requerido" })}
