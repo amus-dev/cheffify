@@ -6,10 +6,6 @@ import { useState } from "react";
 
 const ResumeCart = () => {
   const products = useCartStore((state) => state.products);
-  const isCartVisible = useCartStore((state) => state.isCartVisible);
-  const toggleCartVisibility = useCartStore(
-    (state) => state.toggleCartVisibility
-  );
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const getTotalPrice = useCartStore((state) => state.getTotalPrice());
   const removeProduct = useCartStore((state) => state.removeProduct);
