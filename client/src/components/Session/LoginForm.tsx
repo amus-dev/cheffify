@@ -1,5 +1,6 @@
-import { showToast } from "@/utils/functions/showToast";
+import { loginSubmitHandler } from "@/utils/functions/forms";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 
 type Inputs = {
   email: string;
@@ -7,27 +8,15 @@ type Inputs = {
 };
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    const result = await fetch(
-      `${import.meta.env.VITE_API_URL}/public/index.php?action=login`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      }
-    );
-    const response = await result.json();
-    console.log(response);
-    showToast({ message: response.message, type: "error" });
-  };
+  const onSubmit: SubmitHandler<Inputs> = async (data) =>
+    loginSubmitHandler(data, navigate);
 
   return (
     <form
