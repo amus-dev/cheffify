@@ -5,6 +5,7 @@ const HomePage = lazy(() => import("@/pages/Home"));
 const CongeladosPage = lazy(() => import("@/pages/Congelados"));
 const SingleProductPage = lazy(() => import("@/pages/SingleProduct"));
 const Delivery = lazy(() => import("@/pages/Delivery"));
+const Login = lazy(() => import("@/pages/Login"));
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/delivery",
     element: <Delivery />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
   },
 ]);
 
