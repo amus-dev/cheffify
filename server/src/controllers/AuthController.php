@@ -1,7 +1,10 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
+require_once __DIR__ . '/../../config/const.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../utils/ResponseHelper.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+use \Firebase\JWT\JWT;
 
 class AuthController
 {
@@ -43,6 +46,18 @@ class AuthController
      private function loginSuccessful($user)
      {
           // Aquí generarías tu JWT y cualquier otro proceso post-login
-          ResponseHelper::sendResponse(200, "Sesión iniciada!, serás redirigido en unos segundos...", $user);
+          $payload = [
+               'iss' => "http://yourdomain.com", // Issuer
+               'aud' => "http://yourdomain.com", // Audience
+               'iat' => time(), // Tiempo en que fue emitido
+               'exp' => time() + 3600, // Tiempo en que expira (1 hora)
+               'data' => [
+                    'id' => $user['id'],
+                    'email' => $user['email']
+               ]
+          ];
+
+          $jwt = JWT::encode($payload, JWT_SECRET, 'HS256');
+          ResponseHelper::sendResponse(200, "Sesión iniciada!, serás redirigido en unos segundos...", ['token' => $jwt]);
      }
 }
