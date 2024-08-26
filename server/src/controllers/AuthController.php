@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
-require_once __DIR__ . '/../../config/const.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../utils/ResponseHelper.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 use \Firebase\JWT\JWT;
+
+// Cargar las variables de entorno desde el archivo .env
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
+$dotenv->load();
 
 class AuthController
 {
@@ -47,8 +50,8 @@ class AuthController
      {
           // Aquí generarías tu JWT y cualquier otro proceso post-login
           $payload = [
-               'iss' => "http://yourdomain.com", // Issuer
-               'aud' => "http://yourdomain.com", // Audience
+               'iss' => $_ENV['JWT_DOMAIN'], // Issuer
+               'aud' => $_ENV['JWT_DOMAIN'], // Audience
                'iat' => time(), // Tiempo en que fue emitido
                'exp' => time() + 3600, // Tiempo en que expira (1 hora)
                'data' => [
@@ -57,7 +60,7 @@ class AuthController
                ]
           ];
 
-          $jwt = JWT::encode($payload, JWT_SECRET, 'HS256');
+          $jwt = JWT::encode($payload, $_ENV['JWT_SECRET'], 'HS256');
           ResponseHelper::sendResponse(200, "Sesión iniciada!, serás redirigido en unos segundos...", ['token' => $jwt]);
      }
 }

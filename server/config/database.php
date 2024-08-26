@@ -1,4 +1,5 @@
 <?php
+
 class Database
 {
      private $host;
@@ -9,10 +10,14 @@ class Database
 
      public function __construct()
      {
-          $this->host = getenv('DB_HOST') ?: 'localhost';
-          $this->db_name = getenv('DB_NAME') ?: 'cheffify_administrator';
-          $this->username = getenv('DB_USERNAME') ?: 'cheffify_user';
-          $this->password = getenv('DB_PASSWORD') ?: 'cheffify2023';
+          // Cargar las variables de entorno desde el archivo .env
+          $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
+          $dotenv->load();
+
+          $this->host = $_ENV['DB_HOST'];
+          $this->db_name = $_ENV['DB_NAME'];
+          $this->username = $_ENV['DB_USERNAME'];
+          $this->password = $_ENV['DB_PASSWORD'];
      }
 
      public function getConnection()
