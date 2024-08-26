@@ -18,4 +18,13 @@ class User
           $result = $stmt->get_result();
           return $result->fetch_assoc();
      }
+
+     public function updatePassword($userId, $newPasswordHash)
+     {
+          $query = "UPDATE " . $this->table_name . " SET password = ? WHERE id = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("si", $newPasswordHash, $userId);
+          $stmt->execute();
+     }
+
 }
