@@ -1,12 +1,20 @@
 {
+  "functions": {
+    "api/**/*": {
+      "includeFiles": "client/**/*"
+    }
+  },
+  "ignoreBuildStep": true,
   "builds": [
     {
-      "src": "client/**",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "client/dist"
-      }
+      "src": "client/package.json",
+      "use": "@vercel/node"
     }
   ],
-  "ignoreCommand": "git diff --quiet HEAD^ HEAD -- server/ || true"
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/client/$1"
+    }
+  ]
 }
