@@ -2,7 +2,7 @@ import IconShop from "@/assets/images/icons/bag.svg";
 import IconCheck from "@/assets/images/icons/check.svg";
 import useCartStore from "@/stores/productsStore";
 import { formatPriceCLP } from "@/utils/functions/products";
-import { showSuccessToast } from "@/utils/functions/showToast";
+import { showToast } from "@/utils/functions/showToast";
 import { CardProductType } from "@/utils/types/productTypes";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -30,9 +30,10 @@ const CardProductHome = ({
       alt,
       quantity,
     });
-    showSuccessToast({
+    showToast({
       message: "Producto agregado al carrito",
       icon: IconCheck,
+      type: "success",
     });
   };
 
