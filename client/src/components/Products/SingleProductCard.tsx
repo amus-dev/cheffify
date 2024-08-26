@@ -7,7 +7,7 @@ import {
   filterProductBySlug,
   formatPriceCLP,
 } from "@/utils/functions/products";
-import { showSuccessToast } from "@/utils/functions/showToast";
+import { showToast } from "@/utils/functions/showToast";
 import { Product } from "@/utils/types/productTypes";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
@@ -35,9 +35,10 @@ const SingleProductCard = () => {
         alt: productFiltered.alt,
         quantity: quantity,
       });
-      showSuccessToast({
+      showToast({
         message: "Producto agregado al carrito",
         icon: IconCheck,
+        type: "success",
       });
     }
   };
