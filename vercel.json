@@ -8,5 +8,5 @@
       }
     }
   ],
-  "ignoreCommand": "git diff HEAD^ HEAD --quiet server/"
+  "ignoreCommand": "true"
 }
