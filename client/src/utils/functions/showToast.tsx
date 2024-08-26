@@ -1,20 +1,34 @@
 import { toast } from "sonner";
+
 interface ShowToastProps {
   message: string;
   icon?: string;
   duration?: number;
+  type: "success" | "error";
 }
 
-export const showSuccessToast = ({
+export const showToast = ({
   message,
   icon,
   duration = 3000,
+  type,
 }: ShowToastProps) => {
-  return toast.success(
+  const toastContent = (
     <div className="flex items-center justify-center gap-3">
-      <img src={icon} className="size-8" alt="Success" />
-      <span className="text-sm text-primary font-bold">{message}</span>
-    </div>,
-    { duration }
+      {icon && <img src={icon} alt={`${type} icon`} />}
+      <span
+        className={`text-sm font-bold ${
+          type === "success" ? "text-primary" : "text-red-600"
+        }`}
+      >
+        {message}
+      </span>
+    </div>
   );
+
+  if (type === "success") {
+    return toast.success(toastContent, { duration });
+  } else {
+    return toast.error(toastContent, { duration });
+  }
 };
