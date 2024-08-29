@@ -4,20 +4,12 @@ import PhoneIcon from "@/assets/images/icons/icon-phone.svg";
 import LogoFooter from "@/assets/images/logo/cheffify-logo.svg";
 import PDFPoliticas from "@/assets/pdf/politicas-de-privacidad-cheffify.pdf";
 import IconWhatsapp from "@/components/common/icons/IconWhatsapp";
-import { useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
-  const { pathname } = useLocation();
-
   const handleClickWhatsApp = () => {
     window.open("https://wa.link/z9otdj", "_blank", "noreferrer");
   };
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
     <>
       <hr className="w-full h-[80px] bg-separator mb-10" />
