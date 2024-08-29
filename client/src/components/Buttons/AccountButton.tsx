@@ -4,6 +4,7 @@ import useCartStore from "@/stores/productsStore";
 import { Link } from "react-router-dom";
 
 const AccountButton = () => {
+  const token = localStorage.getItem("token");
   const totalQuantity = useCartStore((state) => state.getTotalQuantity());
   const toggleCartVisibility = useCartStore(
     (state) => state.toggleCartVisibility
@@ -16,7 +17,7 @@ const AccountButton = () => {
   return (
     <div className="flex items-center gap-[1px]">
       <Link
-        to="/login"
+        to={`${token ? "/perfil" : "/login"}`}
         unstable_viewTransition
         className="bg-primary text-white flex items-center px-[14px] py-[6px] rounded-l-full text-[12px] gap-2 font-medium hover:bg-secondary transition-all duration-500 h-[30px]"
       >
