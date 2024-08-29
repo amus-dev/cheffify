@@ -1,6 +1,7 @@
 import Logo from "@/assets/images/logo/cheffify-logo.svg";
 import AccountButton from "@/components/Buttons/AccountButton";
 import FoodButton from "@/components/Buttons/FoodButton";
+import LogOutButton from "@/components/Buttons/LogOutButton";
 import ButtonLink from "@/components/common/navbar/ButtonLink";
 import CartProducts from "@/components/Products/CartProducts";
 import { MENU_ITEMS } from "@/utils/const/menu";
@@ -68,6 +69,7 @@ const MenuNav = () => {
       <div className="flex items-center gap-2">
         <FoodButton />
         <AccountButton />
+        <LogOutButton />
       </div>
       <CartProducts />
     </nav>
