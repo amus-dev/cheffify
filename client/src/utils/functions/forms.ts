@@ -1,6 +1,7 @@
 import { showToast } from "@/utils/functions/showToast";
 import { NavigateFunction } from "react-router-dom";
 import IconCheck from "@/assets/images/icons/check.svg";
+import { navigateWithViewTransition } from "@/utils/functions/navigate";
 
 type Inputs = {
   email: string;
@@ -33,14 +34,7 @@ export const loginSubmitHandler = async (
         icon: IconCheck,
       });
       setTimeout(() => {
-        if (document.startViewTransition) {
-          document.startViewTransition(() => {
-            navigate("/perfil");
-          });
-        } else {
-          // Fallback si viewTransition no está disponible
-          navigate("/perfil");
-        }
+        navigateWithViewTransition(navigate, "/perfil");
       }, 3000);
     } else {
       showToast({ message: response.message, type: "error" });

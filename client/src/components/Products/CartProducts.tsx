@@ -2,6 +2,7 @@ import IconClose from "@/assets/images/icons/icon-close.svg";
 import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
 import useCartStore from "@/stores/productsStore";
 import { DELIVERY } from "@/utils/const/products";
+import { navigateWithViewTransition } from "@/utils/functions/navigate";
 import { formatPriceCLP } from "@/utils/functions/products";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -31,14 +32,7 @@ const CartProducts = () => {
 
   const handleNavigateToDelivery = () => {
     toggleCartVisibility();
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        navigate("/delivery");
-      });
-    } else {
-      // Fallback si viewTransition no está disponible
-      navigate("/delivery");
-    }
+    navigateWithViewTransition(navigate, "/delivery");
   };
 
   return (
