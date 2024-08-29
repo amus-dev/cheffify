@@ -13,12 +13,16 @@ export const showToast = ({
   duration = 3000,
   type,
 }: ShowToastProps) => {
+  const toastStyle = {
+    border: "1px solid #D77466",
+  };
+
   const toastContent = (
-    <div className="flex items-center justify-center gap-3">
+    <div className="flex items-center justify-center gap-3 p-0 ">
       {icon && <img src={icon} alt={`${type} icon`} />}
       <span
         className={`text-sm font-bold ${
-          type === "success" ? "text-primary" : "text-red-600"
+          type === "success" ? "text-primary" : "text-secondary"
         }`}
       >
         {message}
@@ -27,8 +31,8 @@ export const showToast = ({
   );
 
   if (type === "success") {
-    return toast.success(toastContent, { duration });
+    return toast.success(toastContent, { duration, style: toastStyle });
   } else {
-    return toast.error(toastContent, { duration });
+    return toast.error(toastContent, { duration, style: toastStyle });
   }
 };
