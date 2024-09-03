@@ -1,40 +1,30 @@
+import { useFetch } from "@/hooks/useFetch";
 import useUserStore from "@/stores/userStore";
-import { navigateWithViewTransition } from "@/utils/functions/navigate";
 import { GetTokenType } from "@/utils/types/formTypes";
 import { NavigateFunction } from "react-router-dom";
+import { navigateWithViewTransition } from "@/utils/functions/navigate";
 
 export const useToken = () => {
+  const { fetchData } = useFetch();
   const setUserStore = useUserStore((state) => state.setUserStore);
-  const tokenHandler = async (
-    data: GetTokenType,
-    navigate: NavigateFunction
-  ) => {
-    try {
-      const result = await fetch(
-        `${import.meta.env.VITE_API_URL}?action=getTokenData`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
 
-      const response = await result.json();
-      if (result.ok) {
-        const {
-          data: { user },
-        } = response;
-
-        setUserStore(user);
-      } else {
+  const tokenHandler = (data: GetTokenType, navigate: NavigateFunction) => {
+    fetchData({
+      url: `${import.meta.env.VITE_API_URL}?action=getTokenData`,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      },
+      onSuccess: (response) => {
+        setUserStore(response.data.user);
+      },
+      onError: () => {
         navigateWithViewTransition(navigate, "/login");
-      }
-    } catch (error) {
-      console.error("Error en el login:", error);
-      navigateWithViewTransition(navigate, "/login");
-    }
+      },
+    });
   };
 
   return { tokenHandler };
