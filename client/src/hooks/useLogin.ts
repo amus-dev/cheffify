@@ -1,19 +1,15 @@
-import { useState } from "react";
-import { NavigateFunction } from "react-router-dom";
-import { showToast } from "@/utils/functions/showToast";
 import IconCheck from "@/assets/images/icons/check.svg";
 import { navigateWithViewTransition } from "@/utils/functions/navigate";
-
-type Inputs = {
-  email: string;
-  password: string;
-};
+import { showToast } from "@/utils/functions/showToast";
+import { LoginFormType } from "@/utils/types/formTypes";
+import { useState } from "react";
+import { NavigateFunction } from "react-router-dom";
 
 export const useLogin = () => {
   const [loading, setLoading] = useState(false);
 
   const loginSubmitHandler = async (
-    data: Inputs,
+    data: LoginFormType,
     navigate: NavigateFunction
   ) => {
     setLoading(true);
