@@ -6,6 +6,7 @@ const CongeladosPage = lazy(() => import("@/pages/Congelados"));
 const SingleProductPage = lazy(() => import("@/pages/SingleProduct"));
 const Delivery = lazy(() => import("@/pages/Delivery"));
 const Login = lazy(() => import("@/pages/Login"));
+const CreateAccount = lazy(() => import("@/pages/CreateAccount"));
 const Perfil = lazy(() => import("@/pages/Perfil"));
 
 const router = createBrowserRouter([
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/crear-cuenta",
+    element: <CreateAccount />,
   },
   {
     path: "/perfil",
