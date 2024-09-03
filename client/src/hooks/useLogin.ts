@@ -15,7 +15,7 @@ export const useLogin = () => {
     setLoading(true);
     try {
       const result = await fetch(
-        `${import.meta.env.VITE_API_URL}/public/index.php?action=login`,
+        `${import.meta.env.VITE_API_URL}/routes/api?action=login`,
         {
           method: "POST",
           headers: {
