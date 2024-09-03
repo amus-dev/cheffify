@@ -1,12 +1,8 @@
-import { useLogin } from "@/hooks/useLogin";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import Loader from "@/components/common/Loader";
-
-type Inputs = {
-  email: string;
-  password: string;
-};
+import { useLogin } from "@/hooks/useLogin";
+import { LoginFormType } from "@/utils/types/formTypes";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -15,9 +11,9 @@ const LoginForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<LoginFormType>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) =>
+  const onSubmit: SubmitHandler<LoginFormType> = async (data) =>
     loginSubmitHandler(data, navigate);
 
   return (

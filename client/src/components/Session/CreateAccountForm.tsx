@@ -1,16 +1,8 @@
-import { useCreateAccount } from "@/hooks/useCreateAccount";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import Loader from "@/components/common/Loader";
-
-type Inputs = {
-  email: string;
-  name: string;
-  lastName: string;
-  phone: number;
-  password: string;
-  confirmPassword: string;
-};
+import { useCreateAccount } from "@/hooks/useCreateAccount";
+import { AccountFormType } from "@/utils/types/formTypes";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 
 const CreateAccountForm = () => {
   const navigate = useNavigate();
@@ -20,9 +12,9 @@ const CreateAccountForm = () => {
     handleSubmit,
     formState: { errors },
     watch,
-  } = useForm<Inputs>();
+  } = useForm<AccountFormType>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+  const onSubmit: SubmitHandler<AccountFormType> = async (data) => {
     accountSubmitHandler(data, navigate);
   };
 
