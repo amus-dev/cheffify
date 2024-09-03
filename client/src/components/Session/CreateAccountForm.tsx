@@ -1,4 +1,4 @@
-import { useLogin } from "@/hooks/useLogin";
+import { useCreateAccount } from "@/hooks/useCreateAccount";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import Loader from "@/components/common/Loader";
@@ -14,7 +14,7 @@ type Inputs = {
 
 const CreateAccountForm = () => {
   const navigate = useNavigate();
-  const { loginSubmitHandler, loading } = useLogin();
+  const { accountSubmitHandler, loading } = useCreateAccount();
   const {
     register,
     handleSubmit,
@@ -22,8 +22,9 @@ const CreateAccountForm = () => {
     watch,
   } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) =>
-    loginSubmitHandler(data, navigate);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    accountSubmitHandler(data, navigate);
+  };
 
   // Obtenemos el valor del campo password para la validación
   const password = watch("password");
