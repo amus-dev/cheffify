@@ -54,9 +54,12 @@ class AuthController
                'aud' => $_ENV['JWT_DOMAIN'], // Audience
                'iat' => time(), // Tiempo en que fue emitido
                'exp' => time() + 3600, // Tiempo en que expira (1 hora)
-               'data' => [
+               'user' => [
                     'id' => $user['id'],
-                    'email' => $user['email']
+                    'email' => $user['email'],
+                    'nombre' => $user['nombre'],
+                    'apellido' => $user['apellido'],
+                    'celular' => $user['celular']
                ]
           ];
 
@@ -120,4 +123,23 @@ class AuthController
                ResponseHelper::sendResponse(500, "Error al actualizar el número de teléfono");
           }
      }
+
+     public function getTokenData($data)
+     {
+          $token = $data['token'] ?? '';
+          if (empty($token)) {
+               ResponseHelper::sendResponse(400, "El token es requerido");
+               return;
+          }
+          try {
+               // Primero asignamos el resultado a una variable
+               $decoded = JWT::decode($token, new \Firebase\JWT\Key($_ENV['JWT_SECRET'], 'HS256'));
+               // Convertimos el objeto decodificado en un array
+               $decoded_array = (array) $decoded;
+               ResponseHelper::sendResponse(200, "Token decodificado correctamente", $decoded_array);
+          } catch (Exception $e) {
+               ResponseHelper::sendResponse(401, "Token inválido o expirado: " . $e->getMessage());
+          }
+     }
+
 }

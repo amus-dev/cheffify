@@ -35,6 +35,14 @@ switch ($action) {
           $authController->updatePhone($data);
           break;
 
+     case 'getTokenData':
+          require_once '../src/controllers/UserController.php';
+          $authController = new AuthController();
+          $data = json_decode(file_get_contents("php://input"), true);
+          $authController->getTokenData($data);
+          break;
+
+
      // Otros casos según las acciones que desees manejar
      default:
           http_response_code(404);
