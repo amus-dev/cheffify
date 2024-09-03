@@ -11,3 +11,15 @@ export interface AccountFormType {
   password: string;
   confirmPassword: string;
 }
+
+export interface GetTokenType {
+  token: string | null;
+}
+
+export interface UserType {
+  id: number;
+  email: string;
+  nombre: string;
+  apellido: string;
+  celular: number;
+}
