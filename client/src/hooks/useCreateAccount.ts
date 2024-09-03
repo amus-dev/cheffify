@@ -15,7 +15,7 @@ export const useCreateAccount = () => {
     setLoading(true);
     try {
       const result = await fetch(
-        `${import.meta.env.VITE_API_URL}/routes/api?action=create`,
+        `${import.meta.env.VITE_API_URL}?action=create`,
         {
           method: "POST",
           headers: {
