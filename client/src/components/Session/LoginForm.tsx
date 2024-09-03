@@ -58,7 +58,7 @@ const LoginForm = () => {
           <input
             type="submit"
             value="Login"
-            className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
+            className="bg-secondary text-white font-extrabold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
           />
         )}
         <Link
