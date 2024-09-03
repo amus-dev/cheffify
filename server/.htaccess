@@ -1,0 +1,9 @@
+# Activar el módulo de reescritura
+RewriteEngine On
+
+# Reescribir todas las solicitudes que no sean archivos o directorios
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Reescribir la URL sin la extensión .php
+RewriteRule ^(.+)$ $1.php [L,QSA]
