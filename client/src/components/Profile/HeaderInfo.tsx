@@ -1,13 +1,22 @@
-import Avatar from "@/assets/images/img/user-1.svg";
 import IconEdit from "@/assets/images/icons/icon-edit.svg";
-import { useState } from "react";
+import Avatar from "@/assets/images/img/user-1.svg";
+import useUserStore from "@/stores/userStore";
+import { useEffect, useState } from "react";
 
 const HeaderInfo = () => {
-  const [userPhone, setUserPhone] = useState(20);
+  const userStore = useUserStore((state) => state.user);
+  const [userPhone, setUserPhone] = useState<number>(0);
 
   const updateUserPhone = () => {
-    console.log("Actualizar teléfono del usuario");
+    console.log(userPhone);
+    console.log(userStore?.id);
   };
+
+  useEffect(() => {
+    if (userStore?.celular) {
+      setUserPhone(userStore.celular);
+    }
+  }, [userStore?.celular]);
 
   return (
     <section className="px-20 my-20 flex justify-center gap-4">
@@ -19,8 +28,8 @@ const HeaderInfo = () => {
         />
       </div>
       <div>
-        <h2 className="text-primary text-[17px] font-bold">Alexander</h2>
-        <p className="text-primary text-[13px]">matias04041994@gmail.com</p>
+        <h2 className="text-primary text-[17px] font-bold">{`${userStore?.nombre} ${userStore?.apellido}`}</h2>
+        <p className="text-primary text-[13px]">{userStore?.email}</p>
         <div className="flex items-center gap-2 mt-4">
           <input
             type="number"
