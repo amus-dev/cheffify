@@ -15,21 +15,21 @@ $action = $_GET['action'] ?? '';
 
 switch ($action) {
      case 'login':
-          require_once '../src/controllers/AuthController.php';
+          require_once '../src/controllers/UserController.php';
           $authController = new AuthController();
           $data = json_decode(file_get_contents("php://input"), true);
           $authController->login($data);
           break;
 
      case 'create':
-          require_once '../src/controllers/AuthController.php';
+          require_once '../src/controllers/UserController.php';
           $authController = new AuthController();
           $data = json_decode(file_get_contents("php://input"), true);
           $authController->createAccount($data);
           break;
 
      case 'updatePhone':
-          require_once '../src/controllers/AuthController.php';
+          require_once '../src/controllers/UserController.php';
           $authController = new AuthController();
           $data = json_decode(file_get_contents("php://input"), true);
           $authController->updatePhone($data);
