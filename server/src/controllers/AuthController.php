@@ -99,4 +99,25 @@ class AuthController
                ResponseHelper::sendResponse(500, "Error al crear la cuenta");
           }
      }
+
+     public function updatePhone($data)
+     {
+          $userId = $data['id'];
+          $newPhone = $data['phone'];
+
+          // Validar que el número de teléfono no esté vacío
+          if (empty($newPhone)) {
+               ResponseHelper::sendResponse(400, "El número de teléfono es requerido");
+               return;
+          }
+
+          // Actualizar el número de teléfono
+          $result = $this->user->updatePhone($userId, $newPhone);
+
+          if ($result) {
+               ResponseHelper::sendResponse(200, "Número de teléfono actualizado correctamente");
+          } else {
+               ResponseHelper::sendResponse(500, "Error al actualizar el número de teléfono");
+          }
+     }
 }

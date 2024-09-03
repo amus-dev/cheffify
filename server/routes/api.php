@@ -28,6 +28,13 @@ switch ($action) {
           $authController->createAccount($data);
           break;
 
+     case 'updatePhone':
+          require_once '../src/controllers/AuthController.php';
+          $authController = new AuthController();
+          $data = json_decode(file_get_contents("php://input"), true);
+          $authController->updatePhone($data);
+          break;
+
      // Otros casos según las acciones que desees manejar
      default:
           http_response_code(404);

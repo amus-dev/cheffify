@@ -42,4 +42,17 @@ class User
           }
      }
 
+     public function updatePhone($userId, $newPhone)
+     {
+          $query = "UPDATE " . $this->table_name . " SET celular = ? WHERE id = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("si", $newPhone, $userId);
+
+          if ($stmt->execute()) {
+               return true;
+          } else {
+               return false;
+          }
+     }
+
 }
