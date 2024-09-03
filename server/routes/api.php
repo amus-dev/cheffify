@@ -41,6 +41,12 @@ switch ($action) {
           $data = json_decode(file_get_contents("php://input"), true);
           $authController->getTokenData($data);
           break;
+     case 'activate':
+          require_once '../src/controllers/AuthController.php';
+          $authController = new AuthController();
+          $token = $_GET['token'] ?? '';
+          $authController->activateAccount($token);
+          break;
 
 
      // Otros casos según las acciones que desees manejar

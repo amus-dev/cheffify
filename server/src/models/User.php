@@ -55,4 +55,30 @@ class User
           }
      }
 
+     public function saveActivationToken($userId, $token)
+     {
+          $query = "UPDATE " . $this->table_name . " SET id_mail = ? WHERE id = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("si", $token, $userId);
+          $stmt->execute();
+     }
+
+     public function findByActivationToken($token)
+     {
+          $query = "SELECT * FROM " . $this->table_name . " WHERE id_mail = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("s", $token);
+          $stmt->execute();
+          $result = $stmt->get_result();
+          return $result->fetch_assoc();
+     }
+
+     public function activateUser($userId)
+     {
+          $query = "UPDATE " . $this->table_name . " SET active = 1, id_mail = NULL WHERE id = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("i", $userId);
+          $stmt->execute();
+     }
+
 }

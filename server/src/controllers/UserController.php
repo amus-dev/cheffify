@@ -4,6 +4,8 @@ require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../utils/ResponseHelper.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
 use \Firebase\JWT\JWT;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 // Cargar las variables de entorno desde el archivo .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
@@ -96,12 +98,60 @@ class AuthController
           $userId = $this->user->create($email, $name, $lastName, $phone, $hashedPassword);
 
           if ($userId) {
-               ResponseHelper::sendResponse(200, "Cuenta creada exitosamente, revisa tu email para activar la cuenta.");
-               // Aquí podrías enviar un email de activación
+               // Generar un token de activación
+               $activationToken = bin2hex(random_bytes(16));
+               // Guardar el token en la base de datos (esto requiere que agregues una columna para el token)
+               $this->user->saveActivationToken($userId, $activationToken);
+               // Enviar email de confirmación
+               $this->sendConfirmationEmail($email, $activationToken);
+               ResponseHelper::sendResponse(200, "Cuenta creada exitosamente. Revisa tu email para activar la cuenta.");
           } else {
                ResponseHelper::sendResponse(500, "Error al crear la cuenta");
           }
      }
+
+     private function sendConfirmationEmail($email, $token)
+     {
+          $mail = new PHPMailer(true);
+
+          try {
+               // Configuración del servidor de correo
+               $mail->isSMTP();
+               $mail->Host = 'mail.cheffify.cl';
+               $mail->SMTPAuth = true;
+               $mail->Username = 'contacto@cheffify.cl';
+               $mail->Password = '(*?OO!8zdb91';
+               $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+               $mail->Port = 465;
+               $mail->Timeout = 10; // 10 segundos
+               $mail->SMTPOptions = [
+                    'ssl' => [
+                         'verify_peer' => false,
+                         'verify_peer_name' => false,
+                         'allow_self_signed' => true
+                    ]
+               ];
+
+
+               // Configuración del email
+               $mail->setFrom('contacto@cheffify.cl', 'Contacto Cheffify');
+               $mail->addAddress($email);
+
+               $mail->isHTML(true);
+               $mail->Subject = 'Confirma tu cuenta';
+               $mail->Body = "Gracias por registrarte. Haz clic en el siguiente enlace para activar tu cuenta: <a href='{$_ENV['JWT_DOMAIN']}?token=$token'>Activar Cuenta</a>";
+
+               // Habilitar salida de depuración
+               $mail->SMTPDebug = 2;
+               $mail->Debugoutput = 'error_log';
+
+               $mail->send();
+               error_log("Correo enviado correctamente");
+          } catch (Exception $e) {
+               error_log("Error al enviar email de confirmación: {$mail->ErrorInfo}");
+          }
+     }
+
 
      public function updatePhone($data)
      {
@@ -139,6 +189,22 @@ class AuthController
                ResponseHelper::sendResponse(200, "Token decodificado correctamente", $decoded_array);
           } catch (Exception $e) {
                ResponseHelper::sendResponse(401, "Token inválido o expirado: " . $e->getMessage());
+          }
+     }
+
+     public function activateAccount($token)
+     {
+          if (empty($token)) {
+               ResponseHelper::sendResponse(400, "Token de activación inválido");
+               return;
+          }
+
+          $user = $this->user->findByActivationToken($token);
+          if ($user) {
+               $this->user->activateUser($user['id']);
+               ResponseHelper::sendResponse(200, "Cuenta activada correctamente. Ahora puedes iniciar sesión.");
+          } else {
+               ResponseHelper::sendResponse(400, "Token de activación inválido o expirado");
           }
      }
 
