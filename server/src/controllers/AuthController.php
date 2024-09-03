@@ -63,4 +63,40 @@ class AuthController
           $jwt = JWT::encode($payload, $_ENV['JWT_SECRET'], 'HS256');
           ResponseHelper::sendResponse(200, "Sesión iniciada!, serás redirigido en unos segundos...", ['token' => $jwt]);
      }
+
+     public function createAccount($data)
+     {
+          $email = $data['email'];
+          $name = $data['name'];
+          $lastName = $data['lastName'];
+          $phone = $data['phone'];
+          $password = $data['password'];
+          $confirmPassword = $data['confirmPassword'];
+
+          // Verificar si las contraseñas coinciden
+          if ($password !== $confirmPassword) {
+               ResponseHelper::sendResponse(400, "Las contraseñas no coinciden");
+               return;
+          }
+
+          // Verificar si el email ya está registrado
+          $existingUser = $this->user->findByEmail($email);
+          if ($existingUser) {
+               ResponseHelper::sendResponse(400, "El correo ya está registrado");
+               return;
+          }
+
+          // Hashear la contraseña
+          $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+
+          // Crear el nuevo usuario
+          $userId = $this->user->create($email, $name, $lastName, $phone, $hashedPassword);
+
+          if ($userId) {
+               ResponseHelper::sendResponse(200, "Cuenta creada exitosamente, revisa tu email para activar la cuenta.");
+               // Aquí podrías enviar un email de activación
+          } else {
+               ResponseHelper::sendResponse(500, "Error al crear la cuenta");
+          }
+     }
 }

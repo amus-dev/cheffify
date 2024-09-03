@@ -27,4 +27,19 @@ class User
           $stmt->execute();
      }
 
+     public function create($email, $name, $lastName, $phone, $password)
+     {
+          $id_mail = uniqid('mail_', true);  // Genera un identificador único para id_mail
+
+          $query = "INSERT INTO " . $this->table_name . " (email, nombre, apellido, celular, password, id_mail, active) VALUES (?, ?, ?, ?, ?, ?, 0)";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("ssssss", $email, $name, $lastName, $phone, $password, $id_mail);
+
+          if ($stmt->execute()) {
+               return $stmt->insert_id;
+          } else {
+               return false;
+          }
+     }
+
 }

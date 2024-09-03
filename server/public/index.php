@@ -21,9 +21,17 @@ switch ($action) {
           $authController->login($data);
           break;
 
+     case 'create':
+          require_once '../src/controllers/AuthController.php';
+          $authController = new AuthController();
+          $data = json_decode(file_get_contents("php://input"), true);
+          $authController->createAccount($data);
+          break;
+
      // Otros casos según las acciones que desees manejar
      default:
           http_response_code(404);
           echo json_encode(["message" => "Action not found"]);
           break;
 }
+
