@@ -26,9 +26,7 @@ export const useCreateAccount = () => {
       );
 
       const response = await result.json();
-
       if (result.ok) {
-        localStorage.setItem("token", response.data.token);
         showToast({
           message: response.message,
           type: "success",
@@ -39,10 +37,12 @@ export const useCreateAccount = () => {
           setLoading(false);
         }, 3000);
       } else {
+        setLoading(false);
         showToast({ message: response.message, type: "error" });
       }
     } catch (error) {
       console.error("Error en el login:", error);
+      setLoading(false);
       showToast({ message: "Ocurrió un error inesperado", type: "error" });
     }
   };
