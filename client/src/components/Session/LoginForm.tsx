@@ -1,6 +1,6 @@
 import { useLogin } from "@/hooks/useLogin";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Loader from "@/components/common/Loader";
 
 type Inputs = {
@@ -61,6 +61,13 @@ const LoginForm = () => {
             className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
           />
         )}
+        <Link
+          to="/crear-cuenta"
+          unstable_viewTransition
+          className="text-secondary transition-colors duration-500 hover:text-primary"
+        >
+          Crear cuenta
+        </Link>
       </div>
     </form>
   );
