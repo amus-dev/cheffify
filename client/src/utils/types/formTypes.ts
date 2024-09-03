@@ -23,3 +23,8 @@ export interface UserType {
   apellido: string;
   celular: number;
 }
+
+export interface UpdatePhoneType {
+  id: number;
+  phone: number;
+}

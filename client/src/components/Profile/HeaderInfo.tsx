@@ -1,15 +1,21 @@
 import IconEdit from "@/assets/images/icons/icon-edit.svg";
 import Avatar from "@/assets/images/img/user-1.svg";
+import { useUpdatePhone } from "@/hooks/useUpdatePhone";
 import useUserStore from "@/stores/userStore";
 import { useEffect, useState } from "react";
 
 const HeaderInfo = () => {
+  const { updatePhoneHandler } = useUpdatePhone();
   const userStore = useUserStore((state) => state.user);
   const [userPhone, setUserPhone] = useState<number>(0);
 
   const updateUserPhone = () => {
-    console.log(userPhone);
-    console.log(userStore?.id);
+    if (userStore) {
+      updatePhoneHandler({
+        id: userStore?.id,
+        phone: userPhone,
+      });
+    }
   };
 
   useEffect(() => {
