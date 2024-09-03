@@ -1,6 +1,7 @@
-import { loginSubmitHandler } from "@/utils/functions/forms";
+import { useLogin } from "@/hooks/useLogin";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Loader from "@/components/common/Loader";
 
 type Inputs = {
   email: string;
@@ -9,6 +10,7 @@ type Inputs = {
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const { loginSubmitHandler, loading } = useLogin();
   const {
     register,
     handleSubmit,
@@ -49,12 +51,16 @@ const LoginForm = () => {
         <span className="text-red-600 text-sm">{errors.password.message}</span>
       )}
 
-      <div>
-        <input
-          type="submit"
-          value="Login"
-          className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
-        />
+      <div className="flex flex-col justify-center gap-2 items-center">
+        {loading ? (
+          <Loader />
+        ) : (
+          <input
+            type="submit"
+            value="Login"
+            className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
+          />
+        )}
       </div>
     </form>
   );
