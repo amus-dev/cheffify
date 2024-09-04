@@ -16,36 +16,36 @@ $action = $_GET['action'] ?? '';
 switch ($action) {
      case 'login':
           require_once '../src/controllers/UserController.php';
-          $authController = new AuthController();
+          $userController = new UserController();
           $data = json_decode(file_get_contents("php://input"), true);
-          $authController->login($data);
+          $userController->login($data);
           break;
 
      case 'create':
           require_once '../src/controllers/UserController.php';
-          $authController = new AuthController();
+          $userController = new UserController();
           $data = json_decode(file_get_contents("php://input"), true);
-          $authController->createAccount($data);
+          $userController->createAccount($data);
           break;
 
      case 'updatePhone':
           require_once '../src/controllers/UserController.php';
-          $authController = new AuthController();
+          $userController = new UserController();
           $data = json_decode(file_get_contents("php://input"), true);
-          $authController->updatePhone($data);
+          $userController->updatePhone($data);
           break;
 
      case 'getTokenData':
           require_once '../src/controllers/UserController.php';
-          $authController = new AuthController();
+          $userController = new UserController();
           $data = json_decode(file_get_contents("php://input"), true);
-          $authController->getTokenData($data);
+          $userController->getTokenData($data);
           break;
      case 'activate':
-          require_once '../src/controllers/AuthController.php';
-          $authController = new AuthController();
+          require_once '../src/controllers/UserController.php';
+          $userController = new UserController();
           $token = $_GET['token'] ?? '';
-          $authController->activateAccount($token);
+          $userController->activateAccount($token);
           break;
 
 
