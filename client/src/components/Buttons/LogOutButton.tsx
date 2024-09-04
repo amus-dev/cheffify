@@ -1,4 +1,5 @@
 import IconLogOut from "@/assets/images/icons/icon-logout.svg";
+import { navigateWithViewTransition } from "@/utils/functions/navigate";
 import { useNavigate } from "react-router-dom";
 
 const LogOutButton = () => {
@@ -7,14 +8,7 @@ const LogOutButton = () => {
 
   const logOut = () => {
     localStorage.removeItem("token");
-    if (document.startViewTransition) {
-      document.startViewTransition(() => {
-        navigate("/");
-      });
-    } else {
-      // Fallback si viewTransition no está disponible
-      navigate("/");
-    }
+    navigateWithViewTransition(navigate, "/");
   };
 
   return (
