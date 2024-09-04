@@ -188,7 +188,7 @@ class UserController
           if ($user) {
                $this->user->activateUser($user['id']);
                // Redirigir al login después de activar la cuenta
-               header("Location: http://localhost:5173/login");
+               header("Location: {$_ENV['URL_FRONTEND']}/login");
                exit();
                // ResponseHelper::sendResponse(200, "Cuenta activada correctamente. Ahora puedes iniciar sesión.");
           } else {
