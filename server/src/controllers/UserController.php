@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\Exception;
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
 $dotenv->load();
 
-class AuthController
+class UserController
 {
      private $db;
      private $user;
@@ -117,36 +117,23 @@ class AuthController
           try {
                // Configuración del servidor de correo
                $mail->isSMTP();
-               $mail->Host = 'mail.cheffify.cl';
+               $mail->Host = $_ENV['MAIL_HOST']; // Cambia al servidor SMTP que desees utilizar
                $mail->SMTPAuth = true;
-               $mail->Username = 'contacto@cheffify.cl';
-               $mail->Password = '(*?OO!8zdb91';
+               $mail->Username = $_ENV['MAIL_USERNAME']; // Tu dirección de correo de Gmail
+               $mail->Password = $_ENV['MAIL_PASSWORD']; // Tu contraseña de Gmail o contraseña de aplicación si tienes 2FA
                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-               $mail->Port = 465;
+               $mail->Port = $_ENV['MAIL_PORT'];
                $mail->Timeout = 10; // 10 segundos
-               $mail->SMTPOptions = [
-                    'ssl' => [
-                         'verify_peer' => false,
-                         'verify_peer_name' => false,
-                         'allow_self_signed' => true
-                    ]
-               ];
-
-
                // Configuración del email
                $mail->setFrom('contacto@cheffify.cl', 'Contacto Cheffify');
                $mail->addAddress($email);
 
                $mail->isHTML(true);
                $mail->Subject = 'Confirma tu cuenta';
-               $mail->Body = "Gracias por registrarte. Haz clic en el siguiente enlace para activar tu cuenta: <a href='{$_ENV['JWT_DOMAIN']}?token=$token'>Activar Cuenta</a>";
-
-               // Habilitar salida de depuración
-               $mail->SMTPDebug = 2;
-               $mail->Debugoutput = 'error_log';
+               $mail->Body = "Gracias por registrarte. Haz clic en el siguiente enlace para activar tu cuenta: <a href='{$_ENV['JWT_DOMAIN']}/routes/api?token=$token&action=activate'>Activar Cuenta</a>";
 
                $mail->send();
-               error_log("Correo enviado correctamente");
+
           } catch (Exception $e) {
                error_log("Error al enviar email de confirmación: {$mail->ErrorInfo}");
           }
@@ -163,7 +150,6 @@ class AuthController
                ResponseHelper::sendResponse(400, "El número de teléfono es requerido");
                return;
           }
-
           // Actualizar el número de teléfono
           $result = $this->user->updatePhone($userId, $newPhone);
 
@@ -198,11 +184,13 @@ class AuthController
                ResponseHelper::sendResponse(400, "Token de activación inválido");
                return;
           }
-
           $user = $this->user->findByActivationToken($token);
           if ($user) {
                $this->user->activateUser($user['id']);
-               ResponseHelper::sendResponse(200, "Cuenta activada correctamente. Ahora puedes iniciar sesión.");
+               // Redirigir al login después de activar la cuenta
+               header("Location: http://localhost:5173/login");
+               exit();
+               // ResponseHelper::sendResponse(200, "Cuenta activada correctamente. Ahora puedes iniciar sesión.");
           } else {
                ResponseHelper::sendResponse(400, "Token de activación inválido o expirado");
           }
