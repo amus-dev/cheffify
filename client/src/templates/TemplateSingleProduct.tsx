@@ -4,7 +4,7 @@ import Overlay from "@/components/common/overlay";
 import SingleProductCard from "@/components/Products/SingleProductCard";
 import SecondSection from "@/components/sections/home/SecondSection";
 
-const TemplateShop = () => {
+const TemplateSingleProduct = () => {
   return (
     <main>
       <MenuNav />
@@ -16,4 +16,4 @@ const TemplateShop = () => {
   );
 };
 
-export default TemplateShop;
+export default TemplateSingleProduct;
