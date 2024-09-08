@@ -1,3 +1,4 @@
+import CarouselProducts from "@/components/Carousels/CarouselProducts";
 import Footer from "@/components/common/footer";
 import MenuNav from "@/components/common/navbar/MenuNav";
 import Overlay from "@/components/common/overlay";
@@ -6,7 +7,9 @@ const TemplateShop = () => {
   return (
     <main>
       <MenuNav />
-      <h1 className="text-primary">Pagina de todo los productos</h1>
+      <main className="px-[20px] lg:px-[60px] xl:px-[170px]">
+        <CarouselProducts />
+      </main>
       <Overlay />
       <Footer />
     </main>
