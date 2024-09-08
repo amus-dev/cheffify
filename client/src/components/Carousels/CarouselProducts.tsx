@@ -29,12 +29,21 @@ const CarouselProducts = () => {
               className="flex flex-col w-full bg-center bg-cover p-10 rounded-2xl"
               style={{ backgroundImage: `url(${image})` }}
             >
-              <h1
-                className={`${color} font-black text-[40px] leading-[40px] flex items-end gap-3`}
-              >
-                {title}
-                <img src={icon} className="size-10" />
-              </h1>
+              {id === 1 ? (
+                <h1
+                  className={`${color} font-black text-[40px] leading-[40px] flex items-end gap-3`}
+                >
+                  {title}
+                  <img src={icon} className="size-10" />
+                </h1>
+              ) : (
+                <h2
+                  className={`${color} font-black text-[40px] leading-[40px] flex items-end gap-3`}
+                >
+                  {title}
+                  <img src={icon} className="size-10" />
+                </h2>
+              )}
               <p
                 className={`${color} text-lg font-medium text-balance max-w-[700px] mt-4`}
               >
