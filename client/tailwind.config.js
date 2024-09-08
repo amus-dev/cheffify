@@ -14,6 +14,7 @@ module.exports = {
         gray: "#EDEDED",
         bgInput: "#E8E8EF",
         colorInput: "#80808B",
+        lightBeige: "#E7E1C9",
       },
       boxShadow: {
         "card-shadow": "rgba(215, 116, 102, 0.4) 0px 0px 15px",
