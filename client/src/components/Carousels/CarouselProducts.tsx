@@ -10,7 +10,20 @@ const CarouselProducts = () => {
   return (
     <Swiper pagination={{ clickable: true }} modules={[Pagination]}>
       {dataCarouselsShop.map(
-        ({ id, title, description, image, icon, buttonText, link, color }) => (
+        ({
+          id,
+          title,
+          description,
+          image,
+          icon,
+          buttonText,
+          link,
+          color,
+          buttonBackground,
+          buttonBackgroundHover,
+          buttonTextColor,
+          buttonTextColorHover,
+        }) => (
           <SwiperSlide key={id}>
             <div
               className="flex flex-col w-full bg-center bg-cover p-10 rounded-2xl"
@@ -29,7 +42,7 @@ const CarouselProducts = () => {
               </p>
               <a
                 href={link}
-                className="bg-secondary text-white font-bold w-fit px-4 py-1 rounded-full text-[15px] text-center hover:bg-green transition-all duration-500 mt-4"
+                className={`${buttonBackground} ${buttonTextColor} font-bold w-fit px-4 py-1 rounded-full text-[15px] text-center hover:${buttonBackgroundHover} hover:${buttonTextColorHover} transition-all duration-500 mt-4`}
               >
                 {buttonText}
               </a>
