@@ -4,6 +4,10 @@ import SlideCrema from "@/assets/images/img/slideCrema.webp";
 import IconTallarin from "@/assets/images/icons/icon-tallarines.svg";
 import SlidePorotos from "@/assets/images/img/slidePorotos.webp";
 import IconTomate from "@/assets/images/icons/icon-tomate.svg";
+import SlideAlbondigas from "@/assets/images/img/slideAlbondigas.webp";
+import IconCongelados from "@/assets/images/icons/congelados.svg";
+import SlideEnvase from "@/assets/images/img/slideEnvase.webp";
+import IconEnvase from "@/assets/images/icons/icon-envase.svg";
 
 export const dataCarouselsShop = [
   {
@@ -50,5 +54,35 @@ export const dataCarouselsShop = [
     buttonTextColorHover: "text-white",
     link: "",
     color: "text-white",
+  },
+  {
+    id: 4,
+    title: "Receta, ingredientes y sabor inigualable",
+    description:
+      "Como lo oyes, nuestros congelados no son cualquier congelado. No tenemos procesos industriales, nuestra cadena de frío es custodiada por nosotros mismos para conservar el máximo sabor y calidad de nuestros platos caseros.",
+    image: SlideAlbondigas,
+    icon: IconCongelados,
+    buttonText: "¡Me dio hambre!",
+    buttonBackground: "bg-green",
+    buttonBackgroundHover: "bg-secondary",
+    buttonTextColor: "text-white",
+    buttonTextColorHover: "text-white",
+    link: "",
+    color: "text-primary",
+  },
+  {
+    id: 5,
+    title: "Envases que conversan mejor tus alimentos",
+    description:
+      "Nuestras cajas, confeccionadas con materiales amigables con el medio ambiente, ofrecen innumerables ventajas, desde la óptima conservación de los alimentos hasta su práctico uso como plato y su fácil reciclado.",
+    image: SlideEnvase,
+    icon: IconEnvase,
+    buttonText: "¡A comer!",
+    buttonBackground: "bg-white",
+    buttonBackgroundHover: "bg-green",
+    buttonTextColor: "text-primary",
+    buttonTextColorHover: "text-white",
+    link: "",
+    color: "text-primary",
   },
 ];

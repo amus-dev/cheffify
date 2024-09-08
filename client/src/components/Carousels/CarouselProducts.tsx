@@ -36,7 +36,7 @@ const CarouselProducts = () => {
                 <img src={icon} className="size-10" />
               </h1>
               <p
-                className={`${color} text-lg font-medium text-balance max-w-[650px] mt-4`}
+                className={`${color} text-lg font-medium text-balance max-w-[700px] mt-4`}
               >
                 {description}
               </p>
