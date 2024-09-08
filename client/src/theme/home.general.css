@@ -1,6 +1,6 @@
-/* CarouselHome.css */
+/* CarouselHome .css */
 
-.swiper-pagination-bullet {
+.carouselHome .swiper-pagination-bullet {
   width: 12px;
   height: 12px;
   background-color: #f5d4c3 !important; /* Color de los puntos */
@@ -8,11 +8,11 @@
   transition: opacity 0.3s;
 }
 
-.swiper-pagination-bullet-active {
+.carouselHome .swiper-pagination-bullet-active {
   background-color: #d77466 !important; /* Color del punto activo */
   opacity: 1;
 }
 
-.swiper-pagination-bullet:hover {
+.carouselHome .swiper-pagination-bullet:hover {
   opacity: 1;
 }

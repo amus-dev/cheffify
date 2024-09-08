@@ -9,7 +9,11 @@ import Slide2 from "@/assets/images/img/slide2.webp";
 
 const CarouselHome = () => {
   return (
-    <Swiper pagination={{ clickable: true }} modules={[Pagination]}>
+    <Swiper
+      pagination={{ clickable: true }}
+      modules={[Pagination]}
+      className="carouselHome"
+    >
       <SwiperSlide>
         <img src={Slide1} alt="Primera imagen del carousel" />
       </SwiperSlide>

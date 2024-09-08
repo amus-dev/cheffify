@@ -15,6 +15,7 @@ const CarouselProducts = () => {
         disableOnInteraction: false,
       }}
       modules={[Pagination, Autoplay]}
+      className="carouselShop"
     >
       {dataCarouselsShop.map(
         ({
