@@ -1,14 +1,21 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/swiper-bundle.css";
 
 import { dataCarouselsShop } from "@/config/data.carousels";
 
 const CarouselProducts = () => {
   return (
-    <Swiper pagination={{ clickable: true }} modules={[Pagination]}>
+    <Swiper
+      pagination={{ clickable: true }}
+      autoplay={{
+        delay: 6000,
+        disableOnInteraction: false,
+      }}
+      modules={[Pagination, Autoplay]}
+    >
       {dataCarouselsShop.map(
         ({
           id,

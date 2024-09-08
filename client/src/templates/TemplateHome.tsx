@@ -10,6 +10,7 @@ import SevenSection from "@/components/sections/home/SevenSection";
 import SixSection from "@/components/sections/home/SixSection";
 import ThirdSection from "@/components/sections/home/ThirdSection";
 import { Toaster } from "sonner";
+import "@/theme/home.general.css";
 
 const TemplateHome = () => {
   return (
