@@ -31,3 +31,11 @@ export interface ProductsStore {
   alt?: string;
   quantity: number;
 }
+
+export interface CategoryProduct {
+  id: number;
+  name: string;
+  slug: string;
+  icon: string;
+  active: boolean;
+}
