@@ -6,6 +6,7 @@ import Overlay from "@/components/common/overlay";
 import FilterProducts from "@/components/Products/FilterProducts";
 import ProductsShop from "@/components/Products/ProductsShop";
 import "@/theme/shop.general.css";
+import { Toaster } from "sonner";
 
 const TemplateShop = () => {
   return (
@@ -24,6 +25,7 @@ const TemplateShop = () => {
       <Overlay />
       <ArrowScrollUpButton />
       <Footer />
+      <Toaster />
     </main>
   );
 };
