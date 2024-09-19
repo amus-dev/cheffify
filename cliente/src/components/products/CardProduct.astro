@@ -1,0 +1,69 @@
+---
+import IconShop from "@assets/icons/bag.svg";
+import { formatPriceCLP } from "@utils/functions/products";
+
+interface CardProductProps {
+  slug: string;
+  title: string;
+  description: string;
+  price: number;
+  image: string;
+  alt: string;
+}
+
+const { slug, title, description, price, image, alt } =
+  Astro.props as CardProductProps;
+---
+
+<article
+  class="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow"
+>
+  <a aria-label={`Link que te lleva al interior del producto `} href="/shop">
+    <img
+      src={image}
+      class="aspect-square rounded-[15px] brightness-75 transition duration-500 ease-in-out hover:brightness-110"
+    />
+  </a>
+  <div class="px-2 py-4">
+    <h3
+      class="text-grayLight font-bold text-[19px] min-h-[42px] leading-[19px] mb-4"
+    >
+      {title}
+    </h3>
+    <p class="text-grayLight text-[12px] min-h-[90px] mb-6">
+      {description}
+    </p>
+    <p class="text-primary text-[19px] font-bold">{formatPriceCLP(price)}</p>
+  </div>
+  <div class="flex justify-between gap-4 px-2">
+    <div
+      class="flex items-center rounded-[5px] border border-secondary w-full max-w-[70px]"
+    >
+      <span class="px-[10px] text-[17px] font-bold text-secondary"> 3 </span>
+      <div
+        class="flex flex-col justify-center w-full border-l border-secondary overflow-hidden"
+      >
+        <button
+          class="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white rounded-tr-[4px]"
+        >
+          +
+        </button>
+        <button
+          class="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white rounded-br-[4px]"
+        >
+          -
+        </button>
+      </div>
+    </div>
+    <button
+      class="flex text-white items-center justify-center gap-4 bg-secondary w-full rounded-[5px] text-[15px] font-medium transition-all duration-500 hover:bg-primary"
+    >
+      Agregar{" "}
+      <img
+        src={IconShop.src}
+        class="size-4"
+        alt="Icono de bolsa para agregar productos"
+      />
+    </button>
+  </div>
+</article>
