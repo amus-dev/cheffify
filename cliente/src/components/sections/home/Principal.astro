@@ -1,0 +1,60 @@
+---
+import IconEmoteLove from "@assets/icons/icon-emote-love.svg";
+import ImageBackgroundItem from "@assets/images/item-bg-menu.svg";
+import ImagePrincipal from "@assets/images/principal-image.svg";
+---
+
+<section
+  class="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px] mt-6"
+  id="initialSection"
+>
+  <div class="lg:max-w-[620px]">
+    <h1
+      class="text-primary text-[42px] font-extrabold lg:max-w-[400px] leading-[42px] text-center lg:text-start"
+    >
+      Comida congelada{" "}
+      <strong class="text-secondary">a domicilio</strong>
+    </h1>
+    <p
+      class="text-primary text-[19px] mt-4 text-center text-balance lg:text-start"
+    >
+      Platos de primera, cocinados de manera artesanal con productos
+      seleccionados,{" "}
+      <strong class="text-secondary"> sin aditivos ni conservantes </strong>
+      . Recibe nuestra comida directamente en tu casa.{" "}
+      <strong class="flex gap-2 items-center justify-center lg:justify-start">
+        ¡Garantía de calidad!
+        <img src={IconEmoteLove.src} class="size-5" alt="Icono de enamorado" />
+      </strong>
+    </p>
+    <div
+      class="flex flex-col sm:flex-row items-center mt-10 gap-2 justify-center lg:justify-start"
+    >
+      <a
+        href="/shop"
+        class="bg-secondary text-white font-bold w-full max-w-[240px] rounded-full text-[17px] text-center px-12 py-4 hover:bg-primary transition-all duration-500"
+      >
+        Hacer pedido
+      </a>
+      <a
+        href="/#comidaGourmet"
+        class="border-secondary border-2 text-secondary font-bold w-full max-w-[240px] rounded-full text-[17px] text-center px-12 py-4 hover:border-primary hover:bg-primary hover:text-white transition-all duration-500"
+      >
+        Saber más
+      </a>
+    </div>
+  </div>
+
+  <img
+    class="absolute left-0 top-0 hidden xl:block w-[100px] z-20"
+    src={ImageBackgroundItem.src}
+    alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
+  />
+  <div class="w-full hidden lg:block">
+    <img
+      src={ImagePrincipal.src}
+      class="w-full"
+      alt="Imagen principal del sitio mostrando los productos de Cheffify"
+    />
+  </div>
+</section>
