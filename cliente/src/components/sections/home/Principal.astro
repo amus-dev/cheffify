@@ -2,6 +2,7 @@
 import IconEmoteLove from "@assets/icons/icon-emote-love.svg";
 import ImageBackgroundItem from "@assets/images/item-bg-menu.svg";
 import ImagePrincipal from "@assets/images/principal-image.svg";
+import { Image } from "astro:assets";
 ---
 
 <section
@@ -45,16 +46,18 @@ import ImagePrincipal from "@assets/images/principal-image.svg";
     </div>
   </div>
 
-  <img
+  <Image
     class="absolute left-0 top-0 hidden xl:block w-[100px] z-20"
-    src={ImageBackgroundItem.src}
+    src={ImageBackgroundItem}
     alt="Imagen decorativa para el sitio cheffify ubicado en el menu de navegación"
+    loading="eager"
   />
   <div class="w-full hidden lg:block">
-    <img
-      src={ImagePrincipal.src}
+    <Image
+      src={ImagePrincipal}
       class="w-full"
       alt="Imagen principal del sitio mostrando los productos de Cheffify"
+      loading="eager"
     />
   </div>
 </section>

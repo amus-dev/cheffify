@@ -1,6 +1,7 @@
 ---
 import IconShop from "@assets/icons/bag.svg";
 import { formatPriceCLP } from "@utils/functions/products";
+import { Image } from "astro:assets";
 
 interface CardProductProps {
   slug: string;
@@ -13,6 +14,8 @@ interface CardProductProps {
 
 const { slug, title, description, price, image, alt } =
   Astro.props as CardProductProps;
+
+console.log(image);
 ---
 
 <article
@@ -22,10 +25,13 @@ const { slug, title, description, price, image, alt } =
     aria-label={`Link que te lleva al interior del producto `}
     href={`/shop/${slug}`}
   >
-    <img
+    <Image
       src={image}
+      width={500}
+      height={500}
       class="aspect-square rounded-[15px] brightness-75 transition duration-500 ease-in-out hover:brightness-110"
       transition:name={`img-${slug}`}
+      alt={alt}
     />
   </a>
   <div class="px-2 py-4">
@@ -67,6 +73,7 @@ const { slug, title, description, price, image, alt } =
         src={IconShop.src}
         class="size-4"
         alt="Icono de bolsa para agregar productos"
+        loading="lazy"
       />
     </button>
   </div>

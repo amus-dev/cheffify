@@ -5,6 +5,7 @@ import ItemImageElement from "@assets/images/item-bg-second-section.svg";
 import CardProduct from "@components/products/CardProduct.astro";
 import { randomArray } from "@utils/functions/products";
 import { PRODUCTS } from "@config/database.products";
+import { Image } from "astro:assets";
 // import { randomArray } from "@/utils/functions/products";
 ---
 
@@ -49,14 +50,16 @@ import { PRODUCTS } from "@config/database.products";
   >
     Más platos
   </a>
-  <img
-    src={ItemImageElement.src}
+  <Image
+    src={ItemImageElement}
     alt="Imagen decorativa para la sección dos"
     class="absolute top-10 left-0 w-[75px] h-[310px] hidden lg:block"
+    loading="eager"
   />
   <img
     src={ItemImageElementFlower.src}
     alt="Imagen decorativa de flores para la sección dos"
     class="absolute top-50 right-0 w-[190px] h-[290px] hidden lg:block"
+    loading="lazy"
   />
 </section>
