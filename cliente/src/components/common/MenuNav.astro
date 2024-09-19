@@ -2,6 +2,8 @@
 import Logo from "@assets/images/logo/cheffify-logo.svg";
 import ButtonLink from "./buttons/ButtonLink.astro";
 import { MENU_ITEMS } from "@utils/const/menu";
+import FoodButton from "./buttons/FoodButton.astro";
+import AccountButton from "./buttons/AccountButton.astro";
 ---
 
 <nav
@@ -32,10 +34,10 @@ import { MENU_ITEMS } from "@utils/const/menu";
       ))
     }
   </ul>
-  <!-- <div className="flex items-center gap-2">
+  <div class="flex items-center gap-2">
     <FoodButton />
     <AccountButton />
-    <LogOutButton />
+    <!-- <LogOutButton /> -->
   </div>
-  <CartProducts /> -->
+  <!-- <CartProducts /> -->
 </nav>
