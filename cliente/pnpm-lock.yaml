@@ -11,6 +11,9 @@ dependencies:
   '@astrojs/tailwind':
     specifier: ^5.1.1
     version: 5.1.1(astro@5.0.0-beta.1)(tailwindcss@3.4.12)
+  '@fontsource-variable/raleway':
+    specifier: ^5.1.0
+    version: 5.1.0
   astro:
     specifier: ^5.0.0-beta.1
     version: 5.0.0-beta.1(typescript@5.6.2)
@@ -434,6 +437,10 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@fontsource-variable/raleway@5.1.0:
+    resolution: {integrity: sha512-TtV3e3ZLfGu6XmqRDvZ0Q4cXlRs4Rwbxsc+Te3yMtJKRQgNS/OBRtLjztb3cCrZWTPvH7bKKWjtBlC8yuZWWVw==}
+    dev: false
 
   /@img/sharp-darwin-arm64@0.33.5:
     resolution: {integrity: sha512-UT4p+iz/2H4twwAoLCqfA9UH5pI6DggwKEGuaPy7nCVQ8ZsiY5PIcrRvD1DzuY3qYL07NtIQcWnBSY/heikIFQ==}

@@ -1,0 +1,41 @@
+---
+import Logo from "@assets/images/logo/cheffify-logo.svg";
+import ButtonLink from "./buttons/ButtonLink.astro";
+import { MENU_ITEMS } from "@utils/const/menu";
+---
+
+<nav
+  class="top-0 left-0 right-0 z-20 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500"
+>
+  <div>
+    <a href="http://">
+      <img
+        class="w-full max-w-[115px] hover:scale-110 transition-all duration-500"
+        src={Logo.src}
+        alt="Logo del menu navegación Cheffify"
+      />
+    </a>
+  </div>
+  <ul class="md:flex gap-10 hidden">
+    {
+      MENU_ITEMS.map(({ icon, alt, ariaLabel, text, url, ancla }) => (
+        <li>
+          <ButtonLink
+            icon={icon}
+            alt={alt}
+            ariaLabel={ariaLabel}
+            text={text}
+            url={url}
+            ancla={ancla}
+          />
+        </li>
+      ))
+    }
+  </ul>
+  <!-- <div className="flex items-center gap-2">
+    <FoodButton />
+    <AccountButton />
+    <LogOutButton />
+  </div>
+  <CartProducts /> -->
+</nav>
