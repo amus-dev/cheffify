@@ -5,6 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 import "@fontsource-variable/raleway";
+import ClientRouter from "astro/components/ClientRouter.astro";
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import "@fontsource-variable/raleway";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
+    <ClientRouter />
   </head>
   <body>
     <slot />
