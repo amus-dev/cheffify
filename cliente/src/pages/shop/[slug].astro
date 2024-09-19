@@ -33,6 +33,7 @@ const { product } = Astro.props;
             src={product.image}
             alt={`Imagen representativa del producto ${product.title}`}
             class="rounded-md w-full block"
+            transition:name={`img-${slug}`}
           />
         </div>
         <div>
