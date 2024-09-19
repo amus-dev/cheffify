@@ -18,7 +18,10 @@ const { slug, title, description, price, image, alt } =
 <article
   class="flex flex-col rounded-[15px] p-[10px] w-full max-w-[280px] bg-white shadow-card-shadow"
 >
-  <a aria-label={`Link que te lleva al interior del producto `} href="/shop">
+  <a
+    aria-label={`Link que te lleva al interior del producto `}
+    href={`/shop/${slug}`}
+  >
     <img
       src={image}
       class="aspect-square rounded-[15px] brightness-75 transition duration-500 ease-in-out hover:brightness-110"
