@@ -1,4 +1,5 @@
 import IconCarta from "@/assets/images/icons/icon-carta.svg";
+import IconSelect from "@/assets/images/icons/arrow-select.svg";
 import { PRODUCTS } from "@/config/database.products";
 import CardProductHome from "@/components/Products/CardProductHome";
 
@@ -10,7 +11,15 @@ const ProductsShop = () => {
           <img src={IconCarta} className="size-5" />
           <h2 className="text-primary font-bold text-xl">Nuestra Carta</h2>
         </div>
-        <span className="text-primary">Ordenar por</span>
+        <select
+          name=""
+          id=""
+          className={`border-none bg-bgInput rounded-[17px] w-full max-w-[200px] h-[34px] text-[12px] text-primary font-extrabold px-[20px] appearance-none bg-no-repeat bg-[length:10px] bg-right-[10%] bg-center bg-[url(${IconSelect})]`}
+        >
+          <option value="">Ordenar por</option>
+          <option value="asc">Precio (de bajo a alto)</option>
+          <option value="desc">Precio (de alto a bajo)</option>
+        </select>
       </div>
       <div className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10">
         {PRODUCTS.map(({ id, slug, title, description, price, image, alt }) => (
