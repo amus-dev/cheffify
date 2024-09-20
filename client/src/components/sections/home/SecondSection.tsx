@@ -1,3 +1,5 @@
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import IconArrow from "@/assets/images/icons/icon-arrow-down.svg";
 import ItemImageElementFlower from "@/assets/images/img/item-bg-flower-second-section.svg";
 import ItemImageElement from "@/assets/images/img/item-bg-second-section.svg";
@@ -5,10 +7,27 @@ import CardProductHome from "@/components/Products/CardProductHome";
 import { PRODUCTS } from "@/config/database.products";
 import { randomArray } from "@/utils/functions/products";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
 const SecondSection = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start({ opacity: 1, y: 0 });
+    }
+  }, [controls, inView]);
+
   return (
-    <section
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0, y: 50 }} // Elementos aparecen con opacidad 0 y desplazados
+      animate={controls}
+      transition={{ duration: 0.8 }}
       className="bg-secondaryLight mt-28 flex flex-col justify-center items-center relative px-[20px] pb-20"
       id="comemos"
     >
@@ -25,7 +44,12 @@ const SecondSection = () => {
         Sabemos que cuesta decir quién es mejor, si el papá o la mamá. A
         nosotros también, por eso dejamos una sugerencia, tú eliges.
       </p>
-      <div className="grid mt-10 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 z-10">
+      <motion.div
+        className="grid mt-10 gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 z-10"
+        initial={{ opacity: 0, y: 50 }} // Inicialmente oculto y desplazado
+        animate={controls}
+        transition={{ duration: 0.8, delay: 0.2 }} // Se anima después del texto
+      >
         {randomArray({ arr: PRODUCTS, totalItems: 4 }).map(
           ({ id, slug, title, description, price, image, alt }) => (
             <CardProductHome
@@ -40,7 +64,7 @@ const SecondSection = () => {
             />
           )
         )}
-      </div>
+      </motion.div>
       <Link
         to="/shop"
         unstable_viewTransition
@@ -48,17 +72,23 @@ const SecondSection = () => {
       >
         Más platos
       </Link>
-      <img
+      <motion.img
         src={ItemImageElement}
         alt="Imagen decorativa para la sección dos"
         className="absolute top-10 left-0 w-[75px] h-[310px] hidden lg:block"
+        initial={{ opacity: 0, x: -50 }}
+        animate={controls}
+        transition={{ duration: 0.8, delay: 0.5 }}
       />
-      <img
+      <motion.img
         src={ItemImageElementFlower}
         alt="Imagen decorativa de flores para la sección dos"
         className="absolute top-50 right-0 w-[190px] h-[290px] hidden lg:block"
+        initial={{ opacity: 0, x: 50 }}
+        animate={controls}
+        transition={{ duration: 0.8, delay: 0.5 }}
       />
-    </section>
+    </motion.section>
   );
 };
 
