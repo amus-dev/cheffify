@@ -14,7 +14,7 @@ export const CATEGORIES: CategoryProduct[] = [
     name: "Carnes",
     slug: "carnes",
     icon: IconMeat,
-    active: true,
+    active: false,
   },
   {
     id: 2,
