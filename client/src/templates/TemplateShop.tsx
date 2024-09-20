@@ -17,12 +17,9 @@ const TemplateShop = () => {
     scrollToTop();
   }, []);
   return (
-    <main className="mt-28">
+    <main className="mt-28" id="initialSection">
       <MenuNav />
-      <main
-        className="px-[20px] lg:px-[60px] xl:px-[170px] my-2"
-        id="initialSection"
-      >
+      <div className="px-[20px] lg:px-[60px] xl:px-[170px] my-2">
         <CarouselProducts />
         <section className="mt-8 flex flex-col lg:flex-row gap-4 lg:gap-10">
           <FilterProducts />
@@ -30,7 +27,7 @@ const TemplateShop = () => {
         </section>
         <ComoFunciona />
         <SomosCheffify />
-      </main>
+      </div>
       <Overlay />
       <ArrowScrollUpButton />
       <Footer />
