@@ -19,7 +19,7 @@ const ProductsShop = () => {
 
   return (
     <div className="flex flex-col w-full items-start justify-start pb-10">
-      <div className="flex items-center justify-between border-b border-b-separator pb-6 w-full">
+      <div className="flex items-center flex-col lg:flex-row gap-2 justify-between border-b border-b-separator pb-6 w-full">
         <div className="flex items-center gap-3">
           <img src={IconCarta} className="w-6 h-6" />
           <h2 className="text-primary font-bold text-lg md:text-xl">
@@ -38,7 +38,10 @@ const ProductsShop = () => {
         </select>
       </div>
       <motion.div
-        className="grid mt-10 gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 z-10"
+        className="grid mt-10 gap-6 z-10 w-full"
+        style={{
+          gridTemplateColumns: "repeat(auto-fit, minmax(270px, 1fr))",
+        }}
         layout
       >
         {productsFilter
@@ -49,8 +52,9 @@ const ProductsShop = () => {
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5 }}
+              exit={{ opacity: 20, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="flex items-center justify-center"
             >
               <CardProductHome
                 id={id}
