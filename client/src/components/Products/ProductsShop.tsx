@@ -52,8 +52,11 @@ const ProductsShop = () => {
               layout
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 20, y: 0 }}
-              transition={{ duration: 0.8 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{
+                duration: 1.2, // Duración más larga para que la animación sea más lenta
+                ease: [0.42, 0, 0.58, 1], // Usamos una curva de aceleración suave (custom bezier curve)
+              }}
               className="flex items-center justify-center"
             >
               <CardProductHome
@@ -68,6 +71,7 @@ const ProductsShop = () => {
             </motion.div>
           ))}
       </motion.div>
+
       {visibleProducts < productsFilter.length && (
         <button
           onClick={handleLoadMore}

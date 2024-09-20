@@ -54,7 +54,7 @@ const CardProductHome = ({
         <h3 className="text-grayLight font-bold text-[16px] md:text-[19px] min-h-[42px] leading-[19px] mb-4">
           {title}
         </h3>
-        <p className="text-grayLight text-[12px] md:text-[14px] min-h-[90px] mb-6">
+        <p className="text-grayLight text-[12px] md:text-[14px] min-h-[130px] mb-6">
           {description}
         </p>
         <p className="text-primary text-[19px] font-bold">
