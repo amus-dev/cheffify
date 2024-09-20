@@ -9,11 +9,12 @@ import {
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const FilterProducts = () => {
   const [categories, setCategories] = useState(CATEGORIES);
-  const [isCategoryOpen, setIsCategoryOpen] = useState(true); // Estado para el acordeón de Categoría
-  const [isPriceOpen, setIsPriceOpen] = useState(true); // Estado para el acordeón de Precio
+  const [isCategoryOpen, setIsCategoryOpen] = useState(true);
+  const [isPriceOpen, setIsPriceOpen] = useState(true);
   const [filterPrice, setFilterPrice] = useState([
     getMinOrMaxValuePrice("min"),
     getMinOrMaxValuePrice("max"),
@@ -49,7 +50,7 @@ const FilterProducts = () => {
         <h2 className="text-primary font-bold text-xl">Filtrar</h2>
       </div>
 
-      {/* Ajustar acordeones */}
+      {/* Acordeón de Categoría */}
       <div className="border border-gray-300 rounded mt-6">
         <button
           className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-sm md:text-[14px] border-b border-b-separator pb-2"
@@ -81,8 +82,8 @@ const FilterProducts = () => {
           <ul className="pt-4">
             {categories.map(({ id, name, slug, icon, active }) => (
               <li
-                className="text-secondary text-sm md:text-lg flex justify-between relative group mb-2"
                 key={id}
+                className="text-secondary text-sm md:text-lg flex justify-between relative group mb-2"
               >
                 <button
                   className="flex items-center gap-3"
@@ -91,9 +92,21 @@ const FilterProducts = () => {
                   <img src={icon} alt="" className="w-5 h-5" />
                   <span className="text-[14px] md:text-[16px]">{name}</span>
                 </button>
-                {active && (
-                  <img src={IconCheck} alt="Active Icon" className="w-5 h-5" />
-                )}
+
+                {/* Icono Check animado con Framer Motion */}
+                <AnimatePresence>
+                  {active && (
+                    <motion.img
+                      src={IconCheck}
+                      alt="Active Icon"
+                      className="w-5 h-5"
+                      initial={{ opacity: 0, scale: 0.5 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.5 }}
+                      transition={{ duration: 0.6 }}
+                    />
+                  )}
+                </AnimatePresence>
               </li>
             ))}
           </ul>
