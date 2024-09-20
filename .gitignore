@@ -26,4 +26,3 @@ dist-ssr
 #server
 server/.env
 client/.env.development
-client/.env.production
