@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 const ProductsShop = () => {
   const productsFilter = useCartStore((state) => state.productsFilter);
+  const sortProducts = useCartStore((state) => state.sortProducts);
 
   // Estado para manejar el número de productos visibles
   const [visibleProducts, setVisibleProducts] = useState(6); // Mostrar 8 productos inicialmente
@@ -14,11 +15,6 @@ const ProductsShop = () => {
   // Función para cargar más productos
   const handleLoadMore = () => {
     setVisibleProducts((prevVisible) => prevVisible + 8); // Incrementar el número de productos en 8
-  };
-
-  const sortProducts = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    console.log(value);
   };
 
   return (

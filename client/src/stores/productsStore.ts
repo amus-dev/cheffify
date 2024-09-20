@@ -14,6 +14,7 @@ interface CartStore {
   getTotalQuantity: () => number;
   getTotalPrice: () => number;
   filterProductsByCategory: (category: string) => void;
+  sortProducts: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
@@ -87,6 +88,22 @@ const useCartStore = create<CartStore>((set, get) => ({
     );
     set(() => ({
       productsFilter: filteredProducts,
+    }));
+  },
+
+  sortProducts: (e) => {
+    const value = e.target.value;
+    const productsFilter = get().productsFilter;
+    const sortedProducts = [...productsFilter];
+
+    if (value === "asc") {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (value === "desc") {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+
+    set(() => ({
+      productsFilter: sortedProducts,
     }));
   },
 }));
