@@ -1,12 +1,16 @@
-import IconFilter from "@/assets/images/icons/icon-filter.svg";
 import IconCheck from "@/assets/images/icons/icon-check.svg";
-import { useState } from "react";
+import IconFilter from "@/assets/images/icons/icon-filter.svg";
 import { CATEGORIES } from "@/config/data.category.products";
+import useCartStore from "@/stores/productsStore";
+import { useState } from "react";
 
 const FilterProducts = () => {
   // Hacemos una copia del array de categorías y lo usamos como estado
   const [categories, setCategories] = useState(CATEGORIES);
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
+  const filterProductsByCategory = useCartStore(
+    (state) => state.filterProductsByCategory
+  );
 
   const toggleAccordion = (index: number) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -20,6 +24,7 @@ const FilterProducts = () => {
         : { ...category, active: false }
     );
     setCategories(updatedCategories);
+    filterProductsByCategory(slug);
   };
 
   return (
