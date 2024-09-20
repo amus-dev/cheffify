@@ -5,7 +5,7 @@ import { formatPriceCLP } from "@/utils/functions/products";
 import { useState } from "react";
 
 const ResumeCart = () => {
-  const products = useCartStore((state) => state.products);
+  const productsBag = useCartStore((state) => state.productsBag);
   const updateQuantity = useCartStore((state) => state.updateQuantity);
   const getTotalPrice = useCartStore((state) => state.getTotalPrice());
   const removeProduct = useCartStore((state) => state.removeProduct);
@@ -28,7 +28,7 @@ const ResumeCart = () => {
         Resumen del pedido
       </h2>
       <div>
-        {products.map(({ id, image, title, quantity, price }) => (
+        {productsBag.map(({ id, image, title, quantity, price }) => (
           <div
             className={`flex justify-between transition-all duration-500 mb-3 ${
               removingProductId === id ? "opacity-0 translate-x-[-100%]" : ""

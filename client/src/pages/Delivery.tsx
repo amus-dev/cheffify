@@ -3,9 +3,9 @@ import TemplateDelivery from "@/templates/TemplateDelivery";
 import { Navigate } from "react-router-dom";
 
 const Delivery = () => {
-  const products = useCartStore((state) => state.products);
+  const productsBag = useCartStore((state) => state.productsBag);
 
-  if (products.length === 0) {
+  if (productsBag.length === 0) {
     return <Navigate to="/" />;
   }
   return <TemplateDelivery />;

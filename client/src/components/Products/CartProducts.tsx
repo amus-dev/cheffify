@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 const CartProducts = () => {
   const navigate = useNavigate();
-  const products = useCartStore((state) => state.products);
+  const productsBag = useCartStore((state) => state.productsBag);
   const isCartVisible = useCartStore((state) => state.isCartVisible);
   const toggleCartVisibility = useCartStore(
     (state) => state.toggleCartVisibility
@@ -54,9 +54,9 @@ const CartProducts = () => {
           />
         </button>
       </div>
-      {products.length > 0 ? (
+      {productsBag.length > 0 ? (
         <div>
-          {products.map(({ id, image, title, quantity, price }) => (
+          {productsBag.map(({ id, image, title, quantity, price }) => (
             <div
               className={`flex items-center justify-between mt-5 gap-2 transition-all duration-500 ${
                 removingProductId === id ? "opacity-0 translate-x-[-100%]" : ""

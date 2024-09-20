@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { ProductsStore } from "@/utils/types/productTypes";
 
 interface CartStore {
-  products: ProductsStore[];
+  productsBag: ProductsStore[];
   isCartVisible: boolean;
   addProduct: (product: ProductsStore) => void;
   removeProduct: (id: number) => void;
@@ -14,16 +14,18 @@ interface CartStore {
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
-  products: [],
+  productsBag: [],
   isCartVisible: false,
 
   addProduct: (product) =>
     set((state) => {
-      const existingProduct = state.products.find((p) => p.id === product.id);
+      const existingProduct = state.productsBag.find(
+        (p) => p.id === product.id
+      );
 
       if (existingProduct) {
         return {
-          products: state.products.map((p) =>
+          productsBag: state.productsBag.map((p) =>
             p.id === product.id
               ? { ...p, quantity: p.quantity + product.quantity }
               : p
@@ -31,8 +33,8 @@ const useCartStore = create<CartStore>((set, get) => ({
         };
       } else {
         return {
-          products: [
-            ...state.products,
+          productsBag: [
+            ...state.productsBag,
             { ...product, quantity: product.quantity },
           ],
         };
@@ -41,19 +43,19 @@ const useCartStore = create<CartStore>((set, get) => ({
 
   removeProduct: (id) =>
     set((state) => ({
-      products: state.products.filter((product) => product.id !== id),
+      productsBag: state.productsBag.filter((product) => product.id !== id),
     })),
 
   updateQuantity: (id, quantity) =>
     set((state) => ({
-      products: state.products.map((product) =>
+      productsBag: state.productsBag.map((product) =>
         product.id === id ? { ...product, quantity } : product
       ),
     })),
 
   clearCart: () =>
     set(() => ({
-      products: [],
+      productsBag: [],
     })),
 
   toggleCartVisibility: () =>
@@ -62,13 +64,13 @@ const useCartStore = create<CartStore>((set, get) => ({
     })),
 
   getTotalQuantity: () => {
-    const products = get().products;
-    return products.reduce((total, product) => total + product.quantity, 0);
+    const productsBag = get().productsBag;
+    return productsBag.reduce((total, product) => total + product.quantity, 0);
   },
 
   getTotalPrice: () => {
-    const products = get().products;
-    return products.reduce(
+    const productsBag = get().productsBag;
+    return productsBag.reduce(
       (total, product) => total + product.price * product.quantity,
       0
     );
