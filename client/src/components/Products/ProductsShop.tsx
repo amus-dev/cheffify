@@ -2,10 +2,20 @@ import IconSelect from "@/assets/images/icons/arrow-select.svg";
 import IconCarta from "@/assets/images/icons/icon-carta.svg";
 import CardProductHome from "@/components/Products/CardProductHome";
 import useCartStore from "@/stores/productsStore";
+import { useState } from "react";
 import { motion } from "framer-motion";
 
 const ProductsShop = () => {
   const productsFilter = useCartStore((state) => state.productsFilter);
+
+  // Estado para manejar el número de productos visibles
+  const [visibleProducts, setVisibleProducts] = useState(6); // Mostrar 8 productos inicialmente
+
+  // Función para cargar más productos
+  const handleLoadMore = () => {
+    setVisibleProducts((prevVisible) => prevVisible + 8); // Incrementar el número de productos en 8
+  };
+
   return (
     <div className="flex flex-col w-full items-start justify-start pb-10">
       <div className="flex items-center justify-between border-b border-b-separator pb-6 w-full">
@@ -27,8 +37,10 @@ const ProductsShop = () => {
         className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10"
         layout
       >
-        {productsFilter.map(
-          ({ id, slug, title, description, price, image, alt }) => (
+        {/* Mostrar solo los productos visibles */}
+        {productsFilter
+          .slice(0, visibleProducts)
+          .map(({ id, slug, title, description, price, image, alt }) => (
             <motion.div
               key={id}
               layout
@@ -47,9 +59,19 @@ const ProductsShop = () => {
                 alt={alt}
               />
             </motion.div>
-          )
-        )}
+          ))}
       </motion.div>
+
+      {/* Mostrar el botón solo si hay más productos para cargar */}
+      {visibleProducts < productsFilter.length && (
+        <button
+          onClick={handleLoadMore}
+          className="font-extrabold mt-8 border border-primary px-8 py-2 bg-white text-primary rounded-full self-center flex items-center gap-2 justify-between text-[22px] transition-all hover:bg-primary hover:text-white duration-500"
+        >
+          Cargar más
+          <span className="text-[30px]">+</span>
+        </button>
+      )}
     </div>
   );
 };
