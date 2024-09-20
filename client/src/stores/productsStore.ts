@@ -1,8 +1,10 @@
 import { create } from "zustand";
-import { ProductsStore } from "@/utils/types/productTypes";
+import { Product, ProductsStore } from "@/utils/types/productTypes";
+import { PRODUCTS } from "@/config/database.products";
 
 interface CartStore {
   productsBag: ProductsStore[];
+  productsFilter: Product[];
   isCartVisible: boolean;
   addProduct: (product: ProductsStore) => void;
   removeProduct: (id: number) => void;
@@ -16,6 +18,7 @@ interface CartStore {
 const useCartStore = create<CartStore>((set, get) => ({
   productsBag: [],
   isCartVisible: false,
+  productsFilter: PRODUCTS,
 
   addProduct: (product) =>
     set((state) => {
