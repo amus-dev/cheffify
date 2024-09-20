@@ -6,9 +6,14 @@ import Overlay from "@/components/common/overlay";
 import FilterProducts from "@/components/Products/FilterProducts";
 import ProductsShop from "@/components/Products/ProductsShop";
 import "@/theme/shop.general.css";
+import { scrollToTop } from "@/utils/functions/navigate";
+import { useEffect } from "react";
 import { Toaster } from "sonner";
 
 const TemplateShop = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <main className="mt-28">
       <MenuNav />

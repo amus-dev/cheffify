@@ -20,3 +20,13 @@ export const navigateWithViewTransition = (
     navigate(path);
   }
 };
+
+/**
+ * Navega hacia el inicio de la página con un desplazamiento suave.
+ */
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth", // Esto hace que el desplazamiento sea suave
+  });
+};

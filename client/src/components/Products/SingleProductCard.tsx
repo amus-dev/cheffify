@@ -3,6 +3,7 @@ import IconCheck from "@/assets/images/icons/check.svg";
 import IconFile from "@/assets/images/icons/icon-file.svg";
 import InfoFile from "@/assets/pdf/informacion_nutricional.pdf";
 import useCartStore from "@/stores/productsStore";
+import { scrollToTop } from "@/utils/functions/navigate";
 import {
   filterProductBySlug,
   formatPriceCLP,
@@ -21,6 +22,7 @@ const SingleProductCard = () => {
 
   useEffect(() => {
     setProductFiltered(filterProductBySlug(productSlug));
+    scrollToTop();
   }, [productSlug]);
 
   const addProductToCart = () => {
