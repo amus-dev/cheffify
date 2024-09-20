@@ -18,7 +18,7 @@ const TemplatePerfil = () => {
   }, []);
 
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <HeaderInfo />
       <Overlay />

@@ -14,7 +14,7 @@ import "@/theme/home.general.css";
 
 const TemplateHome = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <FirstSection />
       <SecondSection />

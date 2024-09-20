@@ -6,7 +6,7 @@ import { Toaster } from "sonner";
 
 const TemplateCreateAccount = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <section className="flex justify-center my-20">
         <CreateAccountForm />

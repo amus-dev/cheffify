@@ -10,7 +10,7 @@ import { Toaster } from "sonner";
 
 const TemplateShop = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <main
         className="px-[20px] lg:px-[60px] xl:px-[170px] my-2"

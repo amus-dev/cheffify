@@ -6,7 +6,7 @@ import SecondSection from "@/components/sections/home/SecondSection";
 
 const TemplateSingleProduct = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <SingleProductCard />
       <SecondSection />

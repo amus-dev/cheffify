@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const FirstSection = () => {
   return (
     <section
-      className="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px] mt-6"
+      className="flex items-center justify-between px-[20px] lg:pl-[60px] xl:pl-[170px] lg:pr-[0px]"
       id="initialSection"
     >
       <div className="lg:max-w-[620px]">

@@ -6,7 +6,7 @@ import ResumeCart from "@/components/Delivery/ResumeCart";
 
 const TemplateDelivery = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <section className="px-[20px] lg:px-[60px] xl:px-[170px] my-10 flex flex-col-reverse lg:flex-row items-center justify-center gap-10 lg:gap-40 xl:gap-60">
         <div>

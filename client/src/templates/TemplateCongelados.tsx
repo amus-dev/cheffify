@@ -7,7 +7,7 @@ import Ventajas from "@/components/sections/congelados/Ventajas";
 
 const TemplateCongelados = () => {
   return (
-    <main>
+    <main className="mt-28">
       <MenuNav />
       <Banner />
       <Ventajas />
