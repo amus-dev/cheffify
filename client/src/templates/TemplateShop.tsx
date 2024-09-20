@@ -6,6 +6,7 @@ import Overlay from "@/components/common/overlay";
 import FilterProducts from "@/components/Products/FilterProducts";
 import ProductsShop from "@/components/Products/ProductsShop";
 import ComoFunciona from "@/components/sections/shop/ComoFunciona";
+import SomosCheffify from "@/components/sections/shop/SomosCheffify";
 import "@/theme/shop.general.css";
 import { scrollToTop } from "@/utils/functions/navigate";
 import { useEffect } from "react";
@@ -28,6 +29,7 @@ const TemplateShop = () => {
           <ProductsShop />
         </section>
         <ComoFunciona />
+        <SomosCheffify />
       </main>
       <Overlay />
       <ArrowScrollUpButton />
