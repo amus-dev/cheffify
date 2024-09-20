@@ -13,6 +13,7 @@ interface CartStore {
   toggleCartVisibility: () => void;
   getTotalQuantity: () => number;
   getTotalPrice: () => number;
+  filterProductsByCategory: (category: string) => void;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
@@ -77,6 +78,16 @@ const useCartStore = create<CartStore>((set, get) => ({
       (total, product) => total + product.price * product.quantity,
       0
     );
+  },
+
+  filterProductsByCategory: (category: string) => {
+    const productsFilter = PRODUCTS;
+    const filteredProducts = productsFilter.filter(
+      (product) => product.category === category
+    );
+    set(() => ({
+      productsFilter: filteredProducts,
+    }));
   },
 }));
 
