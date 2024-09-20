@@ -11,23 +11,19 @@ import "rc-slider/assets/index.css";
 import { useState } from "react";
 
 const FilterProducts = () => {
-  // Hacemos una copia del array de categorías y lo usamos como estado
   const [categories, setCategories] = useState(CATEGORIES);
-  const [activeIndex, setActiveIndex] = useState<number | null>(1);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(true); // Estado para el acordeón de Categoría
+  const [isPriceOpen, setIsPriceOpen] = useState(true); // Estado para el acordeón de Precio
   const [filterPrice, setFilterPrice] = useState([
     getMinOrMaxValuePrice("min"),
     getMinOrMaxValuePrice("max"),
   ]);
+
   const filterProductsByCategory = useCartStore(
     (state) => state.filterProductsByCategory
   );
 
-  const toggleAccordion = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
-
   const handleClickFilter = (slug: string) => {
-    // Actualizamos el estado de las categorías, activando solo la seleccionada
     const updatedCategories = categories.map((category) =>
       category.slug === slug
         ? { ...category, active: true }
@@ -39,7 +35,6 @@ const FilterProducts = () => {
 
   const filterByPrice = (price: number[]) => {
     setFilterPrice(price);
-    console.log(price);
   };
 
   return (
@@ -48,15 +43,17 @@ const FilterProducts = () => {
         <img src={IconFilter} alt="Icon Filter" className="size-5" />
         <h2 className="text-primary font-bold text-xl">Filtrar</h2>
       </div>
+
+      {/* Acordeón de Categoría */}
       <div className="border border-gray-300 rounded mt-6">
         <button
           className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-[14px] border-b border-b-separator pb-2"
-          onClick={() => toggleAccordion(1)}
+          onClick={() => setIsCategoryOpen(!isCategoryOpen)} // Controla la apertura del acordeón de Categoría
         >
           <span>Categoría</span>
           <svg
             className={`w-5 h-5 transform transition-transform duration-700 ${
-              activeIndex === 1 ? "rotate-180" : "rotate-0"
+              isCategoryOpen ? "rotate-180" : "rotate-0"
             }`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -73,7 +70,7 @@ const FilterProducts = () => {
         </button>
         <div
           className={`overflow-hidden transition-all duration-700 ${
-            activeIndex === 1 ? "max-h-96" : "max-h-0"
+            isCategoryOpen ? "max-h-96" : "max-h-0"
           }`}
         >
           <ul className="pt-4">
@@ -98,15 +95,17 @@ const FilterProducts = () => {
           </ul>
         </div>
       </div>
+
+      {/* Acordeón de Precio */}
       <div className="border border-gray-300 rounded mt-6">
         <button
           className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-[14px] border-b border-b-separator pb-2"
-          onClick={() => toggleAccordion(1)}
+          onClick={() => setIsPriceOpen(!isPriceOpen)} // Controla la apertura del acordeón de Precio
         >
           <span>Precio</span>
           <svg
             className={`w-5 h-5 transform transition-transform duration-700 ${
-              activeIndex === 1 ? "rotate-180" : "rotate-0"
+              isPriceOpen ? "rotate-180" : "rotate-0"
             }`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -121,26 +120,32 @@ const FilterProducts = () => {
             />
           </svg>
         </button>
-        <div className="mt-4">
-          <Slider
-            range
-            allowCross={false}
-            defaultValue={[
-              getMinOrMaxValuePrice("min"),
-              getMinOrMaxValuePrice("max"),
-            ]}
-            min={getMinOrMaxValuePrice("min")}
-            max={getMinOrMaxValuePrice("max")}
-            value={filterPrice}
-            onChange={(price) => filterByPrice(price as number[])}
-          />
-          <div className="flex items-center justify-between mt-2">
-            <span className="text-secondary text-[15px]">
-              {formatPriceCLP(filterPrice[0])}
-            </span>
-            <span className="text-secondary text-[15px]">
-              {formatPriceCLP(filterPrice[1])}
-            </span>
+        <div
+          className={`overflow-hidden transition-all duration-700 ${
+            isPriceOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
+          <div className="mt-4">
+            <Slider
+              range
+              allowCross={false}
+              defaultValue={[
+                getMinOrMaxValuePrice("min"),
+                getMinOrMaxValuePrice("max"),
+              ]}
+              min={getMinOrMaxValuePrice("min")}
+              max={getMinOrMaxValuePrice("max")}
+              value={filterPrice}
+              onChange={(price) => filterByPrice(price as number[])}
+            />
+            <div className="flex items-center justify-between mt-2">
+              <span className="text-secondary text-[15px]">
+                {formatPriceCLP(filterPrice[0])}
+              </span>
+              <span className="text-secondary text-[15px]">
+                {formatPriceCLP(filterPrice[1])}
+              </span>
+            </div>
           </div>
         </div>
       </div>
