@@ -2,6 +2,7 @@ import IconSelect from "@/assets/images/icons/arrow-select.svg";
 import IconCarta from "@/assets/images/icons/icon-carta.svg";
 import CardProductHome from "@/components/Products/CardProductHome";
 import useCartStore from "@/stores/productsStore";
+import { motion } from "framer-motion";
 
 const ProductsShop = () => {
   const productsFilter = useCartStore((state) => state.productsFilter);
@@ -22,22 +23,33 @@ const ProductsShop = () => {
           <option value="desc">Precio (de alto a bajo)</option>
         </select>
       </div>
-      <div className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10">
+      <motion.div
+        className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10"
+        layout
+      >
         {productsFilter.map(
           ({ id, slug, title, description, price, image, alt }) => (
-            <CardProductHome
+            <motion.div
               key={id}
-              id={id}
-              slug={slug}
-              title={title}
-              description={description}
-              price={price}
-              image={image}
-              alt={alt}
-            />
+              layout
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              transition={{ duration: 0.5 }}
+            >
+              <CardProductHome
+                id={id}
+                slug={slug}
+                title={title}
+                description={description}
+                price={price}
+                image={image}
+                alt={alt}
+              />
+            </motion.div>
           )
         )}
-      </div>
+      </motion.div>
     </div>
   );
 };
