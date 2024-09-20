@@ -4,7 +4,7 @@ import IconCasa from "@/assets/images/icons/icon-casa.svg";
 
 const SomosCheffify = () => {
   return (
-    <section className="flex flex-col mt-10">
+    <section className="flex flex-col my-10">
       <h2 className="text-primary text-3xl font-extrabold">
         Somos <strong className="text-secondary">Cheffify</strong>
       </h2>
