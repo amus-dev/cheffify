@@ -1,9 +1,10 @@
-import IconCarta from "@/assets/images/icons/icon-carta.svg";
 import IconSelect from "@/assets/images/icons/arrow-select.svg";
-import { PRODUCTS } from "@/config/database.products";
+import IconCarta from "@/assets/images/icons/icon-carta.svg";
 import CardProductHome from "@/components/Products/CardProductHome";
+import useCartStore from "@/stores/productsStore";
 
 const ProductsShop = () => {
+  const productsFilter = useCartStore((state) => state.productsFilter);
   return (
     <div className="flex flex-col w-full items-start justify-start pb-10">
       <div className="flex items-center justify-between border-b border-b-separator pb-6 w-full">
@@ -22,18 +23,20 @@ const ProductsShop = () => {
         </select>
       </div>
       <div className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10">
-        {PRODUCTS.map(({ id, slug, title, description, price, image, alt }) => (
-          <CardProductHome
-            key={id}
-            id={id}
-            slug={slug}
-            title={title}
-            description={description}
-            price={price}
-            image={image}
-            alt={alt}
-          />
-        ))}
+        {productsFilter.map(
+          ({ id, slug, title, description, price, image, alt }) => (
+            <CardProductHome
+              key={id}
+              id={id}
+              slug={slug}
+              title={title}
+              description={description}
+              price={price}
+              image={image}
+              alt={alt}
+            />
+          )
+        )}
       </div>
     </div>
   );
