@@ -16,6 +16,11 @@ const ProductsShop = () => {
     setVisibleProducts((prevVisible) => prevVisible + 8); // Incrementar el número de productos en 8
   };
 
+  const sortProducts = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const value = e.target.value;
+    console.log(value);
+  };
+
   return (
     <div className="flex flex-col w-full items-start justify-start pb-10">
       <div className="flex items-center justify-between border-b border-b-separator pb-6 w-full">
@@ -27,6 +32,7 @@ const ProductsShop = () => {
           name=""
           id=""
           className={`border-none bg-bgInput rounded-[17px] w-full max-w-[200px] h-[34px] text-[12px] text-primary font-extrabold px-[20px] appearance-none bg-no-repeat bg-[length:10px] bg-right-[10%] bg-center bg-[url(${IconSelect})]`}
+          onChange={sortProducts}
         >
           <option value="">Ordenar por</option>
           <option value="asc">Precio (de bajo a alto)</option>
