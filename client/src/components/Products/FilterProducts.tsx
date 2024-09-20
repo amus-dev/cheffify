@@ -23,6 +23,10 @@ const FilterProducts = () => {
     (state) => state.filterProductsByCategory
   );
 
+  const filterProductsByPrice = useCartStore(
+    (state) => state.filterProductsByPrice
+  );
+
   const handleClickFilter = (slug: string) => {
     const updatedCategories = categories.map((category) =>
       category.slug === slug
@@ -35,6 +39,7 @@ const FilterProducts = () => {
 
   const filterByPrice = (price: number[]) => {
     setFilterPrice(price);
+    filterProductsByPrice(price);
   };
 
   return (
