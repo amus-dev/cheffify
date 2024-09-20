@@ -9,10 +9,15 @@ import SecondSection from "@/components/sections/home/SecondSection";
 import SevenSection from "@/components/sections/home/SevenSection";
 import SixSection from "@/components/sections/home/SixSection";
 import ThirdSection from "@/components/sections/home/ThirdSection";
-import { Toaster } from "sonner";
 import "@/theme/home.general.css";
+import { scrollToTop } from "@/utils/functions/navigate";
+import { useEffect } from "react";
+import { Toaster } from "sonner";
 
 const TemplateHome = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <main className="mt-28">
       <MenuNav />

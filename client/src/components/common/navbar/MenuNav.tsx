@@ -43,8 +43,8 @@ const MenuNav = () => {
     <motion.nav
       initial={{ y: 0, opacity: 1 }} // Al cargar la página, siempre visible
       animate={controls} // Controla la animación al hacer scroll
-      className={`fixed top-0 left-0 right-0 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500 ${
-        hasScrolled ? "shadow-lg z-30" : ""
+      className={`fixed top-0 left-0 right-0 px-[20px] lg:px-[60px] py-[20px] xl:px-[170px] flex items-center justify-between bg-white transition-shadow duration-500 z-30 ${
+        hasScrolled ? "shadow-lg" : ""
       }`}
     >
       <div>

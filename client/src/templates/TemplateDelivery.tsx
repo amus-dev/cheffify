@@ -3,8 +3,13 @@ import MenuNav from "@/components/common/navbar/MenuNav";
 import Overlay from "@/components/common/overlay";
 import DeliveryForm from "@/components/Delivery/DeliveryForm";
 import ResumeCart from "@/components/Delivery/ResumeCart";
+import { scrollToTop } from "@/utils/functions/navigate";
+import { useEffect } from "react";
 
 const TemplateDelivery = () => {
+  useEffect(() => {
+    scrollToTop();
+  }, []);
   return (
     <main className="mt-28">
       <MenuNav />
