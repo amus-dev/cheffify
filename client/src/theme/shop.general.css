@@ -20,3 +20,27 @@
 .carouselShop .swiper-pagination-bullet:hover {
   opacity: 1;
 }
+
+/* Set styles input range */
+.rc-slider {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.rc-slider .rc-slider-rail {
+  background-color: #d77466 !important;
+}
+
+.rc-slider .rc-slider-track {
+  background-color: #262c57 !important;
+}
+
+.rc-slider-handle {
+  background-color: #d77466 !important;
+  border: solid 2px #d77466 !important;
+  opacity: 1 !important;
+}
+
+.rc-slider-handle:active {
+  box-shadow: 0 0 5px #fcf3f2 !important;
+}

@@ -2,12 +2,22 @@ import IconCheck from "@/assets/images/icons/icon-check.svg";
 import IconFilter from "@/assets/images/icons/icon-filter.svg";
 import { CATEGORIES } from "@/config/data.category.products";
 import useCartStore from "@/stores/productsStore";
+import {
+  formatPriceCLP,
+  getMinOrMaxValuePrice,
+} from "@/utils/functions/products";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 import { useState } from "react";
 
 const FilterProducts = () => {
   // Hacemos una copia del array de categorías y lo usamos como estado
   const [categories, setCategories] = useState(CATEGORIES);
   const [activeIndex, setActiveIndex] = useState<number | null>(1);
+  const [filterPrice, setFilterPrice] = useState([
+    getMinOrMaxValuePrice("min"),
+    getMinOrMaxValuePrice("max"),
+  ]);
   const filterProductsByCategory = useCartStore(
     (state) => state.filterProductsByCategory
   );
@@ -25,6 +35,11 @@ const FilterProducts = () => {
     );
     setCategories(updatedCategories);
     filterProductsByCategory(slug);
+  };
+
+  const filterByPrice = (price: number[]) => {
+    setFilterPrice(price);
+    console.log(price);
   };
 
   return (
@@ -81,6 +96,52 @@ const FilterProducts = () => {
               </li>
             ))}
           </ul>
+        </div>
+      </div>
+      <div className="border border-gray-300 rounded mt-6">
+        <button
+          className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-[14px] border-b border-b-separator pb-2"
+          onClick={() => toggleAccordion(1)}
+        >
+          <span>Precio</span>
+          <svg
+            className={`w-5 h-5 transform transition-transform duration-700 ${
+              activeIndex === 1 ? "rotate-180" : "rotate-0"
+            }`}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M19 9l-7 7-7-7"
+            />
+          </svg>
+        </button>
+        <div className="mt-4">
+          <Slider
+            range
+            allowCross={false}
+            defaultValue={[
+              getMinOrMaxValuePrice("min"),
+              getMinOrMaxValuePrice("max"),
+            ]}
+            min={getMinOrMaxValuePrice("min")}
+            max={getMinOrMaxValuePrice("max")}
+            value={filterPrice}
+            onChange={(price) => filterByPrice(price as number[])}
+          />
+          <div className="flex items-center justify-between mt-2">
+            <span className="text-secondary text-[15px]">
+              {formatPriceCLP(filterPrice[0])}
+            </span>
+            <span className="text-secondary text-[15px]">
+              {formatPriceCLP(filterPrice[1])}
+            </span>
+          </div>
         </div>
       </div>
     </div>

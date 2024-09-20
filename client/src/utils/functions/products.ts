@@ -24,3 +24,8 @@ export const filterProductBySlug = (slug: string) => {
   const productFilter = PRODUCTS.filter((product) => product.slug === slug);
   return productFilter[0];
 };
+
+export const getMinOrMaxValuePrice = (type: "min" | "max") => {
+  const prices = PRODUCTS.map((product) => product.price);
+  return type === "min" ? Math.min(...prices) : Math.max(...prices);
+};
