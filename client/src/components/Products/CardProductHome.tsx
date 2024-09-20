@@ -51,10 +51,10 @@ const CardProductHome = ({
         />
       </Link>
       <div className="px-2 py-4">
-        <h3 className="text-grayLight font-bold text-[19px] min-h-[42px] leading-[19px] mb-4">
+        <h3 className="text-grayLight font-bold text-[16px] md:text-[19px] min-h-[42px] leading-[19px] mb-4">
           {title}
         </h3>
-        <p className="text-grayLight text-[12px] min-h-[90px] mb-6">
+        <p className="text-grayLight text-[12px] md:text-[14px] min-h-[90px] mb-6">
           {description}
         </p>
         <p className="text-primary text-[19px] font-bold">
@@ -75,11 +75,7 @@ const CardProductHome = ({
             </button>
             <button
               className="text-secondary font-semibold text-[16px] transition-all duration-500 hover:bg-primary hover:text-white rounded-br-[4px]"
-              onClick={() => {
-                if (quantity > 1) {
-                  setQuantity(quantity - 1);
-                }
-              }}
+              onClick={() => quantity > 1 && setQuantity(quantity - 1)}
             >
               -
             </button>

@@ -17,7 +17,7 @@ const TemplateShop = () => {
         id="initialSection"
       >
         <CarouselProducts />
-        <section className="mt-8 flex gap-10">
+        <section className="mt-8 flex flex-col lg:flex-row gap-4 lg:gap-10">
           <FilterProducts />
           <ProductsShop />
         </section>

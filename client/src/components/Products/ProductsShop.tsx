@@ -21,13 +21,15 @@ const ProductsShop = () => {
     <div className="flex flex-col w-full items-start justify-start pb-10">
       <div className="flex items-center justify-between border-b border-b-separator pb-6 w-full">
         <div className="flex items-center gap-3">
-          <img src={IconCarta} className="size-5" />
-          <h2 className="text-primary font-bold text-xl">Nuestra Carta</h2>
+          <img src={IconCarta} className="w-6 h-6" />
+          <h2 className="text-primary font-bold text-lg md:text-xl">
+            Nuestra Carta
+          </h2>
         </div>
         <select
           name=""
           id=""
-          className={`border-none bg-bgInput rounded-[17px] w-full max-w-[200px] h-[34px] text-[12px] text-primary font-extrabold px-[20px] appearance-none bg-no-repeat bg-[length:10px] bg-right-[10%] bg-center bg-[url(${IconSelect})]`}
+          className={`border-none bg-bgInput rounded-[17px] w-full max-w-[200px] h-[34px] text-[12px] md:text-[14px] text-primary font-extrabold px-[20px] appearance-none bg-no-repeat bg-[length:10px] bg-right-[10%] bg-center bg-[url(${IconSelect})]`}
           onChange={sortProducts}
         >
           <option value="">Ordenar por</option>
@@ -36,10 +38,9 @@ const ProductsShop = () => {
         </select>
       </div>
       <motion.div
-        className="grid mt-10 gap-14 grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 z-10"
+        className="grid mt-10 gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 z-10"
         layout
       >
-        {/* Mostrar solo los productos visibles */}
         {productsFilter
           .slice(0, visibleProducts)
           .map(({ id, slug, title, description, price, image, alt }) => (
@@ -63,15 +64,12 @@ const ProductsShop = () => {
             </motion.div>
           ))}
       </motion.div>
-
-      {/* Mostrar el botón solo si hay más productos para cargar */}
       {visibleProducts < productsFilter.length && (
         <button
           onClick={handleLoadMore}
-          className="font-extrabold mt-8 border border-primary px-8 py-2 bg-white text-primary rounded-full self-center flex items-center gap-2 justify-between text-[22px] transition-all hover:bg-primary hover:text-white duration-500"
+          className="font-extrabold mt-8 border border-primary px-8 py-2 bg-white text-primary rounded-full self-center flex items-center gap-2 justify-between text-[18px] md:text-[22px] transition-all hover:bg-primary hover:text-white duration-500"
         >
-          Cargar más
-          <span className="text-[30px]">+</span>
+          Cargar más <span className="text-[24px] md:text-[30px]">+</span>
         </button>
       )}
     </div>

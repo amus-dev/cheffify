@@ -43,17 +43,17 @@ const FilterProducts = () => {
   };
 
   return (
-    <div className="flex flex-col w-full max-w-[250px]">
+    <div className="flex flex-col w-full lg:max-w-[250px]">
       <div className="flex gap-2 items-center border-b border-b-separator pb-6">
-        <img src={IconFilter} alt="Icon Filter" className="size-5" />
+        <img src={IconFilter} alt="Icon Filter" className="w-6 h-6" />
         <h2 className="text-primary font-bold text-xl">Filtrar</h2>
       </div>
 
-      {/* Acordeón de Categoría */}
+      {/* Ajustar acordeones */}
       <div className="border border-gray-300 rounded mt-6">
         <button
-          className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-[14px] border-b border-b-separator pb-2"
-          onClick={() => setIsCategoryOpen(!isCategoryOpen)} // Controla la apertura del acordeón de Categoría
+          className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-sm md:text-[14px] border-b border-b-separator pb-2"
+          onClick={() => setIsCategoryOpen(!isCategoryOpen)}
         >
           <span>Categoría</span>
           <svg
@@ -81,20 +81,19 @@ const FilterProducts = () => {
           <ul className="pt-4">
             {categories.map(({ id, name, slug, icon, active }) => (
               <li
-                className="text-secondary text-lg flex justify-between relative group mb-2"
+                className="text-secondary text-sm md:text-lg flex justify-between relative group mb-2"
                 key={id}
               >
                 <button
                   className="flex items-center gap-3"
                   onClick={() => handleClickFilter(slug)}
                 >
-                  <img src={icon} alt="" className="size-5" />
-                  <span className="text-[16px]">{name}</span>
+                  <img src={icon} alt="" className="w-5 h-5" />
+                  <span className="text-[14px] md:text-[16px]">{name}</span>
                 </button>
                 {active && (
-                  <img src={IconCheck} alt="Active Icon" className="size-5" />
+                  <img src={IconCheck} alt="Active Icon" className="w-5 h-5" />
                 )}
-                <span className="absolute bottom-0 left-0 w-full h-[1px] bg-secondary scale-x-0 group-hover:scale-x-100 transform origin-left transition-transform duration-700"></span>
               </li>
             ))}
           </ul>
@@ -104,8 +103,8 @@ const FilterProducts = () => {
       {/* Acordeón de Precio */}
       <div className="border border-gray-300 rounded mt-6">
         <button
-          className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-[14px] border-b border-b-separator pb-2"
-          onClick={() => setIsPriceOpen(!isPriceOpen)} // Controla la apertura del acordeón de Precio
+          className="flex justify-between items-center w-full bg-gray-200 cursor-pointer text-primary font-black text-start uppercase text-sm md:text-[14px] border-b border-b-separator pb-2"
+          onClick={() => setIsPriceOpen(!isPriceOpen)}
         >
           <span>Precio</span>
           <svg
@@ -144,10 +143,10 @@ const FilterProducts = () => {
               onChange={(price) => filterByPrice(price as number[])}
             />
             <div className="flex items-center justify-between mt-2">
-              <span className="text-secondary text-[15px]">
+              <span className="text-secondary text-sm md:text-[15px]">
                 {formatPriceCLP(filterPrice[0])}
               </span>
-              <span className="text-secondary text-[15px]">
+              <span className="text-secondary text-sm md:text-[15px]">
                 {formatPriceCLP(filterPrice[1])}
               </span>
             </div>
