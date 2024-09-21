@@ -86,6 +86,7 @@ const CreateAccountForm = () => {
         })}
         className="bg-bgInput text-colorInput font-bold text-[13px] p-2 w-full rounded-md h-[46px]"
         placeholder="Password"
+        autoComplete="password"
       />
       {errors.password && (
         <span className="text-red-600 text-sm">{errors.password.message}</span>
@@ -101,6 +102,7 @@ const CreateAccountForm = () => {
         })}
         className="bg-bgInput text-colorInput font-bold text-[13px] p-2 w-full rounded-md h-[46px]"
         placeholder="Repetir Contraseña"
+        autoComplete="confirmPassword"
       />
       {errors.confirmPassword && (
         <span className="text-red-600 text-sm">

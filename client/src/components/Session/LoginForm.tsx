@@ -27,8 +27,9 @@ const LoginForm = () => {
         {...register("email", {
           required: "El correo eléctronico es requerido",
         })}
-        className="bg-bgInput text-colorInput font-bold text-[13px] p-2 w-full rounded-md h-[46px]"
+        className="bg-bgInput text-colorInput font-extrabold text-[13px] p-2 w-full rounded-md h-[46px]"
         placeholder="Email"
+        autoComplete="email"
       />
       {errors.email && (
         <span className="text-red-600 text-sm">{errors.email.message}</span>
@@ -40,8 +41,9 @@ const LoginForm = () => {
         {...register("password", {
           required: "La contraseña es requerida",
         })}
-        className="bg-bgInput text-colorInput font-bold text-[13px] p-2 w-full rounded-md h-[46px]"
+        className="bg-bgInput text-colorInput font-extrabold text-[13px] p-2 w-full rounded-md h-[46px]"
         placeholder="Password"
+        autoComplete="password"
       />
       {errors.password && (
         <span className="text-red-600 text-sm">{errors.password.message}</span>
