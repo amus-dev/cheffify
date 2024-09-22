@@ -1,4 +1,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import useCartStore from "@/stores/productsStore";
+import { usePayTransbank } from "@/hooks/usePayTransbank";
 
 type Inputs = {
   address: string;
@@ -10,6 +12,10 @@ type Inputs = {
 };
 
 const DeliveryForm = () => {
+  const productsBag = useCartStore((state) => state.productsBag);
+  const totalPriceBag = useCartStore((state) => state.totalPriceBag());
+
+  const { transactionUser, loading } = usePayTransbank();
   const {
     register,
     handleSubmit,
@@ -17,7 +23,13 @@ const DeliveryForm = () => {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
+    const dataCompleteToPay = {
+      ...data,
+      products: productsBag,
+      amount: totalPriceBag,
+    };
+
+    transactionUser(dataCompleteToPay);
   };
 
   return (
