@@ -1,12 +1,10 @@
 import { useFetch } from "@/hooks/useFetch";
 import { UserOrder } from "@/utils/types/formTypes";
-// import { NavigateFunction } from "react-router-dom";
-// import { navigateWithViewTransition } from "@/utils/functions/navigate";
-// import IconCheck from "@/assets/images/icons/check.svg";
-// import { showToast } from "@/utils/functions/showToast";
+import { useState } from "react";
 
 export const usePayTransbank = () => {
   const { fetchData, loading } = useFetch();
+  const [messageResponseWebpay, setMessageResponseWebpay] = useState("");
 
   const transactionUser = (data: UserOrder) => {
     fetchData({
@@ -19,20 +17,30 @@ export const usePayTransbank = () => {
         body: JSON.stringify(data),
       },
       onSuccess: (response) => {
-        console.log(response);
         window.location.href = response.data;
-        //    localStorage.setItem("token", response.data.token);
-        //    showToast({
-        //      message: response.message,
-        //      type: "success",
-        //      icon: IconCheck,
-        //    });
-        //    setTimeout(() => {
-        //      navigateWithViewTransition(navigate, "/perfil");
-        //    }, 3000);
       },
     });
   };
 
-  return { transactionUser, loading };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const getResponseWebpay = (data: any) => {
+    fetchData({
+      url: `${import.meta.env.VITE_API_URL}?action=responseWebpay`,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      },
+      onSuccess: (response) => {
+        setMessageResponseWebpay(response.message);
+      },
+      onError: (error) => {
+        setMessageResponseWebpay(error.message);
+      },
+    });
+  };
+
+  return { transactionUser, loading, getResponseWebpay, messageResponseWebpay };
 };
