@@ -108,21 +108,15 @@ const ThirdSection = () => {
       <ArrowScrollButton url="#blockCarousel" />
 
       {/* Imágenes decorativas animadas */}
-      <motion.img
+      <img
         src={FirstImageBGLeft}
         className="absolute left-0 top-20 w-full max-w-[150px] hidden lg:block"
         alt="Imagen decorativa de flor verde"
-        initial={{ opacity: 0, x: -50 }} // Desplazado hacia la izquierda
-        animate={controls}
-        transition={{ duration: 0.8, delay: 0.5 }}
       />
-      <motion.img
+      <img
         src={FirstImageBGRight}
         className="absolute right-0 top-20 w-full max-w-[300px] hidden lg:block"
         alt="Imagen decorativa de flor naranja"
-        initial={{ opacity: 0, x: 50 }} // Desplazado hacia la derecha
-        animate={controls}
-        transition={{ duration: 0.8, delay: 0.5 }}
       />
     </motion.section>
   );
