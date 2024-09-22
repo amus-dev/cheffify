@@ -72,21 +72,15 @@ const SecondSection = () => {
       >
         Más platos
       </Link>
-      <motion.img
+      <img
         src={ItemImageElement}
         alt="Imagen decorativa para la sección dos"
         className="absolute top-10 left-0 w-[75px] h-[310px] hidden lg:block"
-        initial={{ opacity: 0, x: -50 }}
-        animate={controls}
-        transition={{ duration: 0.8, delay: 0.5 }}
       />
-      <motion.img
+      <img
         src={ItemImageElementFlower}
         alt="Imagen decorativa de flores para la sección dos"
         className="absolute top-50 right-0 w-[190px] h-[290px] hidden lg:block"
-        initial={{ opacity: 0, x: 50 }}
-        animate={controls}
-        transition={{ duration: 0.8, delay: 0.5 }}
       />
     </motion.section>
   );
