@@ -9,6 +9,7 @@ const Delivery = lazy(() => import("@/pages/Delivery"));
 const Login = lazy(() => import("@/pages/Login"));
 const CreateAccount = lazy(() => import("@/pages/CreateAccount"));
 const Perfil = lazy(() => import("@/pages/Perfil"));
+const ResponseWebpay = lazy(() => import("@/pages/ResponseWebpay"));
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
   {
     path: "/perfil",
     element: <Perfil />,
+  },
+  {
+    path: "/response",
+    element: <ResponseWebpay />,
   },
 ]);
 
