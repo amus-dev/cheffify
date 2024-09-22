@@ -3,9 +3,6 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../models/User.php';
 require_once __DIR__ . '/../utils/ResponseHelper.php';
 require_once __DIR__ . '/../../vendor/autoload.php';
-use \Firebase\JWT\JWT;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 // Cargar las variables de entorno desde el archivo .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../');
@@ -52,6 +49,9 @@ class TransactionController
           $TBK_ID_SESION = $data['TBK_ID_SESION'] ?? null;
 
           if (!empty($TBK_TOKEN) && !empty($TBK_ORDEN_COMPRA) && !empty($TBK_ID_SESION)) {
+               // Si se cumple la condición, se considera un timeout
+               $this->userAbortedOnWebpayForm();
+          } elseif (!empty($TBK_ORDEN_COMPRA) && !empty($TBK_ID_SESION)) {
                // Si se cumple la condición, se considera un timeout
                $this->theUserWasRedirectedBecauseWasIdleFor10MinutesOnWebapayForm();
           }
