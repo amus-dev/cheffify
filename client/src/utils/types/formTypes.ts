@@ -1,3 +1,5 @@
+import { ProductsStore } from "./productTypes";
+
 export interface LoginFormType {
   email: string;
   password: string;
@@ -27,4 +29,14 @@ export interface UserType {
 export interface UpdatePhoneType {
   id: number;
   phone: number;
+}
+
+export interface UserOrder {
+  address: string;
+  name: string;
+  lastName: string;
+  email: string;
+  comuna: string;
+  phone: number;
+  products: ProductsStore[];
 }
