@@ -29,6 +29,7 @@ const DeliveryForm = () => {
       ...data,
       products: productsBag,
       amount: totalPriceBag + DELIVERY,
+      idUser: 0,
     };
 
     transactionUser(dataCompleteToPay);
