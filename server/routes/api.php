@@ -47,6 +47,12 @@ switch ($action) {
           $token = $_GET['token'] ?? '';
           $userController->activateAccount($token);
           break;
+     case 'transaction':
+          require_once '../src/controllers/TransactionController.php';
+          $transactionController = new TransactionController();
+          $data = json_decode(file_get_contents("php://input"), true);
+          $transactionController->createTransaction($data);
+          break;
 
 
      // Otros casos según las acciones que desees manejar
