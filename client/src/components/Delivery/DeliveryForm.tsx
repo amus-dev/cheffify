@@ -1,6 +1,8 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import useCartStore from "@/stores/productsStore";
 import { usePayTransbank } from "@/hooks/usePayTransbank";
+import Loader from "@/components/common/Loader";
+import { DELIVERY } from "@/utils/const/products";
 
 type Inputs = {
   address: string;
@@ -26,7 +28,7 @@ const DeliveryForm = () => {
     const dataCompleteToPay = {
       ...data,
       products: productsBag,
-      amount: totalPriceBag,
+      amount: totalPriceBag + DELIVERY,
     };
 
     transactionUser(dataCompleteToPay);
@@ -119,11 +121,15 @@ const DeliveryForm = () => {
       )}
 
       <div>
-        <input
-          type="submit"
-          value="Finalizar con WebPay"
-          className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
-        />
+        {loading ? (
+          <Loader />
+        ) : (
+          <input
+            type="submit"
+            value="Finalizar con WebPay"
+            className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
+          />
+        )}
       </div>
     </form>
   );
