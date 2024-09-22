@@ -3,6 +3,7 @@ import useCartStore from "@/stores/productsStore";
 import { usePayTransbank } from "@/hooks/usePayTransbank";
 import Loader from "@/components/common/Loader";
 import { DELIVERY } from "@/utils/const/products";
+import { COMUNAS } from "@/utils/const/address";
 
 type Inputs = {
   address: string;
@@ -93,13 +94,17 @@ const DeliveryForm = () => {
       {errors.email && (
         <span className="text-red-600 text-sm">{errors.email.message}</span>
       )}
-
-      <input
+      <select
         id="comuna"
-        {...register("comuna", { required: "La comuna es requerida" })}
         className="bg-bgInput text-colorInput font-bold text-[13px] p-2 w-full rounded-md h-[46px]"
-        placeholder="Comuna"
-      />
+        {...register("comuna", { required: "La comuna es requerida" })}
+      >
+        {COMUNAS.map((comuna, index) => (
+          <option key={index} value={comuna.value}>
+            {comuna.label}
+          </option>
+        ))}
+      </select>
       {errors.comuna && (
         <span className="text-red-600 text-sm">{errors.comuna.message}</span>
       )}
