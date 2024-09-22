@@ -53,7 +53,7 @@ switch ($action) {
           $data = json_decode(file_get_contents("php://input"), true);
           $transactionController->createTransaction($data);
           break;
-     case 'response':
+     case 'responseWebpay':
           require_once '../src/controllers/TransactionController.php';
           $transactionController = new TransactionController();
           $data = json_decode(file_get_contents("php://input"), true);
