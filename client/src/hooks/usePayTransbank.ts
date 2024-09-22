@@ -17,7 +17,8 @@ export const usePayTransbank = () => {
         body: JSON.stringify(data),
       },
       onSuccess: (response) => {
-        window.location.href = response.data;
+        localStorage.setItem("data_webpay", JSON.stringify(response.data));
+        window.location.href = response.data.url;
       },
     });
   };
