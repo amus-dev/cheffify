@@ -21,6 +21,7 @@ interface CartStore {
   activePriceRange: number[];
   sortProductsList: (products: Product[], sortOrder: string) => Product[];
   activeSortOrder: string;
+  totalPriceBag: () => number;
 }
 
 const useCartStore = create<CartStore>((set, get) => ({
@@ -122,6 +123,13 @@ const useCartStore = create<CartStore>((set, get) => ({
     );
 
     set({ productsFilter: filteredProducts });
+  },
+  totalPriceBag: () => {
+    const productsBag = get().productsBag;
+    return productsBag.reduce(
+      (total, product) => total + product.price * product.quantity,
+      0
+    );
   },
 }));
 
