@@ -36,6 +36,7 @@ export const usePayTransbank = () => {
       },
       onSuccess: (response) => {
         setMessageResponseWebpay(response.message);
+        localStorage.removeItem("data_webpay");
       },
       onError: (error) => {
         setMessageResponseWebpay(error.message);
