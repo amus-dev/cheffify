@@ -15,7 +15,13 @@ const TemplateResponseWebpay = () => {
     urlParams.forEach((value, key) => {
       params[key] = value;
     });
-    getResponseWebpay(params);
+    // Obtener parametros por session
+    const data = {
+      ...params,
+      data_webpay: JSON.parse(localStorage.getItem("data_webpay") || "{}"),
+    };
+    // Llamar a la función getResponseWebpay con los parámetros
+    getResponseWebpay(data);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
