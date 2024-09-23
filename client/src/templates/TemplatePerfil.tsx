@@ -27,9 +27,9 @@ const TemplatePerfil = () => {
       <section className="mb-4">
         <ToggleSection />
       </section>
-      <Overlay />
-      <Toaster />
       <Footer />
+      <Toaster />
+      <Overlay />
     </main>
   );
 };

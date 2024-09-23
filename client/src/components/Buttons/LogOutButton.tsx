@@ -1,5 +1,7 @@
+import IconCheck from "@/assets/images/icons/check.svg";
 import IconLogOut from "@/assets/images/icons/icon-logout.svg";
 import { navigateWithViewTransition } from "@/utils/functions/navigate";
+import { showToast } from "@/utils/functions/showToast";
 import { useNavigate } from "react-router-dom";
 
 const LogOutButton = () => {
@@ -8,7 +10,12 @@ const LogOutButton = () => {
 
   const logOut = () => {
     localStorage.removeItem("token");
-    navigateWithViewTransition(navigate, "/");
+    showToast({
+      message: "Haz cerrado sesión correctamente",
+      type: "success",
+      icon: IconCheck,
+    });
+    setTimeout(() => navigateWithViewTransition(navigate, "/"), 2000);
   };
 
   return (
