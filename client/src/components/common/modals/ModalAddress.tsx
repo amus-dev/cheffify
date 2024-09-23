@@ -51,8 +51,7 @@ const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
               required: "El nombre es requerido",
             })}
             className="bg-bgInput text-colorInput font-extrabold text-[13px] p-2 w-full rounded-md h-[46px]"
-            placeholder="Email"
-            autoComplete="email"
+            placeholder="Nombre"
           />
           {errors.name && (
             <span className="text-red-600 text-sm">{errors.name.message}</span>
@@ -64,8 +63,7 @@ const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
               required: "El nombre es requerido",
             })}
             className="bg-bgInput text-colorInput font-extrabold text-[13px] p-2 w-full rounded-md h-[46px]"
-            placeholder="Email"
-            autoComplete="email"
+            placeholder="Dirección"
           />
           {errors.address && (
             <span className="text-red-600 text-sm">
