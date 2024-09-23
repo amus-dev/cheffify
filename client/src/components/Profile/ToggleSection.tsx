@@ -39,7 +39,7 @@ const ToggleSection = () => {
 
       {/* Content to Show/Hide with framer-motion */}
       <motion.div
-        className="mt-4 w-full max-w-lg"
+        className="mt-4 w-full max-w-7xl"
         key={isOrdersSelected ? "orders" : "addresses"}
         initial={{ opacity: 0, x: isOrdersSelected ? -100 : 100 }}
         animate={{ opacity: 1, x: 0 }}

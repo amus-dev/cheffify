@@ -1,15 +1,44 @@
+import IconEdit from "@/assets/images/icons/icon-edit.svg";
+import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
+
 const MisDirecciones = () => {
-  const EMPTY_ADDRESS = true;
+  const EMPTY_ADDRESS = false;
 
   return (
-    <section className="flex flex-col items-center justify-center">
-      <button className="flex items-center justify-center gap-4 bg-secondary w-fit rounded-[5px] text-[15px] transition-all duration-500 hover:bg-primary py-4 px-10 font-extrabold mb-4">
+    <section className="flex flex-col justify-center">
+      <button className="block mx-auto gap-4 bg-secondary w-fit rounded-[5px] text-[15px] transition-all duration-500 hover:bg-primary py-4 px-10 font-extrabold mb-4">
         Agregar dirección
       </button>
-      {EMPTY_ADDRESS && (
+      {EMPTY_ADDRESS ? (
         <p className="text-secondary font-extrabold text-lg text-center">
           No se han registrado direcciones
         </p>
+      ) : (
+        <div className="flex mt-10">
+          <article className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm">
+            <div className="flex justify-between items-center mb-6">
+              <h5 className="text-primary font-extrabold text-lg">Casa</h5>
+              <div className="flex items-center gap-2">
+                <button>
+                  <img
+                    src={IconEdit}
+                    alt="Editar dirección"
+                    className="size-4 transition-all duration-500 hover:scale-110"
+                  />
+                </button>
+                <button>
+                  <img
+                    src={IconTrash}
+                    alt="Editar dirección"
+                    className="size-4 transition-all duration-500 hover:scale-110"
+                  />
+                </button>
+              </div>
+            </div>
+            <p className="text-primary text-sm">Vasco</p>
+            <p className="text-primary text-sm">La Granja</p>
+          </article>
+        </div>
       )}
     </section>
   );
