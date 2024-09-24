@@ -40,3 +40,9 @@ export interface UserOrder {
   phone: number;
   products: ProductsStore[];
 }
+
+export type InputsAddressForm = {
+  name: string;
+  address: string;
+  comuna: string;
+};
