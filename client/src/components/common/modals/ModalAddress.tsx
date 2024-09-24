@@ -1,25 +1,27 @@
+import { useAddress } from "@/hooks/useAddress";
 import { COMUNAS } from "@/utils/const/address";
+import { InputsAddressForm } from "@/utils/types/formTypes";
 import { SubmitHandler, useForm } from "react-hook-form";
+import Loader from "@/components/common/Loader";
 
 interface ModalAddressProps {
   setIsOpen: (value: boolean) => void;
 }
 
-type Inputs = {
-  name: string;
-  address: string;
-  comuna: string;
-};
-
 const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
+  const { saveAddress, loading } = useAddress();
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<InputsAddressForm>();
 
-  const onSubmit: SubmitHandler<Inputs> = async (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<InputsAddressForm> = async (data) => {
+    const response = {
+      ...data,
+      token: localStorage.getItem("token"),
+    };
+    saveAddress(response, setIsOpen);
   };
 
   return (
@@ -86,11 +88,15 @@ const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
               {errors.comuna.message}
             </span>
           )}
-          <input
-            type="submit"
-            value="Guardar dirección"
-            className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
-          />
+          {loading ? (
+            <Loader />
+          ) : (
+            <input
+              type="submit"
+              value="Guardar dirección"
+              className="bg-secondary text-white font-bold w-full rounded-md text-[17px] px-12 py-4 hover:bg-primary transition-all duration-500 cursor-pointer"
+            />
+          )}
         </form>
       </div>
     </div>

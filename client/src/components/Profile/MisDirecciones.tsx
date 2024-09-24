@@ -6,7 +6,7 @@ import ModalAddress from "@/components/common/modals/ModalAddress";
 const MisDirecciones = () => {
   const EMPTY_ADDRESS = false;
 
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <section className="flex flex-col justify-center">
