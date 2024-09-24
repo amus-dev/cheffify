@@ -168,13 +168,16 @@ class UserController
                return;
           }
           try {
-               // Primero asignamos el resultado a una variable
+               // Intentamos decodificar el token
                $decoded = JWT::decode($token, new \Firebase\JWT\Key($_ENV['JWT_SECRET'], 'HS256'));
-               // Convertimos el objeto decodificado en un array
-               $decoded_array = (array) $decoded;
-               ResponseHelper::sendResponse(200, "Token decodificado correctamente", $decoded_array);
+               // Si decodificación es exitosa, respondemos con los datos del token
+               ResponseHelper::sendResponse(200, "Token decodificado correctamente", (array) $decoded);
+          } catch (\Firebase\JWT\ExpiredException $e) {
+               // Manejamos el error de token expirado
+               ResponseHelper::sendResponse(401, "El token ha expirado. Por favor, inicia sesión de nuevo.");
           } catch (Exception $e) {
-               ResponseHelper::sendResponse(401, "Token inválido o expirado: " . $e->getMessage());
+               // Manejamos otros errores relacionados con el token
+               ResponseHelper::sendResponse(401, "Token inválido o error: " . $e->getMessage());
           }
      }
 
