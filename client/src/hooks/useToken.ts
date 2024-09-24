@@ -22,6 +22,7 @@ export const useToken = () => {
         setUserStore(response.data.user);
       },
       onError: () => {
+        localStorage.removeItem("token");
         navigateWithViewTransition(navigate, "/login");
       },
     });
