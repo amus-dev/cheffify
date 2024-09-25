@@ -59,6 +59,12 @@ switch ($action) {
           $data = json_decode(file_get_contents("php://input"), true);
           $transactionController->webpayOperation($data);
           break;
+     case 'getAddress':
+          require_once '../src/controllers/AddressController.php';
+          $addressController = new AddressController();
+          $data = json_decode(file_get_contents("php://input"), true);
+          $addressController->getAddress($data);
+          break;
      case 'saveAddress':
           require_once '../src/controllers/AddressController.php';
           $addressController = new AddressController();
