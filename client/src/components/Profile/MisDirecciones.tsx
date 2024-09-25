@@ -1,9 +1,25 @@
 import IconEdit from "@/assets/images/icons/icon-edit.svg";
 import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
-import { useEffect, useState } from "react";
 import ModalAddress from "@/components/common/modals/ModalAddress";
 import { useAddress } from "@/hooks/useAddress";
 import useUserStore from "@/stores/userStore";
+import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
+const gridVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Delay between each child animation
+    },
+  },
+};
 
 const MisDirecciones = () => {
   const { getAllAddress } = useAddress();
@@ -36,11 +52,18 @@ const MisDirecciones = () => {
           No se han registrado direcciones
         </p>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10 justify-items-center">
+        <motion.div
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10 justify-items-center"
+          variants={gridVariants}
+          initial="hidden"
+          animate="visible"
+        >
           {userAddress?.map(({ address, comuna, id, id_user, name }, index) => (
-            <article
+            <motion.article
               className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm"
               key={index}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }} // Add hover effect
             >
               <div className="flex justify-between items-center mb-6">
                 <h5 className="text-primary font-extrabold text-lg">{name}</h5>
@@ -55,7 +78,7 @@ const MisDirecciones = () => {
                   <button onClick={() => console.log(id)}>
                     <img
                       src={IconTrash}
-                      alt="Editar dirección"
+                      alt="Eliminar dirección"
                       className="size-4 transition-all duration-500 hover:scale-110"
                     />
                   </button>
@@ -63,9 +86,9 @@ const MisDirecciones = () => {
               </div>
               <p className="text-primary text-sm">{address}</p>
               <p className="text-primary text-sm">{comuna}</p>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       )}
       {/* Modal */}
       {isOpen && <ModalAddress setIsOpen={setIsOpen} />}
