@@ -3,24 +3,25 @@ import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
 import { useEffect, useState } from "react";
 import ModalAddress from "@/components/common/modals/ModalAddress";
 import { useAddress } from "@/hooks/useAddress";
-import { Address } from "@/utils/types/formTypes";
+import useUserStore from "@/stores/userStore";
 
 const MisDirecciones = () => {
   const { getAllAddress } = useAddress();
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const [address, setAddress] = useState<Address[]>([]);
+  const userAddress = useUserStore((state) => state.address);
+  const setAddressStore = useUserStore((state) => state.setAddressStore);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      getAllAddress(token, setAddress);
-    }
+    const fetchAddresses = async () => {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const result = await getAllAddress(token);
+        setAddressStore(result);
+      }
+    };
+    fetchAddresses();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  useEffect(() => {
-    console.log(address);
-  }, [address]);
 
   return (
     <section className="flex flex-col justify-center">
@@ -30,13 +31,13 @@ const MisDirecciones = () => {
       >
         Agregar dirección
       </button>
-      {address.length === 0 ? (
+      {userAddress?.length === 0 ? (
         <p className="text-secondary font-extrabold text-lg text-center">
           No se han registrado direcciones
         </p>
       ) : (
         <div className="flex mt-10 gap-8 items-center justify-center">
-          {address.map(({ address, comuna, id, id_user, name }, index) => (
+          {userAddress?.map(({ address, comuna, id, id_user, name }, index) => (
             <article
               className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm"
               key={index}
