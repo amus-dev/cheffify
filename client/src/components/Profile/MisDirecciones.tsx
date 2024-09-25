@@ -22,14 +22,14 @@ const gridVariants = {
 };
 
 const MisDirecciones = () => {
-  const { getAllAddress } = useAddress();
+  const token = localStorage.getItem("token");
+  const { getAllAddress, deleteAddress } = useAddress();
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const userAddress = useUserStore((state) => state.address);
   const setAddressStore = useUserStore((state) => state.setAddressStore);
 
   useEffect(() => {
     const fetchAddresses = async () => {
-      const token = localStorage.getItem("token");
       if (token) {
         const result = await getAllAddress(token);
         setAddressStore(result);
@@ -38,6 +38,13 @@ const MisDirecciones = () => {
     fetchAddresses();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const handleDeleteAddress = async (id_address: number) => {
+    if (token) {
+      const result = await deleteAddress(token, id_address);
+      console.log(result);
+    }
+  };
 
   return (
     <section className="flex flex-col justify-center">
@@ -75,7 +82,7 @@ const MisDirecciones = () => {
                       className="size-4 transition-all duration-500 hover:scale-110"
                     />
                   </button>
-                  <button onClick={() => console.log(id)}>
+                  <button onClick={() => handleDeleteAddress(id)}>
                     <img
                       src={IconTrash}
                       alt="Eliminar dirección"

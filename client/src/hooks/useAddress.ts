@@ -4,7 +4,7 @@ import IconCheck from "@/assets/images/icons/check.svg";
 import { showToast } from "@/utils/functions/showToast";
 
 export const useAddress = () => {
-  const { fetchData, loading } = useFetch();
+  const { loading } = useFetch();
 
   const getAllAddress = async (token: string) => {
     const response = await fetch(
@@ -39,7 +39,11 @@ export const useAddress = () => {
       );
       const result = await response.json();
       if (result.status === 200) {
-        showToast({ message: result.message, type: "success" });
+        showToast({
+          message: result.message,
+          type: "success",
+          icon: IconCheck,
+        });
         setIsOpen(false);
         return result.status;
       }
@@ -48,5 +52,27 @@ export const useAddress = () => {
     }
   };
 
-  return { saveAddress, loading, getAllAddress };
+  const deleteAddress = async (token: string, id_address: number) => {
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}?action=deleteAddress`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token, id_address }),
+        }
+      );
+      const result = await response.json();
+      if (result.status === 200) {
+        showToast({ message: result.message, type: "success" });
+        return result.status;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  return { saveAddress, loading, getAllAddress, deleteAddress };
 };
