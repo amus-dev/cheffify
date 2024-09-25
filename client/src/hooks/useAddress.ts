@@ -1,28 +1,25 @@
 import { useFetch } from "@/hooks/useFetch";
-import { Address, InputsAddressForm } from "@/utils/types/formTypes";
+import { InputsAddressForm } from "@/utils/types/formTypes";
 import IconCheck from "@/assets/images/icons/check.svg";
 import { showToast } from "@/utils/functions/showToast";
 
 export const useAddress = () => {
   const { fetchData, loading } = useFetch();
 
-  const getAllAddress = (
-    token: string,
-    setAddress: React.Dispatch<React.SetStateAction<Address[]>>
-  ) => {
-    fetchData({
-      url: `${import.meta.env.VITE_API_URL}?action=getAddress`,
-      options: {
+  const getAllAddress = async (token: string) => {
+    const response = await fetch(
+      `${import.meta.env.VITE_API_URL}?action=getAddress`,
+      {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(token),
-      },
-      onSuccess: (response) => {
-        setAddress(response.data);
-      },
-    });
+        body: JSON.stringify(token), // Pass the token properly as an object
+      }
+    );
+
+    const data = await response.json(); // Ensure you're getting JSON data
+    return data.data;
   };
 
   const saveAddress = (
