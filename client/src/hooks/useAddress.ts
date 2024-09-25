@@ -22,28 +22,30 @@ export const useAddress = () => {
     return data.data;
   };
 
-  const saveAddress = (
+  const saveAddress = async (
     data: InputsAddressForm,
     setIsOpen: (value: boolean) => void
   ) => {
-    fetchData({
-      url: `${import.meta.env.VITE_API_URL}?action=saveAddress`,
-      options: {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      },
-      onSuccess: (response) => {
-        showToast({
-          message: response.message,
-          type: "success",
-          icon: IconCheck,
-        });
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}?action=saveAddress`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+      const result = await response.json();
+      if (result.status === 200) {
+        showToast({ message: result.message, type: "success" });
         setIsOpen(false);
-      },
-    });
+        return result.status;
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return { saveAddress, loading, getAllAddress };
