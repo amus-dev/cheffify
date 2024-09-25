@@ -66,7 +66,11 @@ export const useAddress = () => {
       );
       const result = await response.json();
       if (result.status === 200) {
-        showToast({ message: result.message, type: "success" });
+        showToast({
+          message: result.message,
+          type: "success",
+          icon: IconCheck,
+        });
         return result.status;
       }
     } catch (error) {

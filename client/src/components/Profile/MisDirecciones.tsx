@@ -42,7 +42,10 @@ const MisDirecciones = () => {
   const handleDeleteAddress = async (id_address: number) => {
     if (token) {
       const result = await deleteAddress(token, id_address);
-      console.log(result);
+      if (result === 200) {
+        const result = await getAllAddress(token);
+        setAddressStore(result);
+      }
     }
   };
 
