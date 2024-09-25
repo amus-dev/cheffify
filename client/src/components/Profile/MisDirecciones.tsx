@@ -36,7 +36,7 @@ const MisDirecciones = () => {
           No se han registrado direcciones
         </p>
       ) : (
-        <div className="flex mt-10 gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-10 justify-items-center">
           {userAddress?.map(({ address, comuna, id, id_user, name }, index) => (
             <article
               className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm"
