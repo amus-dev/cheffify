@@ -46,3 +46,8 @@ export type InputsAddressForm = {
   address: string;
   comuna: string;
 };
+
+export type Address = {
+  id: number;
+  id_user: number;
+} & InputsAddressForm;

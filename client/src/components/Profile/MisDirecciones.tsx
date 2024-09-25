@@ -1,12 +1,26 @@
 import IconEdit from "@/assets/images/icons/icon-edit.svg";
 import IconTrash from "@/assets/images/icons/icon-trash-color.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ModalAddress from "@/components/common/modals/ModalAddress";
+import { useAddress } from "@/hooks/useAddress";
+import { Address } from "@/utils/types/formTypes";
 
 const MisDirecciones = () => {
-  const EMPTY_ADDRESS = false;
-
+  const { getAllAddress } = useAddress();
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [address, setAddress] = useState<Address[]>([]);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      getAllAddress(token, setAddress);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    console.log(address);
+  }, [address]);
 
   return (
     <section className="flex flex-col justify-center">
@@ -16,35 +30,40 @@ const MisDirecciones = () => {
       >
         Agregar dirección
       </button>
-      {EMPTY_ADDRESS ? (
+      {address.length === 0 ? (
         <p className="text-secondary font-extrabold text-lg text-center">
           No se han registrado direcciones
         </p>
       ) : (
-        <div className="flex mt-10">
-          <article className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm">
-            <div className="flex justify-between items-center mb-6">
-              <h5 className="text-primary font-extrabold text-lg">Casa</h5>
-              <div className="flex items-center gap-2">
-                <button>
-                  <img
-                    src={IconEdit}
-                    alt="Editar dirección"
-                    className="size-4 transition-all duration-500 hover:scale-110"
-                  />
-                </button>
-                <button>
-                  <img
-                    src={IconTrash}
-                    alt="Editar dirección"
-                    className="size-4 transition-all duration-500 hover:scale-110"
-                  />
-                </button>
+        <div className="flex mt-10 gap-8 items-center justify-center">
+          {address.map(({ address, comuna, id, id_user, name }, index) => (
+            <article
+              className="shadow-card-shadow p-4 rounded-xl w-full max-w-sm"
+              key={index}
+            >
+              <div className="flex justify-between items-center mb-6">
+                <h5 className="text-primary font-extrabold text-lg">{name}</h5>
+                <div className="flex items-center gap-2">
+                  <button onClick={() => console.log(id_user)}>
+                    <img
+                      src={IconEdit}
+                      alt="Editar dirección"
+                      className="size-4 transition-all duration-500 hover:scale-110"
+                    />
+                  </button>
+                  <button onClick={() => console.log(id)}>
+                    <img
+                      src={IconTrash}
+                      alt="Editar dirección"
+                      className="size-4 transition-all duration-500 hover:scale-110"
+                    />
+                  </button>
+                </div>
               </div>
-            </div>
-            <p className="text-primary text-sm">Vasco</p>
-            <p className="text-primary text-sm">La Granja</p>
-          </article>
+              <p className="text-primary text-sm">{address}</p>
+              <p className="text-primary text-sm">{comuna}</p>
+            </article>
+          ))}
         </div>
       )}
       {/* Modal */}

@@ -1,10 +1,29 @@
 import { useFetch } from "@/hooks/useFetch";
-import { InputsAddressForm } from "@/utils/types/formTypes";
+import { Address, InputsAddressForm } from "@/utils/types/formTypes";
 import IconCheck from "@/assets/images/icons/check.svg";
 import { showToast } from "@/utils/functions/showToast";
 
 export const useAddress = () => {
   const { fetchData, loading } = useFetch();
+
+  const getAllAddress = (
+    token: string,
+    setAddress: React.Dispatch<React.SetStateAction<Address[]>>
+  ) => {
+    fetchData({
+      url: `${import.meta.env.VITE_API_URL}?action=getAddress`,
+      options: {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(token),
+      },
+      onSuccess: (response) => {
+        setAddress(response.data);
+      },
+    });
+  };
 
   const saveAddress = (
     data: InputsAddressForm,
@@ -30,5 +49,5 @@ export const useAddress = () => {
     });
   };
 
-  return { saveAddress, loading };
+  return { saveAddress, loading, getAllAddress };
 };
