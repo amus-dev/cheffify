@@ -3,13 +3,15 @@ import { COMUNAS } from "@/utils/const/address";
 import { InputsAddressForm } from "@/utils/types/formTypes";
 import { SubmitHandler, useForm } from "react-hook-form";
 import Loader from "@/components/common/Loader";
+import useUserStore from "@/stores/userStore";
 
 interface ModalAddressProps {
   setIsOpen: (value: boolean) => void;
 }
 
 const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
-  const { saveAddress, loading } = useAddress();
+  const { saveAddress, loading, getAllAddress } = useAddress();
+  const setAddressStore = useUserStore((state) => state.setAddressStore);
   const {
     register,
     handleSubmit,
@@ -21,7 +23,16 @@ const ModalAddress = ({ setIsOpen }: ModalAddressProps) => {
       ...data,
       token: localStorage.getItem("token"),
     };
-    saveAddress(response, setIsOpen);
+
+    // Refrescar las direcciones
+    const result = await saveAddress(response, setIsOpen);
+    if (result === 200) {
+      const token = localStorage.getItem("token");
+      if (token) {
+        const result = await getAllAddress(token);
+        setAddressStore(result);
+      }
+    }
   };
 
   return (
