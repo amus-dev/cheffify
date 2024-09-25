@@ -31,4 +31,18 @@ class Address
                return false;
           }
      }
+
+     public function deleteAddress($id_user, $id_address)
+     {
+          $query = "DELETE FROM " . $this->table_name . " WHERE id = ? AND id_user = ?";
+          $stmt = $this->conn->prepare($query);
+          $stmt->bind_param("ii", $id_address, $id_user); // Los parámetros son enteros
+
+          if ($stmt->execute()) {
+               return true; // Si la eliminación fue exitosa
+          } else {
+               return false; // Si hubo algún problema
+          }
+     }
+
 }

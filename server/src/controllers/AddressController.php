@@ -51,4 +51,21 @@ class AddressController
           }
      }
 
+     public function deleteAddress($data)
+     {
+          $token = $data['token'];
+          $id_address = $data['id_address'];
+          try {
+               $userInfo = TokenHelper::decodeToken($token);
+               $id_user = $userInfo['id'];
+               $result = $this->address->deleteAddress($id_user, $id_address);
+               if ($result) {
+                    ResponseHelper::sendResponse(200, "Dirección eliminada correctamente", $result);
+               }
+
+          } catch (Exception $e) {
+               ResponseHelper::sendResponse(401, $e->getMessage());
+          }
+     }
+
 }
